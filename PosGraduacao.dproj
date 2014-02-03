@@ -1,0 +1,364 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{5FF85B3D-C734-456E-92B5-385370A39DAB}</ProjectGuid>
+			<MainSource>PosGraduacao.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>13.4</ProjectVersion>
+			<FrameworkType>VCL</FrameworkType>
+			<Base>True</Base>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<AppType>Application</AppType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+			<Base_Win64>true</Base_Win64>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+			<Cfg_2_Win32>true</Cfg_2_Win32>
+			<CfgParent>Cfg_2</CfgParent>
+			<Cfg_2>true</Cfg_2>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<VerInfo_Build>14</VerInfo_Build>
+			<VerInfo_Keys>CompanyName=Wilian Selzlein;FileDescription=;FileVersion=2.0.0.14;InternalName=Pos Graduação;LegalCopyright=Wilian Selzlein;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+			<DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;Bde;System.Win;Data.Win;$(DCC_Namespace)</DCC_Namespace>
+			<VerInfo_MajorVer>2</VerInfo_MajorVer>
+			<VerInfo_Locale>1046</VerInfo_Locale>
+			<DCC_DcuOutput>dcu\</DCC_DcuOutput>
+			<DCC_MapFile>3</DCC_MapFile>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UNSAFE_TYPE>true</DCC_UNSAFE_TYPE>
+			<DCC_UsePackage>vcl;rtl;vclx;indy;inet;xmlrtl;vclie;inetdbbde;inetdbxpress;dbrtl;dsnap;dsnapcon;vcldb;soaprtl;VclSmp;dbexpress;dbxcds;inetdb;bdertl;vcldbx;webdsnap;websnap;adortl;ibxpress;teeui;teedb;tee;dss;visualclx;visualdbclx;vclactnband;vclshlctrls;IntrawebDB_50_70;Intraweb_50_70;Rave50CLX;Rave50VCL;dclOfficeXP;ExPackD7;qrpt;mxNativeExcel_d7;XPMenu1;RLibWinD7vcl;QR4RunD7;$(DCC_UsePackage)</DCC_UsePackage>
+			<DCC_Platform>x86</DCC_Platform>
+			<DCC_DependencyCheckOutputName>PosGraduacao.exe</DCC_DependencyCheckOutputName>
+			<DCC_UnitSearchPath>D:\Wilian\Componentes\XE2\Wilian;D:\Wilian\Componentes\XE2\GBBoleto211;D:\Wilian\Componentes\XE2\JVCL347CompleteJCL241-Build4571\jvcl\lib\d16\win32;D:\Wilian\Componentes\XE2\JVCL347CompleteJCL241-Build4571\jvcl\resources;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_UNSAFE_CODE>true</DCC_UNSAFE_CODE>
+			<DCC_K>false</DCC_K>
+			<DCC_F>false</DCC_F>
+			<DCC_S>false</DCC_S>
+			<DCC_N>true</DCC_N>
+			<DCC_WriteableConstants>true</DCC_WriteableConstants>
+			<DCC_UNSAFE_CAST>true</DCC_UNSAFE_CAST>
+			<DCC_E>false</DCC_E>
+			<DCC_SymbolReferenceInfo>1</DCC_SymbolReferenceInfo>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win64)'!=''">
+			<Icon_MainIcon>PosGraduacao_Icon.ico</Icon_MainIcon>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<Icon_MainIcon>PosGraduacao_Icon.ico</Icon_MainIcon>
+			<DCC_Namespace>Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+			<DCC_UnitSearchPath>C:\Componentes\ForteReport_bin_dXE2vcl_3.71B;C:\Componentes\Wilian;C:\Componentes\JVCL347CompleteJCL241-Build4571\jvcl\lib\d16\win32;C:\Componentes\JVCL347CompleteJCL241-Build4571\jvcl\resources;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<Icon_MainIcon>Personal.ico</Icon_MainIcon>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=2.0.0.14;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="$(MainSource)">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="U_Debug.pas"/>
+			<DCCReference Include="Uabout.pas">
+				<Form>FSobre</Form>
+			</DCCReference>
+			<DCCReference Include="UCabecalho.pas">
+				<Form>FCabecalho</Form>
+			</DCCReference>
+			<DCCReference Include="UMenu.pas">
+				<Form>FMenu</Form>
+			</DCCReference>
+			<DCCReference Include="UCalendario.pas">
+				<Form>FCalendario</Form>
+			</DCCReference>
+			<DCCReference Include="UAviso.pas">
+				<Form>FAviso</Form>
+			</DCCReference>
+			<DCCReference Include="UExecSQL.pas">
+				<Form>FExecSQL</Form>
+			</DCCReference>
+			<DCCReference Include="UInstituto.pas">
+				<Form>FInstituto</Form>
+			</DCCReference>
+			<DCCReference Include="USenha.pas">
+				<Form>FSenha</Form>
+			</DCCReference>
+			<DCCReference Include="UDM.pas">
+				<Form>DM</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="UParametro.pas">
+				<Form>FParametro</Form>
+			</DCCReference>
+			<DCCReference Include="UContabil.pas">
+				<Form>FContabil</Form>
+			</DCCReference>
+			<DCCReference Include="UDre.pas">
+				<Form>FDre</Form>
+			</DCCReference>
+			<DCCReference Include="UGrupoPro.pas">
+				<Form>FGrupoPro</Form>
+			</DCCReference>
+			<DCCReference Include="UServicoFin.pas">
+				<Form>FServicoFin</Form>
+			</DCCReference>
+			<DCCReference Include="UBanco.pas">
+				<Form>FBanco</Form>
+			</DCCReference>
+			<DCCReference Include="UContaPagar.pas">
+				<Form>FContaPagar</Form>
+			</DCCReference>
+			<DCCReference Include="UHistPadrao.pas">
+				<Form>FHistPadrao</Form>
+			</DCCReference>
+			<DCCReference Include="UFormaPgto.pas">
+				<Form>FFormaPgto</Form>
+			</DCCReference>
+			<DCCReference Include="UAluno.pas">
+				<Form>FAluno</Form>
+			</DCCReference>
+			<DCCReference Include="UNetworking.pas">
+				<Form>FNetworking</Form>
+			</DCCReference>
+			<DCCReference Include="UMaterial.pas">
+				<Form>FMaterial</Form>
+			</DCCReference>
+			<DCCReference Include="UMensalidade.pas">
+				<Form>FMensalidade</Form>
+			</DCCReference>
+			<DCCReference Include="UPrevPagamentoRel.pas">
+				<Form>FPrevPagamentoRel</Form>
+			</DCCReference>
+			<DCCReference Include="UProfessorRel.pas">
+				<Form>FProfessorRel</Form>
+			</DCCReference>
+			<DCCReference Include="UAlunoIndicacaoRel.pas">
+				<Form>FAlunoIndicacaoRel</Form>
+			</DCCReference>
+			<DCCReference Include="UEncerramentoContabil.pas">
+				<Form>FEncerramentoContabil</Form>
+			</DCCReference>
+			<DCCReference Include="UContaPagarBaixa.pas">
+				<Form>FcontaPagarBaixa</Form>
+			</DCCReference>
+			<DCCReference Include="UBalanceteRel.pas">
+				<Form>FBalanceteRel</Form>
+			</DCCReference>
+			<DCCReference Include="UAlunoCursoRel.pas">
+				<Form>FAlunoCursoRel</Form>
+			</DCCReference>
+			<DCCReference Include="URazaoDiarioRel.pas">
+				<Form>FRazaoDiarioRel</Form>
+			</DCCReference>
+			<DCCReference Include="UPrograma.pas">
+				<Form>FPrograma</Form>
+			</DCCReference>
+			<DCCReference Include="UPendencias.pas">
+				<Form>FPendencias</Form>
+			</DCCReference>
+			<DCCReference Include="UEmail.pas">
+				<Form>FEmail</Form>
+			</DCCReference>
+			<DCCReference Include="URelatorio.pas">
+				<Form>FRelatorio</Form>
+			</DCCReference>
+			<DCCReference Include="UPlanoNegocios.pas">
+				<Form>FPlanoNegocios</Form>
+			</DCCReference>
+			<DCCReference Include="UMensalidadeGera.pas">
+				<Form>FMensalidadeGera</Form>
+			</DCCReference>
+			<DCCReference Include="UAlunoRel.pas">
+				<Form>FAlunoRel</Form>
+			</DCCReference>
+			<DCCReference Include="UCursoRel.pas">
+				<Form>FCursoRel</Form>
+			</DCCReference>
+			<DCCReference Include="UUsuario.pas">
+				<Form>FUsuario</Form>
+			</DCCReference>
+			<DCCReference Include="UReciboProfessorRel.pas">
+				<Form>FReciboProfessorRel</Form>
+			</DCCReference>
+			<DCCReference Include="UAlunoNotaFreq.pas">
+				<Form>FAlunoNotaFreq</Form>
+			</DCCReference>
+			<DCCReference Include="UPlanoConta.pas">
+				<Form>FPlanoConta</Form>
+			</DCCReference>
+			<DCCReference Include="UParamEmp.pas">
+				<Form>FParamEmp</Form>
+			</DCCReference>
+			<DCCReference Include="UContrato.pas">
+				<Form>FContrato</Form>
+			</DCCReference>
+			<DCCReference Include="UProfessor.pas">
+				<Form>FProfessor</Form>
+			</DCCReference>
+			<DCCReference Include="UContratoProfessor.pas">
+				<Form>FContratoProfessor</Form>
+			</DCCReference>
+			<DCCReference Include="UDeclaracoesRel.pas">
+				<Form>FDeclaracoesRel</Form>
+			</DCCReference>
+			<DCCReference Include="UTipoMaterial.pas">
+				<Form>FTipoMaterial</Form>
+			</DCCReference>
+			<DCCReference Include="UDisciplina.pas">
+				<Form>FDisciplina</Form>
+			</DCCReference>
+			<DCCReference Include="UContaPagarRel.pas">
+				<Form>FContaPagarRel</Form>
+			</DCCReference>
+			<DCCReference Include="UGrupoCurso.pas">
+				<Form>FGrupoCurso</Form>
+			</DCCReference>
+			<DCCReference Include="UEditora.pas">
+				<Form>FEditora</Form>
+			</DCCReference>
+			<DCCReference Include="UAutor.pas">
+				<Form>FAutor</Form>
+			</DCCReference>
+			<DCCReference Include="UAssunto.pas">
+				<Form>FAssunto</Form>
+			</DCCReference>
+			<DCCReference Include="UCurso.pas">
+				<Form>FCurso</Form>
+			</DCCReference>
+			<DCCReference Include="ULctoContabil.pas">
+				<Form>FLctoContabil</Form>
+			</DCCReference>
+			<DCCReference Include="UTransito.pas">
+				<Form>FTransito</Form>
+			</DCCReference>
+			<DCCReference Include="UMensalidadeBaixa.pas">
+				<Form>FMensalidadeBaixa</Form>
+			</DCCReference>
+			<DCCReference Include="UMensalidadeRel.pas">
+				<Form>FMensalidadeRel</Form>
+			</DCCReference>
+			<DCCReference Include="UOrcamento.pas">
+				<Form>FOrcamento</Form>
+			</DCCReference>
+			<DCCReference Include="UCidade.pas">
+				<Form>FCidade</Form>
+			</DCCReference>
+			<DCCReference Include="SendMail.pas"/>
+			<DCCReference Include="SendMailOptions.pas">
+				<Form>FormSendMailOptions</Form>
+			</DCCReference>
+			<DCCReference Include="SelfPrintDefs.pas"/>
+			<DCCReference Include="UFuncoes.pas"/>
+			<DCCReference Include="UThreadExecSql.pas"/>
+			<DCCReference Include="UReconcileError.pas">
+				<Form>FReconcileError</Form>
+			</DCCReference>
+			<DCCReference Include="UCarregando.pas">
+				<Form>FCarregando</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">PosGraduacao.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">True</VersionInfo>
+						<VersionInfo Name="MajorVer">2</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">15</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1046</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Wilian Selzlein</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">2.0.0.15</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">Pos Graduação</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">Wilian Selzlein</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win64">False</Platform>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+	</Project>

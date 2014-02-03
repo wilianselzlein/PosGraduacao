@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/03/13 11:09:19.000.907,D:\Wilian\Delphi\UBackup.pas=</Transaction>
+    <Transaction>2013/03/14 16:42:47.000.423,=D:\Wilian\Delphi\Unit1.pas</Transaction>
+    <Transaction>2013/03/14 16:51:44.000.833,D:\Wilian\Delphi\Unit1.dfm=D:\Wilian\Delphi\UCarregando.dfm</Transaction>
+    <Transaction>2013/03/14 16:51:44.000.833,D:\Wilian\Delphi\Unit1.pas=D:\Wilian\Delphi\UCarregando.pas</Transaction>
+    <Transaction>2013/03/14 17:21:24.000.799,D:\Wilian\Delphi\USplash.pas=</Transaction>
+  </Transactions>
+</BorlandProject>
