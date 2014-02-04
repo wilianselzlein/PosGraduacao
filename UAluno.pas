@@ -156,7 +156,6 @@ type
           Label26: TLabel;
           Label27: TLabel;
           Label29: TLabel;
-          Label30: TLabel;
           Label54: TLabel;
           Label56: TLabel;
           Label58: TLabel;
@@ -165,14 +164,14 @@ type
           WSDBEdit21: TWSDBEdit;
           WSDBEdit19: TWSDBEdit;
           WSDBEdit3: TWSDBEdit;
-          WSDBEdit5: TWSDBEdit;
-          WSDBEdit6: TWSDBEdit;
+    txtEnd: TWSDBEdit;
+    txtBairro: TWSDBEdit;
           txtcodcidade: TWSDBEdit;
           txtcidade: TWSDBEdit;
           WSDBEdit8: TWSDBEdit;
           WSDBEdit10: TWSDBEdit;
           WSDBEdit11: TWSDBEdit;
-          WSDBEdit16: TWSDBEdit;
+    txtRG: TWSDBEdit;
           txtcpf: TWSDBEdit;
           WSDBEdit7: TWSDBEdit;
           txtcarteira: TWSDBEdit;
@@ -186,8 +185,6 @@ type
           WSDBEdit9: TWSDBEdit;
           WSDBEdit12: TWSDBEdit;
           WSDBEdit13: TWSDBEdit;
-          WSDBEdit14: TWSDBEdit;
-          WSDBMemo1: TWSDBMemo;
           Panel5: TPanel;
           Label13: TLabel;
           DBText1: TDBText;
@@ -206,8 +203,6 @@ type
           Label34: TLabel;
           Label35: TLabel;
           WSDBEdit17: TWSDBEdit;
-          txtalterar: TWSDBEdit;
-          lblalterar: TLabel;
           ToolBar1: TToolBar;
           btnbaixartudo: TToolButton;
           RLBand2: TRLBand;
@@ -217,7 +212,6 @@ type
           RLSystemInfo9: TRLSystemInfo;
           RLDraw1: TRLDraw;
           TabSheet4: TTabSheet;
-          WSDBMemo2: TWSDBMemo;
           lblsituacao: TDBText;
           TabSheet5: TTabSheet;
           ImgFoto: TDBImage;
@@ -237,13 +231,10 @@ type
           txtdataservicofin: TWSMaskEdit;
           Label45: TLabel;
     TabSheet6: TTabSheet;
-    WSDBMemo3: TWSDBMemo;
     Label40: TLabel;
     WSDBEdit23: TWSDBEdit;
-    Label41: TLabel;
-    txtresponsavel: TWSDBComboBox;
     Label53: TLabel;
-    WSDBEdit24: TWSDBEdit;
+    txtcpfresp: TWSDBEdit;
     btnapagar: TSpeedButton;
     btnapagarexpedicao: TSpeedButton;
     btnapagarcursosituacao: TSpeedButton;
@@ -255,7 +246,6 @@ type
     Label57: TLabel;
     btnapagarent: TSpeedButton;
     WSDBEdit26: TWSDBEdit;
-    Bevel1: TBevel;
     Label59: TLabel;
     Panel6: TPanel;
     Label60: TLabel;
@@ -321,6 +311,30 @@ type
     LblCurNumTurma: TRLLabel;
     RLDBMemo1: TRLDBMemo;
     RLImage1: TRLImage;
+    DBRichEdit1: TDBRichEdit;
+    Label62: TLabel;
+    Label63: TLabel;
+    Label64: TLabel;
+    txtRespRG: TWSDBEdit;
+    WSDBEdit6: TWSDBEdit;
+    WSDBEdit16: TWSDBEdit;
+    Bevel2: TBevel;
+    txtRespEnd: TWSDBEdit;
+    Label30: TLabel;
+    Label41: TLabel;
+    txtRespBairro: TWSDBEdit;
+    WSDBEdit28: TWSDBEdit;
+    Label65: TLabel;
+    Label66: TLabel;
+    BtnRespCid: TSpeedButton;
+    txtRespCodCid: TWSDBEdit;
+    txtRespCidade: TWSDBEdit;
+    Label67: TLabel;
+    WSDBEdit31: TWSDBEdit;
+    txtalterar: TWSDBEdit;
+    lblalterar: TLabel;
+    DBRichEdit2: TDBRichEdit;
+    DBRichEdit3: TDBRichEdit;
           procedure BtnPrimeiroClick(Sender: TObject);
           procedure BtnAnteriorClick(Sender: TObject);
           procedure BtnProximoClick(Sender: TObject);
@@ -386,13 +400,14 @@ type
     procedure btnapagarsolClick(Sender: TObject);
     procedure btnapagarentClick(Sender: TObject);
     procedure btnresppgtoClick(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure txtcodcursoExit(Sender: TObject);
     procedure BtnImprimirTextoClick(Sender: TObject);
     procedure txtcodresppgtoExit(Sender: TObject);
     procedure txtcodprofessorExit(Sender: TObject);
     procedure txtcodnaturalidadeExit(Sender: TObject);
     procedure txtcodcidadeExit(Sender: TObject);
+    procedure txtRespCodCidExit(Sender: TObject);
+    procedure BtnRespCidClick(Sender: TObject);
      private
           { Private declarations }
      public
@@ -544,7 +559,8 @@ begin
                          DataSource.DataSet.Delete;
                          (DataSource.DataSet as TClientDataSet).ApplyUpdates(-1);
                     except
-                         ShowMessage('Impossível Excluir. Violação de Integridade.');
+                       on E: Exception do
+                         ShowMessage('Impossível Excluir. Violação de Integridade.' + E.Message);
                     end;
                end;
 end;
@@ -554,20 +570,51 @@ var
      i: byte;
 begin
      ToolBarNavegacao.SetFocus;
+     if (txtcarteira.Text <> '') and (txtcarteira.Text <> 'S') and (txtcarteira.Text <> 'N') then
+     begin
+          Showmessage('Campo emissão da Carteira inválido!');
+          txtcarteira.setfocus;
+          exit;
+     end;
+     if (txtcarteira.Text <> '') and (txtcarteira.Text <> 'S') and (txtcarteira.Text <> 'N') then
+     begin
+          Showmessage('Campo emissão da Carteira inválido!');
+          txtcarteira.setfocus;
+          exit;
+     end;
+     if txtcpfresp.Text = '   .   .   -  ' then
+     begin
+          Showmessage('Campo CPF obrigatório');
+          txtcpfresp.setfocus;
+          exit;
+     end;
+     if txtRespEnd.Text = '' then
+     begin
+          Showmessage('Campo Endereço obrigatório');
+          txtRespEnd.setfocus;
+          exit;
+     end;
+     if txtRespBairro.Text = '' then
+     begin
+          Showmessage('Campo Bairro obrigatório');
+          txtRespBairro.setfocus;
+          exit;
+     end;
+     if txtRespCodCid.Text = '' then
+     begin
+          Showmessage('Campo Cidade obrigatório');
+          txtRespCodCid.setfocus;
+          exit;
+     end;
+     if txtRespRG.Text = '' then
+     begin
+          Showmessage('Campo RG obrigatório');
+          txtRespRG.setfocus;
+          exit;
+     end;
 
-     if (txtcarteira.Text <> '') and (txtcarteira.Text <> 'S') and (txtcarteira.Text <> 'N') then
-     begin
-          Showmessage('Campo emissão da Carteira inválido!');
-          txtcarteira.setfocus;
-          exit;
-     end;
-     if (txtcarteira.Text <> '') and (txtcarteira.Text <> 'S') and (txtcarteira.Text <> 'N') then
-     begin
-          Showmessage('Campo emissão da Carteira inválido!');
-          txtcarteira.setfocus;
-          exit;
-     end;
      testa_registro_ja_cadastrado(WSInformacao.Tabela, DataSource);
+
      DataSource.DataSet.post;
      dm.CDSAlunoDisciplina.ApplyUpdates(0);
 
@@ -610,10 +657,12 @@ begin
      with dm.qaluno.sql do
      begin
           clear;
-          add('SELECT TALUNO.*, CID.CIDNOME AS CIDADE, CID.CIDUF AS UF, NAT.CIDNOME AS NATURALIDADE, CURNOME, CURTURMA, PRONOME, NETNOME');
+          add('SELECT TALUNO.*, CID.CIDNOME AS CIDADE, CID.CIDUF AS UF, NAT.CIDNOME AS NATURALIDADE,');
+          add('RES.CIDNOME AS RESPCID, CURNOME, CURTURMA, PRONOME, NETNOME');
           add('FROM TALUNO');
           add('LEFT OUTER JOIN TCIDADE CID ON CID.CIDCOD = ALUCIDADE');
           add('LEFT OUTER JOIN TCIDADE NAT ON NAT.CIDCOD = ALUNATURALIDADE');
+          add('LEFT OUTER JOIN TCIDADE RES ON RES.CIDCOD = ALURESPCID');
           add('LEFT OUTER JOIN TCURSO ON CURCOD = ALUCURSO');
           add('LEFT OUTER JOIN TPROFESSOR ON PROCOD = ALUORIENTADOR');
           add('LEFT OUTER JOIN TNETWORKING ON NETCOD = ALURESPPGTO');
@@ -758,6 +807,8 @@ begin
                     begin
                          if sender = txtpesquisa then
                               btnfiltro.click
+                         else if sender = txtobservacao then
+                              btnIncServicoFin.Click
                          else
                          begin
                               btnsalvaritem.Click;
@@ -889,6 +940,13 @@ begin
           PageControl.ActivePage := TabCadastro;
 end;
 
+procedure TFAluno.txtRespCodCidExit(Sender: TObject);
+begin
+    if Trim((Sender as TWSDBEdit).Text) <> '' then
+        if DM.CDSAluno.State in [dsEdit, dsInsert] then
+            DM.CDSAlunoRESPCID.AsString := executasqlretorno('SELECT CIDNOME FROM TCIDADE WHERE CIDCOD = ' + (Sender as TWSDBEdit).Text);
+end;
+
 procedure TFAluno.btnexcelClick(Sender: TObject);
 begin
      usuario((sender as TToolButton).name, wsinformacao.programa);
@@ -918,6 +976,7 @@ begin
           fcidade.showmodal;
           dm.CDSAlunoAluCidade.asinteger := dm.cdscidadecidcod.asinteger;
           dm.CDSAlunoAluCep.asstring := dm.cdscidadecidcep.asstring;
+          txtcodcidade.setfocus;
      finally
           fcidade.release;
           fcidade := nil;
@@ -978,11 +1037,7 @@ end;
 procedure TFAluno.FormCreate(Sender: TObject);
 begin
      carrega_propriedades_tela((sender as tform).name, sender as TForm);
-     
-     try
-          navegar(sender as tform);
-     except
-     end;
+
      pagecontrol.activepageindex := 0;
      pagecontrol1.activepageindex := 0;
 
@@ -1023,6 +1078,7 @@ begin
           fcidade.BtnFiltro.click;
           fcidade.showmodal;
           dm.CDSAlunoALUNATURALIDADE.asinteger := dm.cdscidadecidcod.asinteger;
+          txtcodnaturalidade.setFocus;
      finally
           fcidade.release;
           fcidade := nil;
@@ -1081,6 +1137,7 @@ begin
           fcurso.BtnFiltro.click;
           fcurso.showmodal;
           DM.CDSAlunoALUCURSO.asinteger := dm.CDSCursoCURCOD.asinteger;
+          txtCodCurso.SetFocus;
      finally
           fcurso.release;
           fcurso := nil;
@@ -1121,6 +1178,7 @@ begin
           fdisciplina.BtnFiltro.click;
           fdisciplina.showmodal;
           txtdisciplina.text := dm.CDSDisciplinaDISCOD.asstring;
+          txtdisciplina.SetFocus;
      finally
           fdisciplina.release;
           fdisciplina := nil;
@@ -1277,6 +1335,7 @@ begin
           Faluno.SendToBack;
           fprofessor.showmodal;
           txtdisprofessor.text := dm.CDSProfessorPROCOD.asstring;
+          txtdisprofessor.SetFocus;
      finally
           Faluno.BringToFront;
           fprofessor.release;
@@ -1350,6 +1409,27 @@ begin
           falunorel.release;
           falunorel := nil;
           falunorel.free;
+     end;
+end;
+
+procedure TFAluno.BtnRespCidClick(Sender: TObject);
+begin
+     usuario('btnconsultar', 3);
+     if Application.FindComponent('FCidade') <> nil then
+          FCidade.Close;
+     try
+          FCidade := tfcidade.create(self);
+          fcidade.FormStyle := fsNormal;
+          FCidade.Visible := false;
+          fcidade.txtpesquisa.text := txtRespCidade.text;
+          fcidade.BtnFiltro.click;
+          fcidade.showmodal;
+          dm.CDSAlunoALURESPCID.asinteger := dm.cdscidadecidcod.asinteger;
+          txtRespCodCid.setFocus;
+     finally
+          fcidade.release;
+          fcidade := nil;
+          fcidade.free;
      end;
 end;
 
@@ -1436,9 +1516,9 @@ end;
 
 procedure TFAluno.WSDBEdit15Exit(Sender: TObject);
 begin
-    if valor_parametro(21) = '1' then
+{    if valor_parametro(21) = '1' then
          if Dm.cdsalunoALUCURSOFIM.AsString = '' then
-              Dm.cdsalunoALUCURSOFIM.AsDateTime := IncMonth(Dm.CDSAlunoALUCURSOINICIO.AsDateTime, 24);
+              Dm.cdsalunoALUCURSOFIM.AsDateTime := IncMonth(Dm.CDSAlunoALUCURSOINICIO.AsDateTime, 24); }
 end;
 
 procedure TFAluno.btnmonografiaClick(Sender: TObject);
@@ -1503,6 +1583,7 @@ begin
 
      try
           FServicoFin := tFServicoFin.create(self);
+          FServicoFin.FormStyle := fsNormal;
           FServicoFin.Visible := false;
           usuario('btnconsultar', FServicoFin.wsinformacao.programa);
           FServicoFin.BtnFiltro.click;
@@ -1624,12 +1705,15 @@ begin
 
      BtnImprimirTexto.Visible := aTeste;
 
-     TabHistFinanceiro.TabVisible := (TipoSistema = 'EMPRESARIAL');
+     //TabHistFinanceiro.TabVisible := (TipoSistema = 'EMPRESARIAL');
 
      if valor_parametro(21) = '1' then
          TabSheet4.Caption := 'Negociação Financeira'
      else
          TabSheet4.Caption := 'Parecer Descritivo';
+    carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
+    navegar(sender as tform);
+
 end;
 
 procedure TFAluno.btnapagarsolClick(Sender: TObject);
@@ -1655,16 +1739,12 @@ begin
           FNetworking.BtnFiltro.click;
           FNetworking.showmodal;
           dm.CDSAlunoAluREspPgto.asstring := dm.CDSNetworkingNETCOD.asstring;
+          txtcodresppgto.SetFocus;
      finally
           FNetworking.release;
           FNetworking := nil;
           FNetworking.free;
      end;
-end;
-
-procedure TFAluno.FormActivate(Sender: TObject);
-begin
-    carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFAluno.txtcodcidadeExit(Sender: TObject);
@@ -1680,7 +1760,7 @@ begin
         if DM.CDSAluno.State in [dsEdit, dsInsert] then
             DM.CDSAlunoCURNOME.AsString := executasqlretorno('SELECT CURNOME FROM TCURSO WHERE CURCOD = ' + (Sender as TWSDBEdit).Text);
 
-    if (valor_parametro(21) = '2') and (dm.CDSCurso.Active) then
+    //if (valor_parametro(21) = '2') and (dm.CDSCurso.Active) then
         if dm.CDSCurso.Locate('CURCOD', txtcodcurso.text, [loPartialKey, loCaseInsensitive]) then
         begin
             if dm.CDSAlunoALUCURSOINICIO.asDateTime < StrToDate('01/01/2000') then

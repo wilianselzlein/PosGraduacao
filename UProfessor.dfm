@@ -3,7 +3,7 @@ object FProfessor: TFProfessor
   Top = 4
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 533
-  ClientWidth = 623
+  ClientWidth = 621
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
@@ -14,7 +14,6 @@ object FProfessor: TFProfessor
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
@@ -24,7 +23,7 @@ object FProfessor: TFProfessor
   object lbltitulo: TLabel
     Left = 0
     Top = 0
-    Width = 623
+    Width = 621
     Height = 24
     Align = alTop
     Alignment = taCenter
@@ -40,16 +39,17 @@ object FProfessor: TFProfessor
   object ToolBarNavegacao: TToolBar
     Left = 0
     Top = 503
-    Width = 623
+    Width = 621
     Height = 30
     Align = alBottom
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
+    ExplicitWidth = 623
     object BtnPrimeiro: TToolButton
       Left = 0
       Top = 0
@@ -250,19 +250,21 @@ object FProfessor: TFProfessor
   object PageControl: TPageControl
     Left = 0
     Top = 75
-    Width = 623
+    Width = 621
     Height = 428
     ActivePage = TabConsulta
     Align = alClient
     MultiLine = True
     TabOrder = 1
     TabStop = False
+    ExplicitWidth = 623
     object TabConsulta: TTabSheet
       Caption = 'Consulta'
+      ExplicitWidth = 615
       object DBGrid: TDBGrid
         Left = 0
         Top = 0
-        Width = 615
+        Width = 613
         Height = 400
         Align = alClient
         DataSource = DataSource
@@ -344,10 +346,8 @@ object FProfessor: TFProfessor
       Font.Style = []
       ImageIndex = 1
       ParentFont = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitLeft = 1
+      ExplicitTop = 22
       object Label1: TLabel
         Left = 16
         Top = 8
@@ -393,19 +393,6 @@ object FProfessor: TFProfessor
         Width = 35
         Height = 15
         Caption = 'Bairro'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -12
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label7: TLabel
-        Left = 16
-        Top = 32
-        Width = 54
-        Height = 15
-        Caption = 'Endere'#231'o'
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -679,25 +666,25 @@ object FProfessor: TFProfessor
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object WSDBMemo2: TWSDBMemo
-        Left = 15
-        Top = 352
-        Width = 578
-        height = 38
-        BevelInner = bvNone
-        DataField = 'PRODADOSFIN'
-        DataSource = DataSource
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
+      object Label7: TLabel
+        Left = 14
+        Top = 32
+        Width = 54
+        Height = 15
+        Caption = 'Endere'#231'o'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'Arial'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
-        ParentShowHint = False
-        TabOrder = 18
-        OnKeyDown = WSDBMemo1KeyDown
-        ColorOnFocus = clBlack
-        ColorOnNotFocus = clGray
+      end
+      object Label25: TLabel
+        Left = 288
+        Top = 192
+        Width = 201
+        Height = 15
+        Caption = 'PROCURRICULUM  PRODADOSFIN'
       end
       object WSDBEdit4: TWSDBEdit
         Left = 468
@@ -712,7 +699,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 12
+        TabOrder = 13
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -730,7 +717,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 16
+        TabOrder = 17
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -748,7 +735,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 0
+        TabOrder = 1
         OnKeyDown = txtcodKeyDown
         FocoAlterar = True
         ColorOnFocus = clBlack
@@ -767,7 +754,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 6
+        TabOrder = 7
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -785,7 +772,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 1
+        TabOrder = 2
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -803,7 +790,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 2
+        TabOrder = 3
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -821,7 +808,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 3
+        TabOrder = 4
         OnExit = txtcodcidadeExit
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
@@ -840,14 +827,14 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 4
+        TabOrder = 5
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
       end
       object WSDBEdit8: TWSDBEdit
-        Left = 520
-        Top = 52
+        Left = 525
+        Top = 51
         Width = 72
         DataField = 'PROCEP'
         DataSource = DataSource
@@ -858,7 +845,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 5
+        TabOrder = 6
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -876,7 +863,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 8
+        TabOrder = 9
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -894,7 +881,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 9
+        TabOrder = 10
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -912,7 +899,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 11
+        TabOrder = 12
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -930,28 +917,8 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 7
+        TabOrder = 8
         OnKeyDown = txtcodKeyDown
-        ColorOnFocus = clBlack
-        ColorOnNotFocus = clGray
-      end
-      object WSDBMemo1: TWSDBMemo
-        Left = 15
-        Top = 210
-        Width = 578
-        height = 127
-        BevelInner = bvNone
-        DataField = 'PROCURRICULUM'
-        DataSource = DataSource
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        ParentShowHint = False
-        TabOrder = 17
-        OnKeyDown = WSDBMemo1KeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
       end
@@ -968,7 +935,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 20
+        TabOrder = 0
         OnKeyDown = txtcodKeyDown
         FocoNovo = True
         ColorOnFocus = clBlack
@@ -987,7 +954,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 13
+        TabOrder = 14
         OnKeyDown = txtcodKeyDown
         EnterClicar = True
         ColorOnFocus = clBlack
@@ -1006,7 +973,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 15
+        TabOrder = 16
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -1024,7 +991,7 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 10
+        TabOrder = 11
         OnKeyDown = txtcodKeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -1042,26 +1009,26 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 14
+        TabOrder = 15
         OnKeyDown = txtcodKeyDown
         EnterClicar = True
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
       end
       object PanGrupos: TPanel
-        Left = 604
-        Top = 33
+        Left = 609
+        Top = 25
         Width = 588
         Height = 356
         BevelInner = bvRaised
         BevelOuter = bvLowered
         Color = clWhite
-        TabOrder = 21
+        TabOrder = 19
         Visible = False
         object Label15: TLabel
           Left = 2
           Top = 2
-          Width = 41
+          Width = 584
           Height = 15
           Align = alTop
           Alignment = taCenter
@@ -1072,6 +1039,7 @@ object FProfessor: TFProfessor
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentFont = False
+          ExplicitWidth = 41
         end
         object Panel3: TPanel
           Left = 2
@@ -1195,7 +1163,7 @@ object FProfessor: TFProfessor
             ButtonHeight = 30
             ButtonWidth = 31
             Caption = 'ToolBarItem'
-            Images = DM.ImageList
+            Images = Dm.ImageList
             TabOrder = 2
             object btnsalvaritemgrupo: TToolButton
               Left = 0
@@ -1245,7 +1213,7 @@ object FProfessor: TFProfessor
           Height = 297
           TabStop = False
           Align = alClient
-          DataSource = DM.DSProfessorGrupo
+          DataSource = Dm.DSProfessorGrupo
           Font.Charset = ANSI_CHARSET
           Font.Color = clNavy
           Font.Height = -12
@@ -1277,19 +1245,19 @@ object FProfessor: TFProfessor
         end
       end
       object pandisciplinas: TPanel
-        Left = 604
-        Top = 31
+        Left = 609
+        Top = 23
         Width = 589
         Height = 360
         BevelInner = bvRaised
         BevelOuter = bvLowered
         Color = clWhite
-        TabOrder = 19
+        TabOrder = 18
         Visible = False
         object Label20: TLabel
           Left = 2
           Top = 2
-          Width = 62
+          Width = 585
           Height = 15
           Align = alTop
           Alignment = taCenter
@@ -1300,6 +1268,7 @@ object FProfessor: TFProfessor
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentFont = False
+          ExplicitWidth = 62
         end
         object Panel1: TPanel
           Left = 2
@@ -1436,7 +1405,7 @@ object FProfessor: TFProfessor
             ButtonHeight = 30
             ButtonWidth = 31
             Caption = 'ToolBarItemDisciplina'
-            Images = DM.ImageList
+            Images = Dm.ImageList
             TabOrder = 3
             object btnsalvaritemdisc: TToolButton
               Left = 0
@@ -1522,7 +1491,7 @@ object FProfessor: TFProfessor
           Width = 585
           Height = 301
           Align = alClient
-          DataSource = DM.DSProfessorDisciplina
+          DataSource = Dm.DSProfessorDisciplina
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlue
           Font.Height = -9
@@ -1570,14 +1539,11 @@ object FProfessor: TFProfessor
     object TabSheet1: TTabSheet
       Caption = 'Foto'
       ImageIndex = -1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitWidth = 615
       object ImgFoto: TDBImage
         Left = 0
         Top = 0
-        Width = 615
+        Width = 613
         Height = 400
         Align = alClient
         DataField = 'PROFOTO'
@@ -1589,17 +1555,19 @@ object FProfessor: TFProfessor
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 615
       end
     end
   end
   object PanPesquisa: TPanel
     Left = 0
     Top = 24
-    Width = 623
+    Width = 621
     Height = 51
     Align = alTop
     BevelOuter = bvLowered
     TabOrder = 2
+    ExplicitWidth = 623
     object Label4: TLabel
       Left = 14
       Top = 29
@@ -1745,7 +1713,7 @@ object FProfessor: TFProfessor
     end
   end
   object RLReport: TRLReport
-    Left = 9
+    Left = 31
     Top = 518
     Width = 794
     Height = 1123
@@ -1939,7 +1907,7 @@ object FProfessor: TFProfessor
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1953,7 +1921,7 @@ object FProfessor: TFProfessor
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText2: TRLDBText
@@ -1963,7 +1931,7 @@ object FProfessor: TFProfessor
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1978,7 +1946,7 @@ object FProfessor: TFProfessor
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1993,7 +1961,7 @@ object FProfessor: TFProfessor
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2008,7 +1976,7 @@ object FProfessor: TFProfessor
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2023,7 +1991,7 @@ object FProfessor: TFProfessor
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2038,7 +2006,7 @@ object FProfessor: TFProfessor
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2065,7 +2033,7 @@ object FProfessor: TFProfessor
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -2076,7 +2044,7 @@ object FProfessor: TFProfessor
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -2269,7 +2237,7 @@ object FProfessor: TFProfessor
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSProfessor
+    DataSet = Dm.CDSProfessor
     Left = 8
     Top = 8
   end

@@ -21,7 +21,6 @@ type
           btnexcel: TToolButton;
           procedure btnsairClick(Sender: TObject);
           procedure btnokClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
@@ -109,11 +108,6 @@ begin
      DBGrid.Columns.RebuildColumns;
 end;
 
-procedure TFPendencias.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
-end;
-
 procedure TFPendencias.FormCreate(Sender: TObject);
 begin
      carrega_propriedades_tela((sender as tform).name, sender as TForm);
@@ -130,6 +124,7 @@ end;
 procedure TFPendencias.FormShow(Sender: TObject);
 begin
      setCaption(Sender as TForm);
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFPendencias.btnexcelClick(Sender: TObject);

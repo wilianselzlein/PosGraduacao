@@ -91,7 +91,6 @@ type
           txtfiltrocidade: TWSEdit;
           Label24: TLabel;
           Label17: TLabel;
-          WSDBMemo1: TWSDBMemo;
           pandisciplinas: TPanel;
           Label20: TLabel;
           Panel1: TPanel;
@@ -150,8 +149,8 @@ type
     btnPesquisa: TToolButton;
     Label22: TLabel;
     txtincpesquisa: TWSEdit;
-    WSDBMemo2: TWSDBMemo;
     Label23: TLabel;
+    Label25: TLabel;
           procedure BtnPrimeiroClick(Sender: TObject);
           procedure BtnAnteriorClick(Sender: TObject);
           procedure BtnProximoClick(Sender: TObject);
@@ -185,7 +184,6 @@ type
           procedure WSDBMemo1KeyDown(Sender: TObject; var Key: Word;
                Shift: TShiftState);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure btngruposClick(Sender: TObject);
           procedure btnexcluiritemgrupoClick(Sender: TObject);
@@ -404,8 +402,9 @@ begin
      end;
      salva_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm));
      salva_propriedades_tela((sender as tform).name, sender as TForm);
-     //(sender as tform).Hide;
      limpa_edits(sender as tform);
+     DBRichEdit1.Destroy;
+     DBRichEdit2.Destroy;
      action := cafree;
 end;
 
@@ -415,6 +414,7 @@ begin
      pagecontrol.activepageindex := 0;
      //BtnFiltro.click;
      btndesconectar.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFProfessor.txtcodcidadeExit(Sender: TObject);
@@ -622,7 +622,8 @@ begin
           fcidade.BtnFiltro.click;
           fcidade.showmodal;
           dm.CDSProfessorPROCIDADE.asinteger := dm.cdscidadecidcod.asinteger;
-          dm.CDSProfessorPROCEP.asstring := dm.cdscidadecidcep.asstring;          
+          dm.CDSProfessorPROCEP.asstring := dm.cdscidadecidcep.asstring;
+          txtCodCidade.SetFocus;
      finally
           fcidade.release;
           fcidade := nil;
@@ -758,11 +759,6 @@ begin
           BtnAlterar.Click;
 end;
 
-procedure TFProfessor.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
-end;
-
 procedure TFProfessor.FormCreate(Sender: TObject);
 begin
      carrega_propriedades_tela((sender as tform).name, sender as TForm);
@@ -873,8 +869,8 @@ end;
 
 procedure TFProfessor.FormResize(Sender: TObject);
 begin
-     if FProfessor <> nil then
-          PanBotoes.Left := FProfessor.Width - PanBotoes.Width - 20;
+{     if FProfessor <> nil then
+          PanBotoes.Left := FProfessor.Width - PanBotoes.Width - 20;}
 end;
 
 procedure TFProfessor.ImageDblClick(Sender: TObject);

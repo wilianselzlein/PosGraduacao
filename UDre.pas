@@ -169,7 +169,6 @@ type
           procedure btncontaClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
           procedure DBGrid2DblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
           procedure btnexcluircontaClick(Sender: TObject);
@@ -362,6 +361,7 @@ begin
      navegar(sender as tform);
      pagecontrol.activepageindex := 0;
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFDre.txtdreKeyDown(Sender: TObject; var Key: Word;
@@ -606,11 +606,6 @@ procedure TFDre.DBGrid2DblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFDre.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFDre.FormCreate(Sender: TObject);

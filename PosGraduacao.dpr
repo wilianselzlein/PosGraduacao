@@ -77,7 +77,6 @@ uses
 
 begin
      AppVersion := '1.0';
-     Carregando(True);
      {FSplash := TFsplash.Create(Application);
      fsplash.show;
      FSplash.Update;}

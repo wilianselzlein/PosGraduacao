@@ -157,7 +157,6 @@ type
           procedure btnfiltromaterialClick(Sender: TObject);
           procedure btnfiltroalunoClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
           procedure txtdatafinExit(Sender: TObject);
@@ -451,6 +450,7 @@ begin
           txtdatafin.text := DateToStr(date);
      end;
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFTransito.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -716,11 +716,6 @@ procedure TFTransito.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFTransito.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFTransito.FormCreate(Sender: TObject);

@@ -32,7 +32,6 @@ type
     LstDisciplina: TListBox;
           procedure btnsairClick(Sender: TObject);
           procedure btnokClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
@@ -166,11 +165,6 @@ begin
      DBGrid.enabled := dm.CDSAlunoLanc.recordcount > 0;
 end;
 
-procedure TFAlunoNotaFreq.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
-end;
-
 procedure TFAlunoNotaFreq.FormCreate(Sender: TObject);
 var i : byte;
     aTeste : boolean;
@@ -193,6 +187,7 @@ end;
 procedure TFAlunoNotaFreq.FormShow(Sender: TObject);
 begin
      setCaption(Sender as TForm);
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFAlunoNotaFreq.btnprofessorClick(Sender: TObject);
@@ -273,13 +268,8 @@ begin
                txtprofessor.setfocus;
                exit;
           end;
-          if not dm.CDSProfessor.active then
-               dm.CDSProfessor.open;
-          if dm.CDSProfessor.Locate('PROCOD', txtprofessor.text, []) then
-          begin
-               txtnomeprofessor.text := dm.CDSProfessorPRONOME.AsString;
-          end
-          else
+          txtnomeprofessor.text := executasqlretorno('SELECT PRONOME FROM TPROFESSOR WHERE PROCOD = ' + txtprofessor.Text);
+          if Trim (txtnomeprofessor.text) = '' then
           begin
                txtnomeprofessor.text := 'Professor não Cadastrado!';
                txtprofessor.setfocus;
@@ -314,7 +304,6 @@ begin
                exit;
           end;
      end;
-
 end;
 
 procedure TFAlunoNotaFreq.txtcoddisciplinaExit(Sender: TObject);

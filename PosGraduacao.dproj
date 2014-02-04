@@ -86,7 +86,10 @@
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-			<DCC_UnitSearchPath>C:\Componentes\ForteReport_bin_dXE2vcl_3.71B;C:\Componentes\Wilian;C:\Componentes\JVCL347CompleteJCL241-Build4571\jvcl\lib\d16\win32;C:\Componentes\JVCL347CompleteJCL241-Build4571\jvcl\resources;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_ExeOutput>exe/</DCC_ExeOutput>
+			<DCC_BplOutput>exe/</DCC_BplOutput>
+			<DCC_DcpOutput>exe/</DCC_DcpOutput>
+			<DCC_UnitSearchPath>D:\Wilian\Componentes\XE2\ForteReport_bin_dXE2vcl_3.71B;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<Icon_MainIcon>Personal.ico</Icon_MainIcon>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=2.0.0.14;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
@@ -327,7 +330,7 @@
 						<VersionInfo Name="MajorVer">2</VersionInfo>
 						<VersionInfo Name="MinorVer">0</VersionInfo>
 						<VersionInfo Name="Release">0</VersionInfo>
-						<VersionInfo Name="Build">15</VersionInfo>
+						<VersionInfo Name="Build">16</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -339,7 +342,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Wilian Selzlein</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription"/>
-						<VersionInfoKeys Name="FileVersion">2.0.0.15</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">2.0.0.16</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">Pos Graduação</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright">Wilian Selzlein</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>

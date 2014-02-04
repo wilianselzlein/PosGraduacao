@@ -14,7 +14,6 @@ object FCidade: TFCidade
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -45,7 +44,7 @@ object FCidade: TFCidade
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -501,7 +500,7 @@ object FCidade: TFCidade
     Top = 260
     Width = 794
     Height = 1123
-    DataSource = DM.DSCidade
+    DataSource = Dm.DSCidade
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -13
@@ -522,7 +521,7 @@ object FCidade: TFCidade
         Height = 57
         Align = faLeft
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBRichText2: TRLDBRichText
@@ -534,7 +533,7 @@ object FCidade: TFCidade
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCABINF'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -658,7 +657,7 @@ object FCidade: TFCidade
         Height = 15
         Alignment = taCenter
         DataField = 'CIDCOD'
-        DataSource = DM.DSCidade
+        DataSource = Dm.DSCidade
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -673,7 +672,7 @@ object FCidade: TFCidade
         Height = 15
         AutoSize = False
         DataField = 'CIDNOME'
-        DataSource = DM.DSCidade
+        DataSource = Dm.DSCidade
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -687,7 +686,7 @@ object FCidade: TFCidade
         Width = 40
         Height = 15
         DataField = 'CIDUF'
-        DataSource = DM.DSCidade
+        DataSource = Dm.DSCidade
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -701,7 +700,7 @@ object FCidade: TFCidade
         Width = 49
         Height = 15
         DataField = 'CIDCEP'
-        DataSource = DM.DSCidade
+        DataSource = Dm.DSCidade
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -728,7 +727,7 @@ object FCidade: TFCidade
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -739,7 +738,7 @@ object FCidade: TFCidade
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -790,7 +789,7 @@ object FCidade: TFCidade
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSCidade
+    DataSet = Dm.CDSCidade
     Left = 8
     Top = 8
   end

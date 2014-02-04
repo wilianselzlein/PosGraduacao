@@ -14,7 +14,6 @@ object FTipoMaterial: TFTipoMaterial
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -219,7 +218,7 @@ object FTipoMaterial: TFTipoMaterial
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
@@ -446,7 +445,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -460,7 +459,7 @@ object FTipoMaterial: TFTipoMaterial
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText2: TRLDBText
@@ -470,7 +469,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -485,7 +484,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -500,7 +499,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -515,7 +514,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -530,7 +529,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -545,7 +544,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -685,7 +684,7 @@ object FTipoMaterial: TFTipoMaterial
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -696,7 +695,7 @@ object FTipoMaterial: TFTipoMaterial
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -747,7 +746,7 @@ object FTipoMaterial: TFTipoMaterial
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSTipoMaterial
+    DataSet = Dm.CDSTipoMaterial
     Left = 8
     Top = 8
   end

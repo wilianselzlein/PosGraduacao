@@ -144,10 +144,10 @@ type
           WSDBEdit15: TWSDBEdit;
           WSDBMemo1: TWSDBMemo;
           Label21: TLabel;
-          btnProfessor: TSpeedButton;
           WSDBEdit13: TWSDBEdit;
           txtprofessor: TWSDBEdit;
           chkTodos: TCheckBox;
+    btnProf: TButton;
           procedure BtnPrimeiroClick(Sender: TObject);
           procedure BtnAnteriorClick(Sender: TObject);
           procedure BtnProximoClick(Sender: TObject);
@@ -178,13 +178,12 @@ type
           procedure btnprogramaClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
           procedure DBGrid2DblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
           procedure DBRadioGroup3Change(Sender: TObject);
           procedure btnnaturalidadeClick(Sender: TObject);
           procedure btncidadeClick(Sender: TObject);
-          procedure btnProfessorClick(Sender: TObject);
+    procedure btnProfClick(Sender: TObject);
      private
           { Private declarations }
      public
@@ -294,6 +293,7 @@ procedure TFUsuario.BtnSalvarClick(Sender: TObject);
 begin
      ToolBarNavegacao.SetFocus;
      testa_registro_ja_cadastrado(WSInformacao.Tabela, DataSource);
+     DataSource.DataSet.Edit;
      DataSource.DataSet.post;
      (DataSource.DataSet as TClientDataSet).ApplyUpdates(-1);
      navegar(FUsuario);
@@ -379,6 +379,7 @@ begin
      navegar(sender as tform);
      pagecontrol.activepageindex := 0;
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFUsuario.txtloginKeyDown(Sender: TObject; var Key: Word;
@@ -564,6 +565,8 @@ end;
 
 procedure TFUsuario.btnsalvaritemClick(Sender: TObject);
 begin
+     if not dm.CDSPrograma.Active then
+         dm.CDSPrograma.Active := true;
      if not chkTodos.Checked then
      begin
          try
@@ -586,12 +589,9 @@ begin
               exit;
          end;
      end;
-     dm.CDSUsuario.post;
+     {dm.CDSUsuario.post;
      dm.CDSUsuario.applyupdates(-1);
-     dm.CDSUsuario.edit;
-
-     if not dm.CDSPrograma.Active then
-         dm.CDSPrograma.Active := true;
+     dm.CDSUsuario.edit;}
      dm.CDSPrograma.First;
      while not dm.cdsPrograma.Eof do
      begin
@@ -609,7 +609,7 @@ begin
              dm.CDSItemusuario.append;
          dm.CDSItemUsuarioITEUSUARIO.asstring := txtlogin.text;
          dm.CDSItemUsuarioITEPROGRAMA.asinteger := dm.CDSProgramaPROCOD.asinteger;
-         dm.CDSItemUsuarioPRONOME.asinteger := dm.CDSProgramaPRONOME.asinteger;
+         dm.CDSItemUsuarioPRONOME.asstring := dm.CDSProgramaPRONOME.asstring;
          if chkacesso.Checked then
               dm.CDSItemUsuarioITEACESSO.asstring := 'S'
          else
@@ -650,6 +650,27 @@ begin
           btnsalvaritem.click;
 end;
 
+procedure TFUsuario.btnProfClick(Sender: TObject);
+begin
+//     usuario('btnconsultar', 3);
+     if Application.FindComponent('FProfessor') <> nil then
+          FProfessor.Close;
+     try
+          FProfessor := tFProfessor.create(self);
+          FProfessor.FormStyle := fsNormal;
+          FProfessor.Visible := false;
+          FProfessor.txtpesquisa.text := txtprofessor.text;
+          FProfessor.BtnFiltro.click;
+          FProfessor.showmodal;
+          dm.CDSUsuarioUSUPROFESSOR.asinteger := dm.CDSProfessorPROCOD.asinteger;
+          dm.CDSUsuarioPRONOME.asString := dm.CDSProfessorPRONOME.asString;
+     finally
+          fprofessor.release;
+          fprofessor := nil;
+          fprofessor.free;
+     end;
+end;
+
 procedure TFUsuario.btnprogramaClick(Sender: TObject);
 begin
      if Application.FindComponent('FPrograma') <> nil then
@@ -680,11 +701,6 @@ procedure TFUsuario.DBGrid2DblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFUsuario.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFUsuario.FormCreate(Sender: TObject);
@@ -731,7 +747,6 @@ end;
 
 procedure TFUsuario.btnnaturalidadeClick(Sender: TObject);
 begin
-     usuario('btnconsultar', 3);
      if Application.FindComponent('FCidade') <> nil then
           FCidade.Close;
      try
@@ -754,7 +769,6 @@ procedure TFUsuario.btncidadeClick(Sender: TObject);
 begin
      if Application.FindComponent('FCidade') <> nil then
           FCidade.Close;
-
      try
           fcidade := tfcidade.create(self);
           FCidade.FormStyle := fsNormal;
@@ -768,27 +782,6 @@ begin
           fcidade.release;
           fcidade := nil;
           fcidade.free;
-     end;
-end;
-
-procedure TFUsuario.btnProfessorClick(Sender: TObject);
-begin
-     usuario('btnconsultar', 3);
-     if Application.FindComponent('FProfessor') <> nil then
-          FProfessor.Close;
-     try
-          FProfessor := tFProfessor.create(self);
-          FCidade.FormStyle := fsNormal;
-          FProfessor.Visible := false;
-          FProfessor.txtpesquisa.text := txtprofessor.text;
-          FProfessor.BtnFiltro.click;
-          FProfessor.showmodal;
-          dm.CDSUsuarioUSUPROFESSOR.asinteger := dm.CDSProfessorPROCOD.asinteger;
-          dm.CDSUsuarioPRONOME.asinteger := dm.CDSProfessorPRONOME.asinteger;
-     finally
-          fprofessor.release;
-          fprofessor := nil;
-          fprofessor.free;
      end;
 end;
 

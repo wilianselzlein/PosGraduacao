@@ -14,7 +14,6 @@ object FPendencias: TFPendencias
   FormStyle = fsMDIChild
   OldCreateOrder = False
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -68,7 +67,7 @@ object FPendencias: TFPendencias
       ButtonHeight = 30
       ButtonWidth = 59
       Caption = 'ToolBarItem'
-      Images = DM.ImageList
+      Images = Dm.ImageList
       List = True
       ParentShowHint = False
       ShowCaptions = True
@@ -114,7 +113,6 @@ object FPendencias: TFPendencias
       Font.Height = -12
       Font.Name = 'Arial'
       Font.Style = []
-      ItemHeight = 15
       ItemIndex = 0
       ParentFont = False
       ParentShowHint = False
@@ -156,7 +154,7 @@ object FPendencias: TFPendencias
     Visible = False
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSExec
+    DataSet = Dm.CDSExec
     Left = 8
     Top = 8
   end

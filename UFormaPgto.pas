@@ -180,7 +180,6 @@ type
           procedure btnexcelClick(Sender: TObject);
           procedure BtnImprimirClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
           procedure btncreditodescontoClick(Sender: TObject);
@@ -391,6 +390,7 @@ begin
      navegar(sender as tform);
      pagecontrol.activepageindex := 0;
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFFormaPgto.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -561,11 +561,6 @@ procedure TFFormaPgto.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFFormaPgto.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFFormaPgto.FormCreate(Sender: TObject);

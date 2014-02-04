@@ -708,14 +708,14 @@ end;
 
 procedure TFMenu.GerarContratos1Click(Sender: TObject);
 begin
-     if dm.CDSUsuario.locate('USULOGIN', lusuario, [loPartialKey, loCaseInsensitive]) then
+     {if dm.CDSUsuario.locate('USULOGIN', lusuario, [loPartialKey, loCaseInsensitive]) then
      begin
          if dm.CDSUsuarioUSUPROFESSOR.AsInteger <> 0 then
          begin
              LanarNotaeFreqdosalunos1.Click;
              exit;
          end;
-     end;
+     end;}
 
      usuario('btnconsultar', 12);
      if Application.FindComponent('FMensalidadeGera') = nil then
@@ -724,7 +724,7 @@ begin
           FMensalidadeGera.BringToFront;
 
      fmensalidadegera.lbltitulo.caption := 'Gerar Contratos';
-     fmensalidadegera.BtnGerar.visible := false;
+     //fmensalidadegera.BtnGerar.visible := false;
      fmensalidadegera.ImgMensalidade.visible := false;
      fmensalidadegera.ImgContrato.visible := true;
 end;
@@ -738,7 +738,7 @@ begin
           FMensalidadeGera.BringToFront;
 
      fmensalidadegera.lbltitulo.caption := 'Gerar Mensalidades';
-     fmensalidadegera.BtnContrato.visible := false;
+     //fmensalidadegera.BtnContrato.visible := false;
      fmensalidadegera.ImgContrato.visible := false;
      fmensalidadegera.ImgMensalidade.visible := true;
 end;

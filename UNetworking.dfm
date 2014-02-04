@@ -14,7 +14,6 @@ object FNetworking: TFNetworking
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -45,11 +44,10 @@ object FNetworking: TFNetworking
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
-    ExplicitTop = 602
     object BtnPrimeiro: TToolButton
       Left = 0
       Top = 0
@@ -252,15 +250,17 @@ object FNetworking: TFNetworking
     Top = 56
     Width = 632
     Height = 509
-    ActivePage = TabConsulta
+    ActivePage = TabCadastro
     Align = alClient
     MultiLine = True
     TabOrder = 1
     TabStop = False
-    ExplicitHeight = 546
     object TabConsulta: TTabSheet
       Caption = 'Consulta'
-      ExplicitHeight = 518
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object DBGrid: TDBGrid
         Left = 0
         Top = 0
@@ -325,7 +325,6 @@ object FNetworking: TFNetworking
       Font.Style = []
       ImageIndex = 1
       ParentFont = False
-      ExplicitHeight = 518
       object Label1: TLabel
         Left = 5
         Top = 1
@@ -1528,7 +1527,6 @@ object FNetworking: TFNetworking
         ParentFont = False
         TabOrder = 36
         TabStop = False
-        ExplicitTop = 409
         object TabSheet2: TTabSheet
           Caption = 'Observa'#231#245'es'
           ImageIndex = 1
@@ -1584,6 +1582,10 @@ object FNetworking: TFNetworking
         object TabSheet4: TTabSheet
           Caption = 'Informa'#231#245'es Especiais'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object WSDBMemo2: TWSDBMemo
             Left = 0
             Top = 0
@@ -1608,6 +1610,10 @@ object FNetworking: TFNetworking
         object TabSheet_Logo: TTabSheet
           Caption = 'Logo'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object ImgFoto: TDBImage
             Left = 0
             Top = 0
@@ -1638,7 +1644,7 @@ object FNetworking: TFNetworking
             Font.Name = 'Arial'
             Font.Style = []
             Glyph.Data = {
-              76080000424DB608000000000000B60000002800000020000000100000000100
+              B6080000424DB608000000000000B60000002800000020000000100000000100
               2000000000000008000000000000000000001000000000000000000000000000
               800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
               FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00800080000000
@@ -2047,7 +2053,7 @@ object FNetworking: TFNetworking
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -2061,7 +2067,7 @@ object FNetworking: TFNetworking
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText2: TRLDBText
@@ -2071,7 +2077,7 @@ object FNetworking: TFNetworking
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2086,7 +2092,7 @@ object FNetworking: TFNetworking
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2101,7 +2107,7 @@ object FNetworking: TFNetworking
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2116,7 +2122,7 @@ object FNetworking: TFNetworking
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2131,7 +2137,7 @@ object FNetworking: TFNetworking
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2146,7 +2152,7 @@ object FNetworking: TFNetworking
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2173,7 +2179,7 @@ object FNetworking: TFNetworking
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -2184,7 +2190,7 @@ object FNetworking: TFNetworking
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -2235,7 +2241,7 @@ object FNetworking: TFNetworking
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSNetworking
+    DataSet = Dm.CDSNetworking
     Left = 8
     Top = 8
   end

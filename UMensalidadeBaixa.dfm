@@ -51,7 +51,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
     Font.Height = -12
     Font.Name = 'Arial'
     Font.Style = [fsBold]
-    Images = DM.ImageList
+    Images = Dm.ImageList
     List = True
     ParentFont = False
     ParentShowHint = False
@@ -1159,7 +1159,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1173,7 +1173,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText28: TRLDBText
@@ -1183,7 +1183,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1198,7 +1198,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1213,7 +1213,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1228,7 +1228,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1243,7 +1243,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1258,7 +1258,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1273,7 +1273,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 16
         Alignment = taRightJustify
         DataField = 'INSCNPJ'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1300,7 +1300,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -1311,7 +1311,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1382,7 +1382,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
       'and MENDATAPAGAMENTO is null'
       'order by MENALUNO, MENNUMERO'
       ' ')
-    SQLConnection = DM.SQLConnection
+    SQLConnection = Dm.SQLConnection
     Left = 16
     Top = 8
     object QMensMENALUNO: TIntegerField
@@ -1544,7 +1544,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
     object CDSMensaluno: TStringField
       FieldKind = fkLookup
       FieldName = 'aluno'
-      LookupDataSet = DM.CDSAlunoLkp
+      LookupDataSet = Dm.CDSAlunoLkp
       LookupKeyFields = 'ALUCOD'
       LookupResultField = 'ALUNOME'
       KeyFields = 'MENALUNO'
@@ -1560,7 +1560,7 @@ object FMensalidadeBaixa: TFMensalidadeBaixa
     object CDSMensdisciplina: TStringField
       FieldKind = fkLookup
       FieldName = 'disciplina'
-      LookupDataSet = DM.CDSDisciplina
+      LookupDataSet = Dm.CDSDisciplina
       LookupKeyFields = 'DISCOD'
       LookupResultField = 'DISNOME'
       KeyFields = 'mendisciplina'

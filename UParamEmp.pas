@@ -146,7 +146,6 @@ type
           procedure btncabecalhoClick(Sender: TObject);
           procedure btncidadeClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
      private
@@ -272,7 +271,7 @@ begin
      with dm.qparamemp.sql do
      begin
           clear;
-          add('SELECT * FROM TPARAMEMP');
+          add('SELECT * FROM TPARAMEMP INNER JOIN TCIDADE ON CIDCOD = EMPCIDADE');
           if trim(txtpesquisa.text) <> '' then
                add('WHERE UPPER(EMPNOME) LIKE UPPER(' + quotedstr('%' + txtpesquisa.text + '%') + ')');
           add('ORDER BY ' + WSInformacao.Campo);
@@ -329,6 +328,7 @@ begin
      navegar(sender as tform);
      pagecontrol.activepageindex := 0;
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFParamEmp.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -524,11 +524,6 @@ procedure TFParamEmp.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFParamEmp.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFParamEmp.FormCreate(Sender: TObject);

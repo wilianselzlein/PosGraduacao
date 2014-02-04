@@ -1,4 +1,4 @@
-object DM: TDM
+object Dm: TDm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 746
@@ -31,7 +31,7 @@ object DM: TDM
       'VendorLib=fbclient.dll'
       'VendorLibWin64=fbclient.dll'
       'VendorLibOsx=/Library/Frameworks/Firebird.framework/Firebird'
-      'Database='
+      'Database=D:\Wilian\Delphi\BANCO.FDB'
       'User_Name=sysdba'
       'Password=masterkey'
       'Role=RoleName'
@@ -477,7 +477,7 @@ object DM: TDM
     Left = 665
     Top = 11
     Bitmap = {
-      494C01011600C800C80018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01011600DC00DC0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000006000000090000000010020000000000000D8
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3710,6 +3710,7 @@ object DM: TDM
     end
     object CDSAlunoALUIDENTIDADE: TStringField
       FieldName = 'ALUIDENTIDADE'
+      LookupCache = True
       Size = 30
     end
     object CDSAlunoALUCARTEIRA: TStringField
@@ -3946,10 +3947,47 @@ object DM: TDM
     object CDSAlunoALUDESCONTO: TSingleField
       FieldName = 'ALUDESCONTO'
     end
+    object CDSAlunoALURESPRG: TStringField
+      FieldName = 'ALURESPRG'
+      Size = 30
+    end
+    object CDSAlunoALURESPNOMEMAE: TStringField
+      FieldName = 'ALURESPNOMEMAE'
+      Size = 50
+    end
+    object CDSAlunoALURESPNASC: TDateField
+      FieldName = 'ALURESPNASC'
+      EditMask = '99/99/9999'
+    end
+    object CDSAlunoALURESPEND: TStringField
+      FieldName = 'ALURESPEND'
+      Size = 100
+    end
+    object CDSAlunoALURESPBAIRRO: TStringField
+      FieldName = 'ALURESPBAIRRO'
+      Size = 50
+    end
+    object CDSAlunoALURESPFONE: TStringField
+      FieldName = 'ALURESPFONE'
+      EditMask = '(99)9999-9999;1;_'
+    end
+    object CDSAlunoALURESPCEP: TStringField
+      FieldName = 'ALURESPCEP'
+      EditMask = '99999-999;1;_'
+      Size = 50
+    end
+    object CDSAlunoALURESPCID: TIntegerField
+      FieldName = 'ALURESPCID'
+    end
+    object CDSAlunoRESPCID: TStringField
+      FieldName = 'RESPCID'
+      ProviderFlags = []
+      Size = 100
+    end
   end
   object DSPAluno: TDataSetProvider
     DataSet = QAluno
-    Options = [poAllowCommandText, poUseQuoteChar]
+    Options = [poCascadeDeletes, poAllowCommandText, poUseQuoteChar]
     UpdateMode = upWhereKeyOnly
     BeforeUpdateRecord = DSPAlunoBeforeUpdateRecord
     Left = 487
@@ -3961,10 +3999,12 @@ object DM: TDM
     SQL.Strings = (
       
         'SELECT TALUNO.*, CID.CIDNOME AS CIDADE, CID.CIDUF AS UF, NAT.CID' +
-        'NOME AS NATURALIDADE, CURNOME, CURTURMA, PRONOME, NETNOME'
+        'NOME AS NATURALIDADE, RES.CIDNOME AS RESPCID, CURNOME, CURTURMA,' +
+        ' PRONOME, NETNOME'
       'FROM TALUNO'
       'LEFT OUTER JOIN TCIDADE CID ON CID.CIDCOD = ALUCIDADE'
       'LEFT OUTER JOIN TCIDADE NAT ON NAT.CIDCOD = ALUNATURALIDADE'
+      'LEFT OUTER JOIN TCIDADE RES ON RES.CIDCOD = ALURESPCID'
       'LEFT OUTER JOIN TCURSO ON CURCOD = ALUCURSO'
       'LEFT OUTER JOIN TPROFESSOR ON PROCOD = ALUORIENTADOR'
       'LEFT OUTER JOIN TNETWORKING ON NETCOD = ALURESPPGTO'
@@ -4228,6 +4268,40 @@ object DM: TDM
     end
     object QAlunoALUDESCONTO: TSingleField
       FieldName = 'ALUDESCONTO'
+    end
+    object QAlunoALURESPRG: TStringField
+      FieldName = 'ALURESPRG'
+      Size = 30
+    end
+    object QAlunoALURESPNOMEMAE: TStringField
+      FieldName = 'ALURESPNOMEMAE'
+      Size = 50
+    end
+    object QAlunoALURESPNASC: TDateField
+      FieldName = 'ALURESPNASC'
+    end
+    object QAlunoALURESPEND: TStringField
+      FieldName = 'ALURESPEND'
+      Size = 100
+    end
+    object QAlunoALURESPBAIRRO: TStringField
+      FieldName = 'ALURESPBAIRRO'
+      Size = 50
+    end
+    object QAlunoALURESPFONE: TStringField
+      FieldName = 'ALURESPFONE'
+    end
+    object QAlunoALURESPCEP: TStringField
+      FieldName = 'ALURESPCEP'
+      Size = 50
+    end
+    object QAlunoALURESPCID: TIntegerField
+      FieldName = 'ALURESPCID'
+    end
+    object QAlunoRESPCID: TStringField
+      FieldName = 'RESPCID'
+      ProviderFlags = []
+      Size = 100
     end
   end
   object DSAluno: TDataSource
@@ -4775,10 +4849,15 @@ object DM: TDM
       DisplayFormat = '0.00'
       Calculated = True
     end
+    object CDSCursoCURHORARIOFIM: TStringField
+      FieldName = 'CURHORARIOFIM'
+      EditMask = '99:99'
+      Size = 5
+    end
   end
   object DSPCurso: TDataSetProvider
     DataSet = QCurso
-    Options = [poAllowCommandText, poUseQuoteChar]
+    Options = [poCascadeDeletes, poAllowCommandText, poUseQuoteChar]
     UpdateMode = upWhereKeyOnly
     BeforeUpdateRecord = DSPCursoBeforeUpdateRecord
     Left = 487
@@ -4791,7 +4870,9 @@ object DM: TDM
       
         'SELECT CURCOD,CURNOME,CURTURMA,CURCARGA,CURVALOR,CURPERCDESCONTO' +
         ','
-      'CURDESCONTO,CURVENCIMENTO,CURTCC,CURINICIO,CURFIM, CURLIQUIDO,'
+      
+        'CURDESCONTO,CURVENCIMENTO,CURTCC,CURINICIO,CURFIM, CURLIQUIDO,CU' +
+        'RHORARIOFIM,'
       
         'CURCOORDENADOR, CURSISTEMAAVALIACAO, CURCRITERIOSAVALIACAO, CURS' +
         'ECRETARIO, CURPLANONEGOCIOS,'
@@ -4913,6 +4994,10 @@ object DM: TDM
       FieldName = 'GRUNOME'
       ProviderFlags = []
       Size = 100
+    end
+    object QCursoCURHORARIOFIM: TStringField
+      FieldName = 'CURHORARIOFIM'
+      Size = 5
     end
   end
   object CDSCursoDisciplina: TClientDataSet
@@ -6088,19 +6173,10 @@ object DM: TDM
       Size = 50
       Lookup = True
     end
-    object CDSAlunoLanccurso: TStringField
-      FieldKind = fkLookup
-      FieldName = 'curso'
-      LookupKeyFields = 'ALUCOD'
-      LookupResultField = 'CURNOME'
-      KeyFields = 'ALUDISALUNO'
-      ProviderFlags = []
-      Size = 50
-      Lookup = True
-    end
     object CDSAlunoLancaluno: TStringField
       FieldKind = fkLookup
       FieldName = 'aluno'
+      LookupDataSet = CDSAluno
       LookupKeyFields = 'ALUCOD'
       LookupResultField = 'ALUNOME'
       KeyFields = 'ALUDISALUNO'
@@ -7972,26 +8048,32 @@ object DM: TDM
     end
     object CDSAlunoLkpCIDNOME: TStringField
       FieldName = 'CIDNOME'
+      ProviderFlags = []
       Size = 100
     end
     object CDSAlunoLkpCIDUF: TStringField
       FieldName = 'CIDUF'
+      ProviderFlags = []
       Size = 5
     end
     object CDSAlunoLkpCURNOME: TStringField
       FieldName = 'CURNOME'
+      ProviderFlags = []
       Size = 50
     end
     object CDSAlunoLkpCURTURMA: TStringField
       FieldName = 'CURTURMA'
+      ProviderFlags = []
       Size = 10
     end
     object CDSAlunoLkpNATUCIDADE: TStringField
       FieldName = 'NATUCIDADE'
+      ProviderFlags = []
       Size = 100
     end
     object CDSAlunoLkpNATUUF: TStringField
       FieldName = 'NATUUF'
+      ProviderFlags = []
       Size = 5
     end
     object CDSAlunoLkpALUDESCONTO: TSingleField
@@ -8219,26 +8301,32 @@ object DM: TDM
     end
     object QAlunoLkpCIDNOME: TStringField
       FieldName = 'CIDNOME'
+      ProviderFlags = []
       Size = 100
     end
     object QAlunoLkpCIDUF: TStringField
       FieldName = 'CIDUF'
+      ProviderFlags = []
       Size = 5
     end
     object QAlunoLkpCURNOME: TStringField
       FieldName = 'CURNOME'
+      ProviderFlags = []
       Size = 50
     end
     object QAlunoLkpCURTURMA: TStringField
       FieldName = 'CURTURMA'
+      ProviderFlags = []
       Size = 10
     end
     object QAlunoLkpNATUCIDADE: TStringField
       FieldName = 'NATUCIDADE'
+      ProviderFlags = []
       Size = 100
     end
     object QAlunoLkpNATUUF: TStringField
       FieldName = 'NATUUF'
+      ProviderFlags = []
       Size = 5
     end
   end
@@ -9897,7 +9985,7 @@ object DM: TDM
     Left = 729
     Top = 11
     Bitmap = {
-      494C01010D00E400E40040004000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010D00F800F80040004000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000000100000001000001002000000000000000
       0400000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

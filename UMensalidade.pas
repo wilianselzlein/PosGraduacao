@@ -229,7 +229,6 @@ type
     procedure btndisciplinaClick(Sender: TObject);
     procedure btnApagarClick(Sender: TObject);
     procedure btnapagarpgtoClick(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure txtcodalunoExit(Sender: TObject);
     procedure txtcodformaExit(Sender: TObject);
     procedure txtcodprofessorExit(Sender: TObject);
@@ -542,6 +541,7 @@ begin
      lblreneg.visible := txtreneg.visible;
      txtvalorpro.visible := txtreneg.visible;
      lblvalorpro.visible := txtreneg.visible;
+    carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFMensalidade.txtcodKeyDown(Sender: TObject; var Key: Word;
@@ -1534,11 +1534,6 @@ end;
 procedure TFMensalidade.btnapagarpgtoClick(Sender: TObject);
 begin
      DM.CDSMensalidadeMENDATAPAGAMENTO.clear;
-end;
-
-procedure TFMensalidade.FormActivate(Sender: TObject);
-begin
-    carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 end.

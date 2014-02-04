@@ -491,7 +491,6 @@ type
           CDSAlunoLancALUDISFREQUENCIA: TFloatField;
           CDSAlunoLancALUDISNOTA: TFloatField;
           CDSAlunoLancaluno: TStringField;
-          CDSAlunoLanccurso: TStringField;
           CDSChave: TClientDataSet;
           DSPChave: TDataSetProvider;
           CDSChaveCAMPO: TStringField;
@@ -1669,6 +1668,26 @@ type
     CDSDbGridGRIDVISIVEL: TStringField;
     ImageListMenu: TImageList;
     BalloonHint1: TBalloonHint;
+    QCursoCURHORARIOFIM: TStringField;
+    CDSCursoCURHORARIOFIM: TStringField;
+    QAlunoALURESPRG: TStringField;
+    QAlunoALURESPNOMEMAE: TStringField;
+    QAlunoALURESPNASC: TDateField;
+    CDSAlunoALURESPRG: TStringField;
+    CDSAlunoALURESPNOMEMAE: TStringField;
+    CDSAlunoALURESPNASC: TDateField;
+    QAlunoALURESPEND: TStringField;
+    QAlunoALURESPBAIRRO: TStringField;
+    QAlunoALURESPFONE: TStringField;
+    QAlunoALURESPCEP: TStringField;
+    QAlunoALURESPCID: TIntegerField;
+    CDSAlunoALURESPEND: TStringField;
+    CDSAlunoALURESPBAIRRO: TStringField;
+    CDSAlunoALURESPFONE: TStringField;
+    CDSAlunoALURESPCEP: TStringField;
+    CDSAlunoALURESPCID: TIntegerField;
+    QAlunoRESPCID: TStringField;
+    CDSAlunoRESPCID: TStringField;
           procedure CDSParamEmpAfterInsert(DataSet: TDataSet);
           procedure CDSProgramaAfterInsert(DataSet: TDataSet);
           procedure CDSCidadeAfterInsert(DataSet: TDataSet);
@@ -1753,28 +1772,28 @@ uses UMenu, SendMailOptions, UFuncoes, UReconcileError, UAviso;
 
 {$R *.dfm}
 
-procedure TDM.CDSParamEmpAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSParamEmpAfterInsert(DataSet: TDataSet);
 begin
      cdsparamempempcod.asinteger := max('EMPCOD', 'TPARAMEMP');
 end;
 
-procedure TDM.CDSProgramaAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSProgramaAfterInsert(DataSet: TDataSet);
 begin
      cdsprogramaprocod.asinteger := MAX('PROCOD', 'TPROGRAMA');
 end;
 
-procedure TDM.CDSCidadeAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSCidadeAfterInsert(DataSet: TDataSet);
 begin
      cdscidadecidcod.asinteger := MAX('CIDCOD', 'TCIDADE');
 end;
 
-procedure TDM.CDSCidadeReconcileError(DataSet: TCustomClientDataSet;
+procedure TDm.CDSCidadeReconcileError(DataSet: TCustomClientDataSet;
   E: EReconcileError; UpdateKind: TUpdateKind; var Action: TReconcileAction);
 begin
      Action := HandleReconcileError(DataSet, UpdateKind, E);
 end;
 
-procedure TDM.CDSAlunoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSAlunoAfterInsert(DataSet: TDataSet);
 begin
      CDSAlunoALUCOD.asinteger := MAX('ALUCOD', 'TALUNO');
      CDSAlunoALUNACIONALIDADE.asstring := 'Brasileira';
@@ -1783,103 +1802,103 @@ begin
      CDSAlunoALUCRACHA.asstring := 'N';
 end;
 
-procedure TDM.CDSProfessorAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSProfessorAfterInsert(DataSet: TDataSet);
 begin
      CDSProfessorPROCOD.asinteger := MAX('PROCOD', 'TPROFESSOR');
 end;
 
-procedure TDM.CDSCursoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSCursoAfterInsert(DataSet: TDataSet);
 begin
      CDSCursoCURCOD.asinteger := MAX('CURCOD', 'TCURSO');
 end;
 
-procedure TDM.CDSBancoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSBancoAfterInsert(DataSet: TDataSet);
 begin
      CDSBancoBANCOD.asinteger := MAX('BANCOD', 'TBANCO');
 end;
 
-procedure TDM.CDSDisciplinaAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSDisciplinaAfterInsert(DataSet: TDataSet);
 begin
      CDSDisciplinaDISCOD.asinteger := MAX('DISCOD', 'TDISCIPLINA');
 end;
 
-procedure TDM.CDSGrupoProAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSGrupoProAfterInsert(DataSet: TDataSet);
 begin
      CDSGrupoProGRUPROCOD.asinteger := MAX('GRUPROCOD', 'TGRUPOPRO');
 end;
 
-procedure TDM.CDSHistPadraoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSHistPadraoAfterInsert(DataSet: TDataSet);
 begin
      CDSHistPadraoHISCOD.asinteger := MAX('HISCOD', 'THISTPADRAO');
 end;
 
-procedure TDM.CDSPlanoNegociosAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSPlanoNegociosAfterInsert(DataSet: TDataSet);
 begin
      CDSPlanoNegociosPLANEGCOD.asinteger := MAX('PLANEGCOD', 'TPLANONEGOCIOS');
 end;
 
-procedure TDM.CDSLctoContabilAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSLctoContabilAfterInsert(DataSet: TDataSet);
 begin
      CDSLctoContabilLCTNUMERO.asinteger := MAX('LCTNUMERO', 'TLCTOCONTABIL');
 end;
 
-procedure TDM.CDSCursoCalcFields(DataSet: TDataSet);
+procedure TDm.CDSCursoCalcFields(DataSet: TDataSet);
 begin
      CDSCursoliquido.asfloat := CDSCursoCURVALOR.asfloat - CDSCursoCURDESCONTO.asfloat;
 end;
 
-procedure TDM.CDSMensalidadeCalcFields(DataSet: TDataSet);
+procedure TDm.CDSMensalidadeCalcFields(DataSet: TDataSet);
 begin
      CDSMensalidadeliquido.asfloat := CDSMensalidadeMENVALOR.asfloat + CDSMensalidadeMENACRESCIMO.asfloat - CDSMensalidadeMENDESCONTO.asfloat - CDSMensalidadeMENBOLSA.asfloat;
 end;
 
-procedure TDM.CDSAlunoLancAfterPost(DataSet: TDataSet);
+procedure TDm.CDSAlunoLancAfterPost(DataSet: TDataSet);
 begin
      dm.CDSAlunoLanc.ApplyUpdates(0);
 end;
 
-procedure TDM.CDSFormaPgtoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSFormaPgtoAfterInsert(DataSet: TDataSet);
 begin
      CDSFormaPgtoFORCOD.asinteger := MAX('FORCOD', 'TFORMAPGTO');
 end;
 
-procedure TDM.CDSAlunoDisciplinaDataAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSAlunoDisciplinaDataAfterInsert(DataSet: TDataSet);
 begin
      dm.CDSAlunoDisciplinaDataALUDISDATAALUNO.asinteger := dm.CDSAlunoDisciplinaALUDISALUNO.asinteger;
      dm.CDSAlunoDisciplinaDataALUDISDATADISCIPLINA.asinteger := dm.CDSAlunoDisciplinaALUDISDISCIPLINA.asinteger;
      dm.CDSAlunoDisciplinaDataALUDISDATAPROFESSOR.asinteger := dm.CDSAlunoDisciplinaALUDISPROFESSOR.asinteger;
 end;
 
-procedure TDM.CDSCursoDisciplinaDataAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSCursoDisciplinaDataAfterInsert(DataSet: TDataSet);
 begin
      dm.CDSCursoDisciplinaDataCurDISDATACurso.asinteger := dm.CDSCursoDisciplinaCurDISCurso.asinteger;
      dm.CDSCursoDisciplinaDataCurDISDATADISCIPLINA.asinteger := dm.CDSCursoDisciplinaCurDISDISCIPLINA.asinteger;
      dm.CDSCursoDisciplinaDataCurDISDATAPROFESSOR.asinteger := dm.CDSCursoDisciplinaCurDISPROFESSOR.asinteger;
 end;
 
-procedure TDM.CDSMensalidadeBeforePost(DataSet: TDataSet);
+procedure TDm.CDSMensalidadeBeforePost(DataSet: TDataSet);
 begin
      dm.CDSMensalidadeMENLIQUIDO.asfloat := dm.CDSMensalidadeliquido.asfloat;
 end;
 
-procedure TDM.CDSDreAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSDreAfterInsert(DataSet: TDataSet);
 begin
      CDSDreDRECOD.asinteger := MAX('DRECOD', 'TDRE');
 end;
 
-procedure TDM.CDSMensalidadeAfterPost(DataSet: TDataSet);
+procedure TDm.CDSMensalidadeAfterPost(DataSet: TDataSet);
 begin
      {if dm.CDSMensalidadeMENDATAPAGAMENTO.asdatetime < strtodate('01/01/2000') then
           showmessage('Atenção: Data menor que 01/01/2000, por favor verifique a data de pagamento!');}
 end;
 
-procedure TDM.CDSLctoContabilAfterPost(DataSet: TDataSet);
+procedure TDm.CDSLctoContabilAfterPost(DataSet: TDataSet);
 begin
      if dm.CDSLctoContabilLCTDATA.asdatetime < strtodate('01/01/2000') then
           showmessage('Atenção: Data menor que 01/01/2000, por favor verifique a data de pagamento da mensalidade ou a data do lançamento! Número: ' + dm.CDSLctoContabilLCTNUMERO.asstring);
 end;
 
-procedure TDM.CDSAlunoLancBeforePost(DataSet: TDataSet);
+procedure TDm.CDSAlunoLancBeforePost(DataSet: TDataSet);
 begin
      if valor_parametro(21) = '1' then
      begin
@@ -1898,7 +1917,7 @@ begin
           CDSAlunoLancALUDISDATA.AsDateTime := Date;
 end;
 
-procedure TDM.CDSAlunoDisciplinaBeforePost(DataSet: TDataSet);
+procedure TDm.CDSAlunoDisciplinaBeforePost(DataSet: TDataSet);
 begin
     if valor_parametro(21) = '1' then
     begin
@@ -1915,22 +1934,22 @@ begin
     end;
 end;
 
-procedure TDM.CDSNetworkingAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSNetworkingAfterInsert(DataSet: TDataSet);
 begin
      CDSNetworkingNETCOD.asinteger := MAX('NETCOD', 'TNETWORKING');
 end;
 
-procedure TDM.CDSOrcamentoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSOrcamentoAfterInsert(DataSet: TDataSet);
 begin
      CDSOrcamentoOrcNUMERO.asinteger := MAX('ORCNUMERO', 'TORCAMENTO');
 end;
 
-procedure TDM.CDSServicosFinAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSServicosFinAfterInsert(DataSet: TDataSet);
 begin
      CDSServicosFinFINCOD.asinteger := MAX('FINCOD', 'TSERVICOSFIN');
 end;
 
-procedure TDM.DataModuleCreate(Sender: TObject);
+procedure TDm.DataModuleCreate(Sender: TObject);
 var
     arq: TextFile;
     linha: string;
@@ -1959,7 +1978,7 @@ begin
           closefile(arq);
      end;
 
-     Carregando(True);
+     //Carregando(True);
      try
           SQLConnection.connected := true;
           Carregando(False);
@@ -1983,7 +2002,7 @@ begin
      ThreadExecSql(dm.cdsusuario);
 end;
 
-procedure TDM.DSPAlunoBeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet;
+procedure TDm.DSPAlunoBeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet;
   DeltaDS: TCustomClientDataSet; UpdateKind: TUpdateKind; var Applied: Boolean);
 begin
     if SourceDS = QAluno then
@@ -1998,7 +2017,7 @@ begin
     end;
 end;
 
-procedure TDM.DSPCursoBeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet;
+procedure TDm.DSPCursoBeforeUpdateRecord(Sender: TObject; SourceDS: TDataSet;
   DeltaDS: TCustomClientDataSet; UpdateKind: TUpdateKind; var Applied: Boolean);
 begin
     if SourceDS = QCurso then
@@ -2009,7 +2028,7 @@ begin
     end;
 end;
 
-procedure TDM.DSPProfessorBeforeUpdateRecord(Sender: TObject;
+procedure TDm.DSPProfessorBeforeUpdateRecord(Sender: TObject;
   SourceDS: TDataSet; DeltaDS: TCustomClientDataSet; UpdateKind: TUpdateKind;
   var Applied: Boolean);
 begin
@@ -2020,60 +2039,60 @@ begin
     end;
 end;
 
-procedure TDM.CDSIdentificadorAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSIdentificadorAfterInsert(DataSet: TDataSet);
 begin
      CDSIdentificadorIDECOD.asinteger := MAX('IDECOD', 'TIDENTIFICADOR');
 end;
 
-procedure TDM.CDSAutorAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSAutorAfterInsert(DataSet: TDataSet);
 begin
      CDSAutorAutCOD.asinteger := MAX('AUTCOD', 'TAUTOR');
 end;
 
-procedure TDM.CDSEditoraAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSEditoraAfterInsert(DataSet: TDataSet);
 begin
      CDSEditoraEdiCOD.asinteger := MAX('EDICOD', 'TEDITORA');
 end;
 
-procedure TDM.CDSAssuntoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSAssuntoAfterInsert(DataSet: TDataSet);
 begin
      CDSAssuntoAssCOD.asinteger := MAX('ASSCOD', 'TASSUNTO');
 end;
 
-procedure TDM.CDSTipoMaterialAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSTipoMaterialAfterInsert(DataSet: TDataSet);
 begin
       CDSTipoMaterialTIPMATCOD.asinteger := MAX('TIPMATCOD', 'TTIPOMATERIAL');
 end;
 
-procedure TDM.CDSAlunoFotoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSAlunoFotoAfterInsert(DataSet: TDataSet);
 begin
      CDSAlunoFotoALUCOD.asinteger := CDSAlunoALUCOD.asinteger;
 end;
 
-procedure TDM.CDSMaterialAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSMaterialAfterInsert(DataSet: TDataSet);
 begin
      CDSMaterialMATCOD.asinteger := MAX('MATCOD', 'TMATERIAL');
      CDSMaterialMATSITUACAO.asString := 'Normal';
 end;
 
-procedure TDM.CDSTransitoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSTransitoAfterInsert(DataSet: TDataSet);
 begin
      CDSTransitoTRACOD.asinteger := MAX('TRACOD', 'TTRANSITO');
 end;
 
-procedure TDM.CDSContaPagarAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSContaPagarAfterInsert(DataSet: TDataSet);
 begin
      CDSContaPagarCTPCOD.asinteger := MAX('CTPCOD', 'TCONTAPAGAR');
 end;
 
-procedure TDM.CDSAvisoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSAvisoAfterInsert(DataSet: TDataSet);
 begin
      CDSAvisoAVICOD.asinteger := MAX('AVICOD', 'TAVISO');
      CDSAvisoAVIDATA.AsDateTime := date;
      CDSAvisoAVITIPO.Asstring := 'A';     
 end;
 
-procedure TDM.CDSCursoDisciplinaDataBeforePost(DataSet: TDataSet);
+procedure TDm.CDSCursoDisciplinaDataBeforePost(DataSet: TDataSet);
 begin
      if trim(CDSCursoDisciplinaDataCURDISDATADATA.asString) = '' then
      begin
@@ -2082,7 +2101,7 @@ begin
      end;
 end;
 
-procedure TDM.CDSAvisoAfterScroll(DataSet: TDataSet);
+procedure TDm.CDSAvisoAfterScroll(DataSet: TDataSet);
 begin
      CDSAvisoCurso.Close;
      QAvisoCurso.Params.ParamByName('AVICURAVISO').AsInteger := CDSAvisoAviCod.AsInteger; 
@@ -2105,27 +2124,27 @@ begin
      end;
 end;
 
-procedure TDM.CDSAvisoCursoNewRecord(DataSet: TDataSet);
+procedure TDm.CDSAvisoCursoNewRecord(DataSet: TDataSet);
 begin
      CDSAvisoCursoAVICURAVISO.AsInteger := CDSAvisoAVICOD.AsInteger;
 end;
 
-procedure TDM.CDSGrupoCursoAfterInsert(DataSet: TDataSet);
+procedure TDm.CDSGrupoCursoAfterInsert(DataSet: TDataSet);
 begin
      CDSGrupoCursoGruCod.asinteger := MAX('GRUCOD', 'TGRUPOCURSO');
 end;
 
-procedure TDM.RLPreviewSetup1Send(Sender: TObject);
+procedure TDm.RLPreviewSetup1Send(Sender: TObject);
 begin
   TFormSendMailOptions.CreateShowAndFree(TRLPreviewForm(Sender).Preview.Pages);
 end;
 
-procedure TDM.MITamanhoColunasClick(Sender: TObject);
+procedure TDm.MITamanhoColunasClick(Sender: TObject);
 begin
     AutoFitColunasGrid(gDBGrid);
 end;
 
-procedure TDM.MIGravarConfiguracaoClick(Sender: TObject);
+procedure TDm.MIGravarConfiguracaoClick(Sender: TObject);
 begin
     try
         gDBGrid.Columns.SaveToFile(ExtractFilePath(application.ExeName) + '\' + getForm(gDbGrid).Name);
@@ -2135,7 +2154,7 @@ begin
     end;
 end;
 
-procedure TDM.MICarregarConfiguracaoClick(Sender: TObject);
+procedure TDm.MICarregarConfiguracaoClick(Sender: TObject);
 begin
     try
         if not directoryExists(ExtractFilePath(application.ExeName)) then
@@ -2149,7 +2168,7 @@ begin
     end;
 end;
 
-procedure TDM.ConfigurarFonte1Click(Sender: TObject);
+procedure TDm.ConfigurarFonte1Click(Sender: TObject);
 var i : byte;
 begin
     Dm.FontDialog.Font := gDBGrid.Columns[0].Font;
@@ -2158,7 +2177,7 @@ begin
             gDBGrid.Columns[i].Font := Dm.FontDialog.Font;
 end;
 
-procedure TDM.CDSAlunoDisciplinaALUDISNOTA1Change(Sender: TField);
+procedure TDm.CDSAlunoDisciplinaALUDISNOTA1Change(Sender: TField);
 begin
     if CDSAlunoDisciplina.State in [dsEdit, dsInsert] then
     begin
@@ -2171,7 +2190,7 @@ begin
     end;
 end;
 
-procedure TDM.CDSAlunoLancALUDISNOTA1Change(Sender: TField);
+procedure TDm.CDSAlunoLancALUDISNOTA1Change(Sender: TField);
 begin
     if CDSAlunoLanc.State in [dsEdit, dsInsert] then
     begin
@@ -2184,19 +2203,19 @@ begin
     end;
 end;
 
-procedure TDM.CDSAlunoDisciplinaAfterEdit(DataSet: TDataSet);
+procedure TDm.CDSAlunoDisciplinaAfterEdit(DataSet: TDataSet);
 begin
     if dm.CDSAlunoDisciplinaALUDISDATA.asDateTime < StrToDate('01/01/2000') then
         dm.CDSAlunoDisciplinaALUDISDATA.asDateTime := date;
 end;
 
-procedure TDM.CDSAlunoLancAfterEdit(DataSet: TDataSet);
+procedure TDm.CDSAlunoLancAfterEdit(DataSet: TDataSet);
 begin
     if dm.CDSAlunoLancALUDISDATA.asDateTime < StrToDate('01/01/2000') then
         dm.CDSAlunoLancALUDISDATA.asDateTime := date;
 end;
 
-procedure TDM.CDSLctoContabilReconcileError(DataSet: TCustomClientDataSet;
+procedure TDm.CDSLctoContabilReconcileError(DataSet: TCustomClientDataSet;
   E: EReconcileError; UpdateKind: TUpdateKind;
   var Action: TReconcileAction);
 begin

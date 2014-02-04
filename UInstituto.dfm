@@ -14,7 +14,6 @@ object FInstituto: TFInstituto
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -45,7 +44,7 @@ object FInstituto: TFInstituto
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -251,22 +250,18 @@ object FInstituto: TFInstituto
     Top = 67
     Width = 712
     Height = 468
-    ActivePage = TabCadastro
+    ActivePage = TabConsulta
     Align = alClient
     MultiLine = True
     TabOrder = 1
     TabStop = False
     object TabConsulta: TTabSheet
       Caption = 'Consulta'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DBGrid: TDBGrid
         Left = 0
         Top = 0
-        Width = 696
-        Height = 429
+        Width = 704
+        Height = 440
         Align = alClient
         DataSource = DataSource
         Font.Charset = ANSI_CHARSET
@@ -304,6 +299,10 @@ object FInstituto: TFInstituto
       Font.Style = []
       ImageIndex = 1
       ParentFont = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label21: TLabel
         Left = 8
         Top = 189
@@ -674,7 +673,7 @@ object FInstituto: TFInstituto
         Top = 7
         Width = 382
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -693,7 +692,7 @@ object FInstituto: TFInstituto
         Top = 66
         Width = 493
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -711,7 +710,7 @@ object FInstituto: TFInstituto
         Top = 86
         Width = 320
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -729,7 +728,7 @@ object FInstituto: TFInstituto
         Top = 126
         Width = 127
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -747,7 +746,7 @@ object FInstituto: TFInstituto
         Top = 106
         Width = 320
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -765,7 +764,7 @@ object FInstituto: TFInstituto
         Top = 126
         Width = 111
         DataField = 'INSFAX'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -783,7 +782,7 @@ object FInstituto: TFInstituto
         Top = 167
         Width = 302
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -801,7 +800,7 @@ object FInstituto: TFInstituto
         Top = 147
         Width = 302
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -819,7 +818,7 @@ object FInstituto: TFInstituto
         Top = 27
         Width = 127
         DataField = 'INSCNPJ'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -837,7 +836,7 @@ object FInstituto: TFInstituto
         Top = 27
         Width = 110
         DataField = 'INSIE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -855,7 +854,7 @@ object FInstituto: TFInstituto
         Top = 27
         Width = 110
         DataField = 'INSIM'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -873,7 +872,7 @@ object FInstituto: TFInstituto
         Top = 46
         Width = 493
         DataField = 'INSRAZAO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -891,7 +890,7 @@ object FInstituto: TFInstituto
         Top = 86
         Width = 111
         DataField = 'INSNUMERO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -909,7 +908,7 @@ object FInstituto: TFInstituto
         Top = 106
         Width = 111
         DataField = 'INSUF'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -928,7 +927,7 @@ object FInstituto: TFInstituto
         Width = 127
         height = 18
         DataField = 'INSCEP'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -12
@@ -975,7 +974,7 @@ object FInstituto: TFInstituto
         ButtonHeight = 30
         ButtonWidth = 95
         Caption = 'ToolBar1'
-        Images = DM.ImageList
+        Images = Dm.ImageList
         List = True
         ShowCaptions = True
         TabOrder = 21
@@ -996,6 +995,7 @@ object FInstituto: TFInstituto
         Align = alBottom
         BevelOuter = bvLowered
         TabOrder = 22
+        ExplicitTop = 286
       end
     end
   end
@@ -1110,7 +1110,7 @@ object FInstituto: TFInstituto
         Height = 63
         Align = faLeft
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText2: TRLDBRichText
         Left = 181
@@ -1121,7 +1121,7 @@ object FInstituto: TFInstituto
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCABINF'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1148,7 +1148,7 @@ object FInstituto: TFInstituto
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -1159,7 +1159,7 @@ object FInstituto: TFInstituto
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1210,7 +1210,7 @@ object FInstituto: TFInstituto
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSInstituto
+    DataSet = Dm.CDSInstituto
     Left = 8
     Top = 8
   end

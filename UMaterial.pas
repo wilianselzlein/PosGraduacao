@@ -178,7 +178,6 @@ type
           procedure btnsalvarautorClick(Sender: TObject);
           procedure btnassuntosClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure BtnEditoraClick(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
@@ -380,6 +379,7 @@ begin
      navegar(sender as tform);
      pagecontrol.activepageindex := 0;
      btndesconectar.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFMaterial.txtcodKeyDown(Sender: TObject; var Key: Word;
@@ -657,11 +657,6 @@ procedure TFMaterial.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFMaterial.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFMaterial.FormCreate(Sender: TObject);

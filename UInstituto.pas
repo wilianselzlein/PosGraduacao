@@ -129,7 +129,6 @@ type
           procedure btnexcelClick(Sender: TObject);
           procedure BtnImprimirClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
     procedure btncabecalhoClick(Sender: TObject);
@@ -313,6 +312,15 @@ begin
      navegar(sender as tform);
      pagecontrol.activepageindex := 0;
      BtnFiltro.click;
+
+     FCabecalho := TFCabecalho.Create(Self);
+     FCabecalho.FormStyle := fsNormal;
+     FCabecalho.DockSite := True;
+     FCabecalho.Align := alClient;
+     FCabecalho.Dock(PanCab, Rect( 0, 0, 0, 0 ) );
+     FCabecalho.Show;
+     btnAlterar.Click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFInstituto.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -469,18 +477,6 @@ procedure TFInstituto.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFInstituto.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
-
-     FCabecalho := TFCabecalho.Create(Self);
-     FCabecalho.FormStyle := fsNormal;
-     FCabecalho.DockSite := True;
-     FCabecalho.Align := alClient;
-     FCabecalho.Dock(PanCab, Rect( 0, 0, 0, 0 ) );
-     FCabecalho.Show;
 end;
 
 procedure TFInstituto.FormCreate(Sender: TObject);

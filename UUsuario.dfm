@@ -14,7 +14,6 @@ object FUsuario: TFUsuario
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -45,7 +44,7 @@ object FUsuario: TFUsuario
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -251,7 +250,7 @@ object FUsuario: TFUsuario
     Top = 67
     Width = 633
     Height = 415
-    ActivePage = TabCadastro
+    ActivePage = TabConsulta
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -263,10 +262,6 @@ object FUsuario: TFUsuario
     TabStop = False
     object TabConsulta: TTabSheet
       Caption = 'Consulta'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 619
-      ExplicitHeight = 377
       object DBGrid: TDBGrid
         Left = 0
         Top = 0
@@ -312,7 +307,7 @@ object FUsuario: TFUsuario
         Width = 625
         Height = 185
         Align = alBottom
-        DataSource = DM.DSItemUsuario
+        DataSource = Dm.DSItemUsuario
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlue
         Font.Height = -9
@@ -332,7 +327,8 @@ object FUsuario: TFUsuario
         Columns = <
           item
             Expanded = False
-            FieldName = 'Programa'
+            FieldName = 'PRONOME'
+            Title.Caption = 'Programa'
             Width = 370
             Visible = True
           end
@@ -485,10 +481,6 @@ object FUsuario: TFUsuario
         object TabSheet2: TTabSheet
           Caption = 'Dados'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 611
-          ExplicitHeight = 300
           object Label6: TLabel
             Left = 5
             Top = 168
@@ -529,7 +521,7 @@ object FUsuario: TFUsuario
             ParentFont = False
           end
           object Label11: TLabel
-            Left = 214
+            Left = 211
             Top = 119
             Width = 39
             Height = 15
@@ -555,7 +547,7 @@ object FUsuario: TFUsuario
             ParentFont = False
           end
           object Label10: TLabel
-            Left = 212
+            Left = 209
             Top = 169
             Width = 51
             Height = 15
@@ -582,7 +574,7 @@ object FUsuario: TFUsuario
           end
           object btncidade: TSpeedButton
             Tag = 99
-            Left = 282
+            Left = 286
             Top = 116
             Width = 24
             Height = 23
@@ -644,7 +636,7 @@ object FUsuario: TFUsuario
             OnClick = btncidadeClick
           end
           object Label18: TLabel
-            Left = 214
+            Left = 211
             Top = 52
             Width = 81
             Height = 15
@@ -683,7 +675,7 @@ object FUsuario: TFUsuario
             ParentFont = False
           end
           object Label14: TLabel
-            Left = 213
+            Left = 210
             Top = 28
             Width = 72
             Height = 15
@@ -697,7 +689,7 @@ object FUsuario: TFUsuario
           end
           object btnnaturalidade: TSpeedButton
             Tag = 99
-            Left = 282
+            Left = 286
             Top = 25
             Width = 24
             Height = 23
@@ -798,7 +790,7 @@ object FUsuario: TFUsuario
             ParentFont = False
           end
           object Label20: TLabel
-            Left = 213
+            Left = 210
             Top = 144
             Width = 65
             Height = 15
@@ -824,7 +816,7 @@ object FUsuario: TFUsuario
             ParentFont = False
           end
           object Label26: TLabel
-            Left = 212
+            Left = 209
             Top = 73
             Width = 62
             Height = 15
@@ -1088,8 +1080,8 @@ object FUsuario: TFUsuario
             ColorOnNotFocus = clGray
           end
           object txtcodnaturalidade: TWSDBEdit
-            Left = 311
-            Top = 27
+            Left = 312
+            Top = 28
             Width = 68
             DataField = 'USUNATURALIDADE'
             DataSource = DataSource
@@ -1289,69 +1281,6 @@ object FUsuario: TFUsuario
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object btnProfessor: TSpeedButton
-            Tag = 99
-            Left = 79
-            Top = 32
-            Width = 24
-            Height = 23
-            Hint = 'Abrir Cadastro'
-            Flat = True
-            Glyph.Data = {
-              42060000424D360A000000000000360800002800000010000000100000000100
-              1000030000000002000000000000000000000001000000000000007C0000E003
-              00001F0000000000000000008000008000000080800080000000800080008080
-              0000C0C0C000C0DCC000F0CAA600330000000000330033003300333300001616
-              16001C1C1C002222220029292900555555004D4D4D004242420039393900807C
-              FF005050FF009300D600FFECCC00C6D6EF00D6E7E70090A9AD0000FF33000000
-              6600000099000000CC00003300000033330000336600003399000033CC000033
-              FF00006600000066330000666600006699000066CC000066FF00009900000099
-              330000996600009999000099CC000099FF0000CC000000CC330000CC660000CC
-              990000CCCC0000CCFF0000FF660000FF990000FFCC0033FF0000FF0033003300
-              6600330099003300CC003300FF00FF3300003333330033336600333399003333
-              CC003333FF00336600003366330033666600336699003366CC003366FF003399
-              00003399330033996600339999003399CC003399FF0033CC000033CC330033CC
-              660033CC990033CCCC0033CCFF0033FF330033FF660033FF990033FFCC0033FF
-              FF00660000006600330066006600660099006600CC006600FF00663300006633
-              330066336600663399006633CC006633FF006666000066663300666666006666
-              99006666CC00669900006699330066996600669999006699CC006699FF0066CC
-              000066CC330066CC990066CCCC0066CCFF0066FF000066FF330066FF990066FF
-              CC00CC00FF00FF00CC009999000099339900990099009900CC00990000009933
-              3300990066009933CC009900FF00996600009966330099336600996699009966
-              CC009933FF009999330099996600999999009999CC009999FF0099CC000099CC
-              330066CC660099CC990099CCCC0099CCFF0099FF000099FF330099CC660099FF
-              990099FFCC0099FFFF00CC00000099003300CC006600CC009900CC00CC009933
-              0000CC333300CC336600CC339900CC33CC00CC33FF00CC660000CC6633009966
-              6600CC669900CC66CC009966FF00CC990000CC993300CC996600CC999900CC99
-              CC00CC99FF00CCCC0000CCCC3300CCCC6600CCCC9900CCCCCC00CCCCFF00CCFF
-              0000CCFF330099FF6600CCFF9900CCFFCC00CCFFFF00CC003300FF006600FF00
-              9900CC330000FF333300FF336600FF339900FF33CC00FF33FF00FF660000FF66
-              3300CC666600FF669900FF66CC00CC66FF00FF990000FF993300FF996600FF99
-              9900FF99CC00FF99FF00FFCC0000FFCC3300FFCC6600FFCC9900FFCCCC00FFCC
-              FF00FFFF3300CCFF6600FFFF9900FFFFCC006666FF0066FF660066FFFF00FF66
-              6600FF66FF00FFFF66002100A5005F5F5F00777777008686860096969600CBCB
-              CB00B2B2B200D7D7D700DDDDDD00E3E3E300EAEAEA00F1F1F100F8F8F800F0FB
-              FF00A4A0A000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF
-              0000FFFFFF001F7C205E205E205E205E205E205E205E205E205E205E205E205E
-              1F7C1F7C1F7C205E846A0E77507F2C7F2C7F2C7F2C7F2C7F2C7F2C7F2C7FA76E
-              63661F7C1F7C205EE972A76A947F4D7F4D7F4D7F4D7F4D7F4D7F4D7F4D7FC76E
-              D97B205E1F7C205E4E7F205EB57F6F7F6F7F6F7F6F7F6F7F6F7F6F7F6F7FC86E
-              D97B205E1F7C205E6F7F6362737B927F907F907F907F907F907F907F907FE96E
-              D97B42621F7C205E907FC86E0C73D57FB17FB17FB17FB17FB17FB17FB17FE96E
-              D97BD97B205E205EB17F6E7B6462FF7FD97FD97FD97FD97FD97FD97FD97F5373
-              FD7FDA7F205E205ED27FD27F4262205E205E205E205E205E205E205E205E205E
-              205E205E205E205ED37FD37FD37FD37FD37FD37FD37FD37FD37FD37FD37F215E
-              1F7C1F7C1F7C205EFF7FF47FF47FF47FF47FF47FF47FF47FF47FF47FF47F215E
-              1F7C1F7C1F7C1F7C205EFF7FF47FF47FF47F205E205E205E205E205E205E1F7C
-              1F7C1F7C1F7C1F7C1F7C205E205E205E205E1F7C1F7C1F7C1F7C1F7C1F7C1F7C
-              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
-              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
-              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
-              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
-              1F7C1F7C1F7C}
-            Visible = False
-            OnClick = btnProfessorClick
-          end
           object DBGrid1: TDBGrid
             Left = 0
             Top = 64
@@ -1359,7 +1288,7 @@ object FUsuario: TFUsuario
             Height = 204
             TabStop = False
             Align = alBottom
-            DataSource = DM.DSItemUsuario
+            DataSource = Dm.DSItemUsuario
             Font.Charset = ANSI_CHARSET
             Font.Color = clNavy
             Font.Height = -12
@@ -1377,7 +1306,8 @@ object FUsuario: TFUsuario
             Columns = <
               item
                 Expanded = False
-                FieldName = 'Programa'
+                FieldName = 'PRONOME'
+                Title.Caption = 'Programa'
                 Width = 309
                 Visible = True
               end
@@ -1600,7 +1530,7 @@ object FUsuario: TFUsuario
               ButtonHeight = 30
               ButtonWidth = 31
               Caption = 'ToolBarItem'
-              Images = DM.ImageList
+              Images = Dm.ImageList
               TabOrder = 6
               object btnsalvaritem: TToolButton
                 Left = 0
@@ -1766,7 +1696,7 @@ object FUsuario: TFUsuario
             OnChange = DBRadioGroup3Change
           end
           object WSDBEdit13: TWSDBEdit
-            Left = 111
+            Left = 79
             Top = 35
             Width = 66
             DataField = 'USUPROFESSOR'
@@ -1783,10 +1713,10 @@ object FUsuario: TFUsuario
             ColorOnNotFocus = clGray
           end
           object txtprofessor: TWSDBEdit
-            Left = 181
+            Left = 177
             Top = 35
             Width = 356
-            DataField = 'pronome'
+            DataField = 'PRONOME'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clGray
@@ -1798,6 +1728,15 @@ object FUsuario: TFUsuario
             TabOrder = 8
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
+          end
+          object btnProf: TButton
+            Left = 147
+            Top = 34
+            Width = 25
+            Height = 21
+            Caption = '...'
+            TabOrder = 9
+            OnClick = btnProfClick
           end
         end
       end
@@ -1846,10 +1785,10 @@ object FUsuario: TFUsuario
   end
   object RLReport: TRLReport
     Left = 153
-    Top = 489
+    Top = 497
     Width = 794
     Height = 1123
-    DataSource = DM.DSUsuario
+    DataSource = Dm.DSUsuario
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -13
@@ -1870,7 +1809,7 @@ object FUsuario: TFUsuario
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1884,7 +1823,7 @@ object FUsuario: TFUsuario
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText2: TRLDBText
@@ -1894,7 +1833,7 @@ object FUsuario: TFUsuario
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1909,7 +1848,7 @@ object FUsuario: TFUsuario
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1924,7 +1863,7 @@ object FUsuario: TFUsuario
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1939,7 +1878,7 @@ object FUsuario: TFUsuario
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1954,7 +1893,7 @@ object FUsuario: TFUsuario
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1969,7 +1908,7 @@ object FUsuario: TFUsuario
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2066,7 +2005,7 @@ object FUsuario: TFUsuario
         Width = 66
         Height = 15
         DataField = 'USULOGIN'
-        DataSource = DM.DSUsuario
+        DataSource = Dm.DSUsuario
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2081,7 +2020,7 @@ object FUsuario: TFUsuario
         Height = 15
         AutoSize = False
         DataField = 'USUNOME'
-        DataSource = DM.DSUsuario
+        DataSource = Dm.DSUsuario
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2108,7 +2047,7 @@ object FUsuario: TFUsuario
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -2119,7 +2058,7 @@ object FUsuario: TFUsuario
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -2170,7 +2109,7 @@ object FUsuario: TFUsuario
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSUsuario
+    DataSet = Dm.CDSUsuario
     Left = 8
     Top = 8
   end

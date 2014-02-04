@@ -201,7 +201,6 @@ type
           procedure btnfiltrobancoClick(Sender: TObject);
           procedure btnfiltrofornecedorClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
           procedure txtdatafinExit(Sender: TObject);
@@ -511,6 +510,7 @@ begin
      end;
      BtnFiltro.click;
      txtliberado.enabled := dm.CDSUsuarioUSUCOORDENADOR.asstring = 'S';
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFContaPagar.txtcodKeyDown(Sender: TObject; var Key: Word;
@@ -778,11 +778,6 @@ procedure TFContaPagar.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFContaPagar.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFContaPagar.FormCreate(Sender: TObject);

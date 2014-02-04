@@ -6,7 +6,7 @@ uses
      Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
      Dialogs, StdCtrls, ExtCtrls, ComCtrls, ToolWin, Mask, DBCtrls, DB,
      WSEdit, WSDBEdit, WSInformacao, shellapi, Grids, DBGrids, DBClient,
-     RLReport, RLRichText, WSDBMemo, Buttons;
+     RLReport, RLRichText, WSDBMemo, Buttons, DateUtilS;
 
 type
      TFCurso = class(TForm)
@@ -153,6 +153,9 @@ type
     txtCodGRupo: TWSDBEdit;
     Label30: TLabel;
     txtTipo: TWSDBEdit;
+    WSDBEdit15: TWSDBEdit;
+    Label31: TLabel;
+    btnFim: TSpeedButton;
           procedure BtnPrimeiroClick(Sender: TObject);
           procedure BtnAnteriorClick(Sender: TObject);
           procedure BtnProximoClick(Sender: TObject);
@@ -190,10 +193,10 @@ type
     procedure btnapagarClick(Sender: TObject);
     procedure btnapagarfimClick(Sender: TObject);
     procedure BtnGrupoClick(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure txtcodcoordenadorExit(Sender: TObject);
     procedure txtcodplanonegExit(Sender: TObject);
     procedure txtCodGRupoExit(Sender: TObject);
+    procedure btnFimClick(Sender: TObject);
      private
           { Private declarations }
      public
@@ -291,6 +294,13 @@ procedure TFCurso.BtnExcluirClick(Sender: TObject);
 begin
      usuario((sender as TToolButton).name, wsinformacao.programa);
 
+     if Dm.CDSCursoDisciplina.Active then
+         if Dm.CDSCursoDisciplina.RecordCount > 0 then
+         begin
+             ShowMessage('Exclua as disiciplinas do curso para continuar!');
+             Exit;
+         end;
+
      if (DataSource.DataSet.Active = true) then
           if (DataSource.DataSet.RecordCount > 0) then
                if application.messagebox('Confirma Exclusão?', 'Atenção', mb_yesno + MB_ICONQUESTION) = mryes then
@@ -300,7 +310,8 @@ begin
                          DataSource.DataSet.Delete;
                          (DataSource.DataSet as TClientDataSet).ApplyUpdates(-1);
                     except
-                         ShowMessage('Impossível Excluir. Violação de Integridade.');
+                       on E: Exception do
+                         ShowMessage('Impossível Excluir. Violação de Integridade.' + E.Message);
                     end;
                end;
 end;
@@ -346,7 +357,7 @@ begin
      begin
           clear;
           add('SELECT CURCOD,CURNOME,CURTURMA,CURCARGA,CURVALOR,CURPERCDESCONTO,CURGRUPO,');
-          add('CURDESCONTO,CURVENCIMENTO,CURTCC,CURINICIO,CURFIM,CURLIQUIDO,');
+          add('CURDESCONTO,CURVENCIMENTO,CURTCC,CURINICIO,CURFIM,CURLIQUIDO,CURHORARIOFIM, ');
           add('CURCOORDENADOR, CURSISTEMAAVALIACAO, CURCRITERIOSAVALIACAO, CURSECRETARIO, CURPLANONEGOCIOS,');
           add('CURSIGLA, CURSITE, CURSITEMONOGRAFIA, CURSITECALENDARIO, CURSITEAVISO, CURHORARIO, CURNUMTURMA, CURTIPO, ');
           add('PLANEGNOME, PRONOME, GRUNOME');
@@ -361,6 +372,11 @@ begin
      end;
      ThreadExecSql(TClientDataSet(DataSource.DataSet));
      DataSource.DataSet.last;
+end;
+
+procedure TFCurso.btnFimClick(Sender: TObject);
+begin
+   dm.CDSCursoCURFIM.AsDateTime := IncWeek(dm.CDSCursoCURINICIO.AsDateTime, dm.CDSCursoCURCARGA.AsInteger div HoursBetween(StrToTimeDef(Dm.CDSCursoCURHORARIO.AsString, now), StrToTimeDef(Dm.CDSCursoCURHORARIOFIM.AsString, now)));
 end;
 
 procedure TFCurso.btnexportarClick(Sender: TObject);
@@ -412,6 +428,7 @@ begin
      pagecontrol.activepageindex := 0;
      btndesconectar.click;
      //BtnFiltro.click;
+    carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFCurso.txtcodcoordenadorExit(Sender: TObject);
@@ -646,6 +663,7 @@ begin
           fdisciplina.BtnFiltro.click;
           fdisciplina.showmodal;
           txtdisciplina.text := dm.CDSDisciplinaDISCOD.asstring;
+          txtdisciplina.SetFocus;
      finally
           fdisciplina.release;
           fdisciplina := nil;
@@ -693,16 +711,16 @@ begin
                txtdisciplina.SetFocus;
                exit;
           end;
-          dm.CDSCurso.post;
-          dm.CDSCurso.applyupdates(0);
-          dm.CDSCurso.edit;
+          //dm.CDSCurso.post;
+          //dm.CDSCurso.applyupdates(0);
+          //dm.CDSCurso.edit;
           dm.CDSCursoDisciplina.Append;
           dm.CDSCursoDisciplinaCURDISCurso.asinteger := dm.CDSCursoCurCOD.asinteger;
           dm.CDSCursoDisciplinaCURDISDISCIPLINA.AsInteger := strtoint(txtdisciplina.text);
           dm.CDSCursoDisciplinaCURDISProfessor.asinteger := strtoint(txtprofessor.text);
           dm.CDSCursoDisciplinaCURDISHORASAULA.asinteger := strtointDef(txthorasaula.text,0);
           dm.CDSCursoDisciplinaPRONOME.AsString := executasqlretorno('SELECT PRONOME FROM TPROFESSOR WHERE PROCOD = ' + txtprofessor.Text);
-          dm.CDSCursoDisciplinaDISNOME.AsString := executasqlretorno('SELECT DISNOME FROM TDISIPLINA WHERE DISCOD = ' + txtdisciplina.Text);
+          dm.CDSCursoDisciplinaDISNOME.AsString := executasqlretorno('SELECT DISNOME FROM TDISCIPLINA WHERE DISCOD = ' + txtdisciplina.Text);
           dm.CDSCursoDisciplina.post;
           dm.CDSCursoDisciplina.applyupdates(0);
           txtdisciplina.Clear;
@@ -718,13 +736,14 @@ begin
           FProfessor.Close;
 
      try
-          fprofessor := tfprofessor.create(self);
+          fprofessor := tfprofessor.create(Self);
           FProfessor.FormStyle := fsNormal;
           FProfessor.Visible := false;
           usuario('btnconsultar', fprofessor.wsinformacao.programa);
           fprofessor.BtnFiltro.click;
           fprofessor.showmodal;
           txtprofessor.text := dm.CDSProfessorProCOD.asstring;
+          txtprofessor.SetFocus;
      finally
           fprofessor.release;
           fprofessor := nil;
@@ -761,6 +780,7 @@ begin
           fprofessor.BtnFiltro.click;
           fprofessor.showmodal;
           dm.CDSCursoCURCOORDENADOR.asinteger := dm.CDSProfessorPROCOD.asinteger;
+          txtcodcoordenador.SetFOcus;
      finally
           fprofessor.release;
           fprofessor := nil;
@@ -819,16 +839,12 @@ begin
           FGrupoCurso.BtnFiltro.click;
           FGrupoCurso.showmodal;
           dm.CDSCursoCURGRUPO.asinteger := dm.CDSGrupoCursoGRUCOD.asinteger;
+          txtCodGRupo.SetFocus;
      finally
           FGrupoCurso.release;
           FGrupoCurso := nil;
           FGrupoCurso.free;
      end;
-end;
-
-procedure TFCurso.FormActivate(Sender: TObject);
-begin
-    carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 end.

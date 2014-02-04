@@ -76,6 +76,8 @@ type
     txtvalorprofessor: TWSEdit;
     Label14: TLabel;
     BtnWord: TMenuItem;
+    Label15: TLabel;
+    txtEntrada: TWSEdit;
           procedure btnsairClick(Sender: TObject);
           procedure FormShow(Sender: TObject);
           procedure btnalunoClick(Sender: TObject);
@@ -156,6 +158,8 @@ procedure TFMensalidadeGera.FormShow(Sender: TObject);
 begin
      if not dm.CDSAlunoLkp.Active then
           dm.CDSAlunoLkp.open;
+     if not dm.CDSAluno.Active then
+          ThreadExecSql(dm.CDSAluno);
      if not dm.CDSCurso.Active then
           dm.CDSCurso.open;
      if not dm.CDSBanco.Active then
@@ -445,6 +449,8 @@ begin
          dm.cdsalunoLkp.open;
     end;
 
+    dm.cdsaluno.locate('ALUCOD', txtaluno.text, []);
+
     if not dm.cdsalunoLkp.locate('ALUCOD', txtaluno.text, []) then
     begin
          showmessage('Aluno não encontrado, aguarde atualização...' + #13 + 'Caso não consiga gerar o contrato, tente fechando o sistema e abrindo novamente.');
@@ -487,144 +493,163 @@ begin
     if sender <> btnWord then
     begin
          memo := TMemo.Create(self);
+
+         memo.Parent := lbltitulo.Parent;
+         memo.visible := false;
+         memo.ScrollBars := ssBoth;
+
          try
-              memo.Parent := lbltitulo.Parent;
-              memo.visible := false;
-              memo.ScrollBars := ssBoth;
-
-              try
-                   if sender = btncontratoaluno then
-                   begin
-                        if (dm.CDSAlunoLkpALUCURSO.asinteger in [98, 101, 102, 103]) then
-                             memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Extensão.rtf')
-                        else if dm.CDSAlunoLkpALUBOLSA.asinteger = 0 then
-                             memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Aluno.rtf')
-                        else if dm.CDSAlunoLkpALUBOLSA.asinteger = 100 then
-                             memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Integral.rtf')
-                        else
-                             memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Parcial.rtf');
-                   end;
-                   if sender = btnmonografia then
-                        memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Monografia.rtf');
-                   if sender = btnrenegociacao then
-                        memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Renegociação.rtf');
-                   if sender = btnreativacao then
-                        memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Reativação.rtf');
-              except
-                   on E: Exception do
-                   begin
-                        showmessage('Impossível carregar o arquivo de contrato, verifique se os seguintes arquivos existem:' + #13 + #13 +
-                             ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Aluno.rtf' + #13 +
-                             ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Parcial.rtf' + #13 +
-                             ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Integral.rtf' + #13 +
-                             ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Monografia.rtf' + #13 +
-                             ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Renegociação.rtf' + #13 + #13 +
-                             ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Extensão.rtf' + #13 + #13 +
-                             ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Reativação.rtf' + #13 + #13 +
-                             e.Message);
-                        txtaluno.setfocus;
-                        exit;
-                   end;
-              end;
-
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':nome', dm.CDSAlunoLkpALUNOME.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':codigo', dm.CDSAlunoLkpALUCOD.asstring);
-
-              if trim(dm.CDSAlunoLkpAluResponsavel.AsString) = '' then
+              if sender = btncontratoaluno then
               begin
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinatura', dm.CDSAlunoLkpALUNOME.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinacpf', dm.CDSAlunoLkpALUCPF.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavel', '');
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcpf', '');
+                   if (dm.CDSAlunoLkpALUCURSO.asinteger in [98, 101, 102, 103]) then
+                        memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Extensão.rtf')
+                   else if dm.CDSAlunoLkpALUBOLSA.asinteger = 0 then
+                        memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Aluno.rtf')
+                   else if dm.CDSAlunoLkpALUBOLSA.asinteger = 100 then
+                        memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Integral.rtf')
+                   else
+                        memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Parcial.rtf');
               end;
-
-              if trim(dm.CDSAlunoLkpAluResponsavel.AsString) = 'Pai' then
+              if sender = btnmonografia then
+                   memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Monografia.rtf');
+              if sender = btnrenegociacao then
+                   memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Renegociação.rtf');
+              if sender = btnreativacao then
+                   memo.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Reativação.rtf');
+         except
+              on E: Exception do
               begin
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinatura', dm.CDSAlunoLkpALUNOMEPAI.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinacpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavel', dm.CDSAlunoLkpALUNOMEPAI.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
-              end;
-
-              if trim(dm.CDSAlunoLkpAluResponsavel.AsString) = 'Mãe' then
-              begin
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinatura', dm.CDSAlunoLkpALUNOMEMAE.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinacpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavel', dm.CDSAlunoLkpALUNOMEMAE.asstring);
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
-              end;
-
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cpf', dm.CDSAlunoLkpALUCPF.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':identidade', dm.CDSAlunoLkpALUIDENTIDADE.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':expedicao', dm.CDSAlunoLkpALUDATAEXPEDICAO.DisplayText);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':naturalidade', dm.CDSAlunoLkpNATUCIDADE.asString);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':nascimento', dm.CDSAlunoLkpALUNASCIMENTO.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':estadocivil', dm.CDSAlunoLkpALUESTADOCIVIL.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':nacionalidade', dm.CDSAlunoLkpALUNACIONALIDADE.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':endereco', dm.CDSAlunoLkpALUENDERECO.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':bairro', dm.CDSAlunoLkpALUBAIRRO.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cidade', dm.CDSAlunoLkpCIDNOME.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':uf', dm.CDSAlunoLkpCIDUF.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cep', dm.CDSAlunoLkpALUCEP.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':fone', dm.CDSAlunoLkpALUFONE.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':fax', dm.CDSAlunoLkpALUFAX.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':celular', dm.CDSAlunoLkpALUCELULAR.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':bolsa', dm.CDSAlunoLkpALUBOLSA.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':email', dm.CDSAlunoLkpALUEMAIL.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':bolsa', dm.CDSAlunoLkpALUBOLSA.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':email', dm.CDSAlunoLkpALUEMAIL.asstring);
-
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':curso', dm.CDSCursoCURNOME.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':diavcto', dm.CDSCursoCURVENCIMENTO.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensodia', trim(extensoquant(dm.CDSCursoCURVENCIMENTO.asinteger)));
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':vctoini', txtvencimento.Text);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':iniciocurso', DateToStr(dm.CDSAlunoLkpALUCURSOINICIO.asDateTime));
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':fimcurso', DateToStr(dm.CDSAlunoLkpALUCURSOFIM.AsDateTime));
-              periodo := MonthsBetween(dm.CDSAlunoALUCURSOINICIO.asDateTime, dm.CDSAlunoALUCURSOFIM.AsDateTime);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':periodo', IntToStr(Periodo) + '(' + extensoquant(periodo) + ')');
-
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cargahoraria', dm.CDSCursoCURCARGA.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':horario', dm.CDSCursoCURHORARIO.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensocargahoraria', trim(extensoquant(dm.CDSCursoCURCARGA.asinteger)));
-
-              try
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':total', formatfloat('#,###,###0.00', strtofloat(txtvalor.text) * strtoint(txtquant.text)));
-              except
-                   showmessage('Campo Valor ou Quantidade de Mensalidades inválido!');
-                   txtvalor.SetFocus;
+                   showmessage('Impossível carregar o arquivo de contrato, verifique se os seguintes arquivos existem:' + #13 + #13 +
+                        ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Aluno.rtf' + #13 +
+                        ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Parcial.rtf' + #13 +
+                        ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Bolsista Integral.rtf' + #13 +
+                        ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Monografia.rtf' + #13 +
+                        ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Renegociação.rtf' + #13 + #13 +
+                        ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Extensão.rtf' + #13 + #13 +
+                        ExtractFilePath(Application.ExeName) + 'Contrato - Modelo 2009 - Reativação.rtf' + #13 + #13 +
+                        e.Message);
+                   txtaluno.setfocus;
                    exit;
               end;
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensototal', trim(extenso(strtofloat(txtvalor.text) * strtoint(txtquant.text))));
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':valor', formatfloat('#,###,###0.00', strtofloat(txtvalor.text)));
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensovalor', trim(extenso(strtofloat(txtvalor.text))));
-              try
-                   memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':desconto', formatfloat('#,###,###0.00', strtofloat(txtdesconto.text)));
-              except
-                   showmessage('Campo Desconto inválido!');
-                   txtdesconto.SetFocus;
-                   exit;
-              end;
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensodesconto', trim(extenso(strtofloat(txtdesconto.text))));
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':liquido', formatfloat('#,###,###0.00', strtofloat(txtvalor.text) - strtofloat(txtdesconto.text)));
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensoliquido', trim(extenso(strtofloat(txtvalor.text) - strtofloat(txtdesconto.text))));
+         end;
 
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':data', FormatDateTime('dd" de "mmmm" de "yyyy', date));
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cnpjinstituto', dm.CDSInstitutoINSCNPJ.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':site', dm.CDSInstitutoINSSITE.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':institutocidade', dm.CDSInstitutoINSCIDADE.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':diretor', dm.CDSParamEmpEMPDIRETOR.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':faculdade', dm.CDSParamEmpEMPNOME.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':rgdiretor', dm.CDSParamEmpEMPDIRETORIDENTIDADE.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':direcpf', dm.CDSParamEmpEMPDIRETORCPF.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':parcelas', formatfloat('0', strtoint(txtquant.text)));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':nome', dm.CDSAlunoLkpALUNOME.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':codigo', dm.CDSAlunoLkpALUCOD.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':sexo', dm.CDSAlunoLkpALUSEXO.asstring);
 
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':login', dm.CDSAlunoLkpALUCOD.asstring);
-              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':senha', dm.CDSAlunoLkpALUSENHA.asstring);
+         {if trim(dm.CDSAlunoLkpAluResponsavel.AsString) = '' then
+         begin
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinatura', dm.CDSAlunoLkpALUNOME.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinacpf', dm.CDSAlunoLkpALUCPF.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavel', '');
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcpf', '');
+         end;
+         if trim(dm.CDSAlunoLkpAluResponsavel.AsString) = 'Pai' then
+         begin
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinatura', dm.CDSAlunoLkpALUNOMEPAI.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinacpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavel', dm.CDSAlunoLkpALUNOMEPAI.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
+         end;
+         if trim(dm.CDSAlunoLkpAluResponsavel.AsString) = 'Mãe' then
+         begin
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinatura', dm.CDSAlunoLkpALUNOMEMAE.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinacpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavel', dm.CDSAlunoLkpALUNOMEMAE.asstring);
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcpf', dm.CDSAlunoLkpALURESPONSAVELCPF.asstring);
+         end;}
+         //if trim(dm.CDSAlunoLkpAluResponsavel.AsString) <> '' then
+         //begin
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinatura', dm.CDSAlunoLkpALUNOME.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':assinacpf', dm.CDSAlunoLkpALUCPF.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavel', dm.CDSAlunoALUNOMEPAI.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcpf', dm.CDSAlunoALURESPONSAVELCPF.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavnasc', dm.CDSAlunoALURESPNASC.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavrg', dm.CDSAlunoALURESPRG.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavnomemae', dm.CDSAlunoALURESPNOMEMAE.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavendereco', dm.CDSAlunoALURESPEND.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavbairro', dm.CDSAlunoALURESPBAIRRO.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcep', dm.CDSAlunoALURESPCEP.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavcidade', dm.CDSAlunoRESPCID.asstring);
+             memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':responsavfone', dm.CDSAlunoALURESPFONE.asstring);
+         //end;
 
-              memo.lines.SaveToFile(ExtractFilePath(Application.ExeName) + 'contrato.rtf');
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cpf', dm.CDSAlunoLkpALUCPF.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':identidade', dm.CDSAlunoLkpALUIDENTIDADE.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':expedicao', dm.CDSAlunoLkpALUDATAEXPEDICAO.DisplayText);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':naturalidade', dm.CDSAlunoLkpNATUCIDADE.asString);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':nascimento', dm.CDSAlunoLkpALUNASCIMENTO.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':estadocivil', dm.CDSAlunoLkpALUESTADOCIVIL.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':nacionalidade', dm.CDSAlunoLkpALUNACIONALIDADE.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':endereco', dm.CDSAlunoLkpALUENDERECO.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':bairro', dm.CDSAlunoLkpALUBAIRRO.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cidade', dm.CDSAlunoLkpCIDNOME.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':uf', dm.CDSAlunoLkpCIDUF.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cep', dm.CDSAlunoLkpALUCEP.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':fone', dm.CDSAlunoLkpALUFONE.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':fax', dm.CDSAlunoLkpALUFAX.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':celular', dm.CDSAlunoLkpALUCELULAR.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':bolsa', dm.CDSAlunoLkpALUBOLSA.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':email', dm.CDSAlunoLkpALUEMAIL.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':bolsa', dm.CDSAlunoLkpALUBOLSA.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':email', dm.CDSAlunoLkpALUEMAIL.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':egresso', dm.CDSAlunoALUEGRESSO.asstring);
 
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':curso', dm.CDSCursoCURNOME.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':diavcto', dm.CDSCursoCURVENCIMENTO.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensodia', trim(extensoquant(dm.CDSCursoCURVENCIMENTO.asinteger)));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':vctoini', txtvencimento.Text);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':iniciocurso', DateToStr(dm.CDSAlunoLkpALUCURSOINICIO.asDateTime));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':diasemana', DiaSemana(dm.CDSAlunoLkpALUCURSOINICIO.asDateTime));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':fimcurso', DateToStr(dm.CDSAlunoLkpALUCURSOFIM.AsDateTime));
+         periodo := MonthsBetween(dm.CDSAlunoALUCURSOINICIO.asDateTime, dm.CDSAlunoALUCURSOFIM.AsDateTime);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':periodo', IntToStr(Periodo) + '(' + extensoquant(periodo) + ')');
+
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cargahoraria', dm.CDSCursoCURCARGA.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':horario', dm.CDSCursoCURHORARIO.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':horafim', dm.CDSCursoCURHORARIOFIM.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensocargahoraria', trim(extensoquant(dm.CDSCursoCURCARGA.asinteger)));
+
+         try
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':total', formatfloat('#,###,###0.00', strtofloat(txtvalor.text) * strtoint(txtquant.text)));
+         except
+              showmessage('Campo Valor ou Quantidade de Mensalidades inválido!');
+              txtvalor.SetFocus;
+              exit;
+         end;
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensototal', trim(extenso(strtofloat(txtvalor.text) * strtoint(txtquant.text))));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':valor', formatfloat('#,###,###0.00', strtofloat(txtvalor.text)));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':entrada', formatfloat('#,###,###0.00', strtofloat(txtEntrada.text)));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensovalor', trim(extenso(strtofloat(txtvalor.text))));
+         try
+              memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':desconto', formatfloat('#,###,###0.00', strtofloat(txtdesconto.text)));
+         except
+              showmessage('Campo Desconto inválido!');
+              txtdesconto.SetFocus;
+              exit;
+         end;
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensodesconto', trim(extenso(strtofloat(txtdesconto.text))));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':liquido', formatfloat('#,###,###0.00', strtofloat(txtvalor.text) - strtofloat(txtdesconto.text)));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':extensoliquido', trim(extenso(strtofloat(txtvalor.text) - strtofloat(txtdesconto.text))));
+
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':data', FormatDateTime('dd" de "mmmm" de "yyyy', date));
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':cnpjinstituto', dm.CDSInstitutoINSCNPJ.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':site', dm.CDSInstitutoINSSITE.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':institutocidade', dm.CDSInstitutoINSCIDADE.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':diretor', dm.CDSParamEmpEMPDIRETOR.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':faculdade', dm.CDSParamEmpEMPNOME.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':rgdiretor', dm.CDSParamEmpEMPDIRETORIDENTIDADE.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':direcpf', dm.CDSParamEmpEMPDIRETORCPF.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':parcelas', formatfloat('0', strtoint(txtquant.text)));
+
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':login', dm.CDSAlunoLkpALUCOD.asstring);
+         memo.Lines.Text := BuscaTroca(memo.Lines.Text, ':senha', dm.CDSAlunoLkpALUSENHA.asstring);
+
+         memo.lines.SaveToFile(ExtractFilePath(Application.ExeName) + 'contrato.rtf');
+         try
               FContrato := TFContrato.create(self);
               FContrato.RichEdit1.Lines.LoadFromFile(ExtractFilePath(Application.ExeName) + 'contrato.rtf');
+              FContrato.Visible := False;
               FContrato.ShowModal;
 
               if FileExists(ExtractFilePath(Application.ExeName) + 'contrato.rtf') then

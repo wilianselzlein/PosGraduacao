@@ -174,7 +174,6 @@ type
           procedure btnhistpadraoClick(Sender: TObject);
           procedure btnplanonegClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
           procedure btnimportartxtClick(Sender: TObject);
           procedure btnfiltroplanonegClick(Sender: TObject);
@@ -577,6 +576,7 @@ begin
 
      //end;
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFLctoContabil.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -893,11 +893,6 @@ procedure TFLctoContabil.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFLctoContabil.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFLctoContabil.DBGridTitleClick(Column: TColumn);

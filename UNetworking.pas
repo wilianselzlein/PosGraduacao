@@ -189,7 +189,6 @@ type
           procedure WSDBMemo1KeyDown(Sender: TObject; var Key: Word;
                Shift: TShiftState);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
           procedure txtfiltrocidadeExit(Sender: TObject);
@@ -387,6 +386,7 @@ begin
      navegar(sender as tform);
      pagecontrol.activepageindex := 0;
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFNetworking.txtcodKeyDown(Sender: TObject; var Key: Word;
@@ -621,11 +621,6 @@ procedure TFNetworking.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFNetworking.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFNetworking.FormCreate(Sender: TObject);

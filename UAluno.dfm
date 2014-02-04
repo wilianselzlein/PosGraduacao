@@ -3,7 +3,7 @@ object FAluno: TFAluno
   Top = 10
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 563
-  ClientWidth = 628
+  ClientWidth = 619
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
@@ -14,7 +14,6 @@ object FAluno: TFAluno
   OldCreateOrder = False
   Position = poOwnerFormCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -23,7 +22,7 @@ object FAluno: TFAluno
   object lbltitulo: TLabel
     Left = 0
     Top = 0
-    Width = 628
+    Width = 619
     Height = 24
     Align = alTop
     Alignment = taCenter
@@ -39,13 +38,13 @@ object FAluno: TFAluno
   object ToolBarNavegacao: TToolBar
     Left = 0
     Top = 533
-    Width = 628
+    Width = 619
     Height = 30
     Align = alBottom
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -249,7 +248,7 @@ object FAluno: TFAluno
   object PageControl: TPageControl
     Left = 0
     Top = 53
-    Width = 628
+    Width = 619
     Height = 480
     ActivePage = TabConsulta
     Align = alClient
@@ -261,7 +260,7 @@ object FAluno: TFAluno
       object DBGrid: TDBGrid
         Left = 0
         Top = 0
-        Width = 620
+        Width = 611
         Height = 452
         Align = alClient
         DataSource = DataSource
@@ -318,7 +317,7 @@ object FAluno: TFAluno
       object Panel_Cima: TPanel
         Left = 0
         Top = 0
-        Width = 620
+        Width = 611
         Height = 46
         Align = alTop
         TabOrder = 0
@@ -361,8 +360,21 @@ object FAluno: TFAluno
           Font.Style = [fsBold]
           ParentFont = False
         end
+        object lblalterar: TLabel
+          Left = 401
+          Top = 6
+          Width = 176
+          Height = 15
+          Caption = 'Permitir alt. de outros usu'#225'rios'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
         object txtcod: TWSDBEdit
-          Left = 98
+          Left = 91
           Top = 5
           Width = 121
           DataField = 'ALUCOD'
@@ -380,9 +392,9 @@ object FAluno: TFAluno
           ColorOnNotFocus = clGray
         end
         object txtnome: TWSDBEdit
-          Left = 98
+          Left = 91
           Top = 26
-          Width = 495
+          Width = 505
           DataField = 'ALUNOME'
           DataSource = DataSource
           Font.Charset = DEFAULT_CHARSET
@@ -423,14 +435,33 @@ object FAluno: TFAluno
           ColorOnFocus = clBlack
           ColorOnNotFocus = clGray
         end
+        object txtalterar: TWSDBEdit
+          Left = 580
+          Top = 5
+          Width = 16
+          TabStop = False
+          DataField = 'ALUALTERAR'
+          DataSource = DataSource
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          TabOrder = 3
+          OnKeyDown = txtcodKeyDown
+          ColorOnFocus = clBlack
+          ColorOnNotFocus = clGray
+        end
       end
       object PageControl1: TPageControl
         Tag = 99
         Left = 0
         Top = 46
-        Width = 620
+        Width = 611
         Height = 406
-        ActivePage = TabSheet1
+        ActivePage = TabHistFinanceiro
         Align = alClient
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
@@ -445,7 +476,7 @@ object FAluno: TFAluno
           Caption = 'Dados'
           object Label3: TLabel
             Left = 5
-            Top = 172
+            Top = 225
             Width = 47
             Height = 15
             Caption = 'Tel. Res.'
@@ -458,7 +489,7 @@ object FAluno: TFAluno
           end
           object Label6: TLabel
             Left = 5
-            Top = 128
+            Top = 181
             Width = 35
             Height = 15
             Caption = 'Bairro'
@@ -471,7 +502,7 @@ object FAluno: TFAluno
           end
           object Label7: TLabel
             Left = 5
-            Top = 106
+            Top = 159
             Width = 54
             Height = 15
             Caption = 'Endere'#231'o'
@@ -484,7 +515,7 @@ object FAluno: TFAluno
           end
           object Label11: TLabel
             Left = 254
-            Top = 128
+            Top = 180
             Width = 39
             Height = 15
             Caption = 'Cidade'
@@ -497,7 +528,7 @@ object FAluno: TFAluno
           end
           object Label9: TLabel
             Left = 5
-            Top = 151
+            Top = 203
             Width = 22
             Height = 15
             Caption = 'Cep'
@@ -509,8 +540,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label10: TLabel
-            Left = 212
-            Top = 173
+            Left = 211
+            Top = 225
             Width = 51
             Height = 15
             Caption = 'Tel. Com.'
@@ -523,7 +554,7 @@ object FAluno: TFAluno
           end
           object Label12: TLabel
             Left = 5
-            Top = 195
+            Top = 247
             Width = 34
             Height = 15
             Caption = 'E-Mail'
@@ -536,8 +567,8 @@ object FAluno: TFAluno
           end
           object btncidade: TSpeedButton
             Tag = 99
-            Left = 357
-            Top = 125
+            Left = 347
+            Top = 177
             Width = 24
             Height = 23
             Hint = 'Abrir Cadastro'
@@ -597,8 +628,8 @@ object FAluno: TFAluno
             OnClick = btncidadeClick
           end
           object Label18: TLabel
-            Left = 214
-            Top = 61
+            Left = 211
+            Top = 114
             Width = 81
             Height = 15
             Caption = 'Registro Geral'
@@ -610,8 +641,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label19: TLabel
-            Left = 437
-            Top = 80
+            Left = 441
+            Top = 112
             Width = 22
             Height = 15
             Caption = 'CPF'
@@ -623,8 +654,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label8: TLabel
-            Left = 409
-            Top = 174
+            Left = 403
+            Top = 226
             Width = 43
             Height = 15
             Caption = 'Tel. Cel.'
@@ -636,11 +667,11 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label22: TLabel
-            Left = 479
-            Top = 283
-            Width = 81
+            Left = 509
+            Top = 292
+            Width = 63
             Height = 15
-            Caption = 'Emitir carteira'
+            Caption = 'Carteirinha'
             Font.Charset = ANSI_CHARSET
             Font.Color = clBlack
             Font.Height = -12
@@ -649,8 +680,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label5: TLabel
-            Left = 213
-            Top = 37
+            Left = 211
+            Top = 92
             Width = 72
             Height = 15
             Caption = 'Naturalidade'
@@ -663,8 +694,8 @@ object FAluno: TFAluno
           end
           object btnnaturalidade: TSpeedButton
             Tag = 99
-            Left = 359
-            Top = 34
+            Left = 347
+            Top = 89
             Width = 24
             Height = 23
             Hint = 'Abrir Cadastro'
@@ -725,7 +756,7 @@ object FAluno: TFAluno
           end
           object Label15: TLabel
             Left = 5
-            Top = 37
+            Top = 92
             Width = 80
             Height = 15
             Caption = 'Nacionalidade'
@@ -738,7 +769,7 @@ object FAluno: TFAluno
           end
           object Label16: TLabel
             Left = 5
-            Top = 62
+            Top = 114
             Width = 46
             Height = 15
             Caption = 'Nascim.'
@@ -751,7 +782,7 @@ object FAluno: TFAluno
           end
           object Label17: TLabel
             Left = 5
-            Top = 280
+            Top = 334
             Width = 50
             Height = 15
             Caption = 'Situa'#231#227'o'
@@ -763,8 +794,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label20: TLabel
-            Left = 213
-            Top = 151
+            Left = 211
+            Top = 203
             Width = 65
             Height = 15
             Caption = 'Estado Civil'
@@ -777,7 +808,7 @@ object FAluno: TFAluno
           end
           object Label25: TLabel
             Left = 5
-            Top = 84
+            Top = 136
             Width = 53
             Height = 15
             Caption = 'Data Exp.'
@@ -789,8 +820,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label26: TLabel
-            Left = 212
-            Top = 82
+            Left = 211
+            Top = 136
             Width = 62
             Height = 15
             Caption = 'Org'#227'o Exp.'
@@ -802,11 +833,11 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label27: TLabel
-            Left = 424
-            Top = 261
-            Width = 139
+            Left = 404
+            Top = 292
+            Width = 85
             Height = 15
-            Caption = 'Entregou Diploma Auten.'
+            Caption = 'Diploma Auten.'
             Font.Charset = ANSI_CHARSET
             Font.Color = clBlack
             Font.Height = -12
@@ -815,24 +846,11 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label29: TLabel
-            Left = 293
-            Top = 13
-            Width = 18
+            Left = 5
+            Top = 1
+            Width = 73
             Height = 15
-            Caption = 'Pai'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Label30: TLabel
-            Left = 434
-            Top = 13
-            Width = 24
-            Height = 15
-            Caption = 'M'#227'e'
+            Caption = 'Respons'#225'vel'
             Font.Charset = ANSI_CHARSET
             Font.Color = clBlack
             Font.Height = -12
@@ -841,8 +859,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label54: TLabel
-            Left = 400
-            Top = 195
+            Left = 404
+            Top = 247
             Width = 61
             Height = 15
             Caption = 'Senha Site'
@@ -854,8 +872,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label56: TLabel
-            Left = 486
-            Top = 213
+            Left = 404
+            Top = 269
             Width = 76
             Height = 15
             Caption = 'Entregou CPF'
@@ -867,11 +885,11 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label58: TLabel
-            Left = 492
-            Top = 236
-            Width = 70
+            Left = 556
+            Top = 269
+            Width = 16
             Height = 15
-            Caption = 'Entregou RG'
+            Caption = 'RG'
             Font.Charset = ANSI_CHARSET
             Font.Color = clBlack
             Font.Height = -12
@@ -881,7 +899,7 @@ object FAluno: TFAluno
           end
           object Label23: TLabel
             Left = 5
-            Top = 237
+            Top = 292
             Width = 57
             Height = 15
             Caption = 'Forma'#231#227'o'
@@ -894,7 +912,7 @@ object FAluno: TFAluno
           end
           object Label34: TLabel
             Left = 228
-            Top = 281
+            Top = 334
             Width = 44
             Height = 15
             Caption = 'Bolsa %'
@@ -907,7 +925,7 @@ object FAluno: TFAluno
           end
           object Label35: TLabel
             Left = 5
-            Top = 216
+            Top = 269
             Width = 55
             Height = 15
             Caption = 'E-Mail Alt.'
@@ -918,22 +936,9 @@ object FAluno: TFAluno
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object lblalterar: TLabel
-            Left = 409
-            Top = 304
-            Width = 159
-            Height = 15
-            Caption = 'Permitir alt. de outros users'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
           object lblsituacao: TDBText
-            Left = 88
-            Top = 283
+            Left = 87
+            Top = 334
             Width = 62
             Height = 15
             AutoSize = True
@@ -948,7 +953,7 @@ object FAluno: TFAluno
           end
           object Label38: TLabel
             Left = 208
-            Top = 305
+            Top = 357
             Width = 66
             Height = 15
             Caption = 'Desconto %'
@@ -960,8 +965,8 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object Label40: TLabel
-            Left = 6
-            Top = 305
+            Left = 5
+            Top = 357
             Width = 79
             Height = 15
             Caption = 'Data Situa'#231#227'o'
@@ -972,22 +977,9 @@ object FAluno: TFAluno
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object Label41: TLabel
-            Left = 8
-            Top = 13
-            Width = 73
-            Height = 15
-            Caption = 'Respons'#225'vel'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
           object Label53: TLabel
-            Left = 143
-            Top = 13
+            Left = 303
+            Top = 23
             Width = 22
             Height = 15
             Caption = 'CPF'
@@ -1001,7 +993,7 @@ object FAluno: TFAluno
           object btnapagar: TSpeedButton
             Tag = 99
             Left = 184
-            Top = 56
+            Top = 108
             Width = 21
             Height = 21
             Hint = 'Apagar data'
@@ -1027,7 +1019,7 @@ object FAluno: TFAluno
           object btnapagarexpedicao: TSpeedButton
             Tag = 99
             Left = 184
-            Top = 80
+            Top = 132
             Width = 21
             Height = 21
             Hint = 'Apagar data'
@@ -1053,7 +1045,7 @@ object FAluno: TFAluno
           object btnapagarcursosituacao: TSpeedButton
             Tag = 99
             Left = 184
-            Top = 304
+            Top = 356
             Width = 21
             Height = 21
             Hint = 'Apagar data'
@@ -1077,8 +1069,8 @@ object FAluno: TFAluno
             OnClick = btnapagarcursosituacaoClick
           end
           object Label55: TLabel
-            Left = 6
-            Top = 338
+            Left = 407
+            Top = 334
             Width = 56
             Height = 15
             Caption = 'Solicitado'
@@ -1091,8 +1083,8 @@ object FAluno: TFAluno
           end
           object btnapagarsol: TSpeedButton
             Tag = 99
-            Left = 184
-            Top = 337
+            Left = 573
+            Top = 333
             Width = 21
             Height = 21
             Hint = 'Apagar data'
@@ -1116,8 +1108,8 @@ object FAluno: TFAluno
             OnClick = btnapagarsolClick
           end
           object Label57: TLabel
-            Left = 220
-            Top = 340
+            Left = 407
+            Top = 357
             Width = 51
             Height = 15
             Caption = 'Entregue'
@@ -1130,8 +1122,8 @@ object FAluno: TFAluno
           end
           object btnapagarent: TSpeedButton
             Tag = 99
-            Left = 371
-            Top = 334
+            Left = 573
+            Top = 356
             Width = 21
             Height = 21
             Hint = 'Apagar data'
@@ -1154,18 +1146,184 @@ object FAluno: TFAluno
             ShowHint = True
             OnClick = btnapagarentClick
           end
-          object Bevel1: TBevel
-            Left = 2
-            Top = 330
-            Width = 571
+          object Label59: TLabel
+            Left = 406
+            Top = 317
+            Width = 65
+            Height = 15
+            Caption = 'Certificado:'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label62: TLabel
+            Left = 441
+            Top = 23
+            Width = 16
+            Height = 15
+            Caption = 'RG'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label63: TLabel
+            Left = 5
+            Top = 23
+            Width = 77
+            Height = 15
+            Caption = 'Nome da M'#227'e'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label64: TLabel
+            Left = 441
+            Top = 1
+            Width = 43
+            Height = 15
+            Caption = 'Nascim'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Bevel2: TBevel
+            Left = 5
+            Top = 86
+            Width = 587
             Height = 2
           end
-          object Label59: TLabel
-            Left = 8
-            Top = 322
-            Width = 62
+          object Label30: TLabel
+            Left = 5
+            Top = 45
+            Width = 54
             Height = 15
-            Caption = 'Certificado'
+            Caption = 'Endere'#231'o'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label41: TLabel
+            Left = 259
+            Top = 45
+            Width = 35
+            Height = 15
+            Caption = 'Bairro'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label65: TLabel
+            Left = 441
+            Top = 45
+            Width = 23
+            Height = 15
+            Caption = 'CEP'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label66: TLabel
+            Left = 5
+            Top = 66
+            Width = 39
+            Height = 15
+            Caption = 'Cidade'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object BtnRespCid: TSpeedButton
+            Tag = 99
+            Left = 134
+            Top = 63
+            Width = 24
+            Height = 23
+            Hint = 'Abrir Cadastro'
+            Flat = True
+            Glyph.Data = {
+              42060000424D360A000000000000360800002800000010000000100000000100
+              1000030000000002000000000000000000000001000000000000007C0000E003
+              00001F0000000000000000008000008000000080800080000000800080008080
+              0000C0C0C000C0DCC000F0CAA600330000000000330033003300333300001616
+              16001C1C1C002222220029292900555555004D4D4D004242420039393900807C
+              FF005050FF009300D600FFECCC00C6D6EF00D6E7E70090A9AD0000FF33000000
+              6600000099000000CC00003300000033330000336600003399000033CC000033
+              FF00006600000066330000666600006699000066CC000066FF00009900000099
+              330000996600009999000099CC000099FF0000CC000000CC330000CC660000CC
+              990000CCCC0000CCFF0000FF660000FF990000FFCC0033FF0000FF0033003300
+              6600330099003300CC003300FF00FF3300003333330033336600333399003333
+              CC003333FF00336600003366330033666600336699003366CC003366FF003399
+              00003399330033996600339999003399CC003399FF0033CC000033CC330033CC
+              660033CC990033CCCC0033CCFF0033FF330033FF660033FF990033FFCC0033FF
+              FF00660000006600330066006600660099006600CC006600FF00663300006633
+              330066336600663399006633CC006633FF006666000066663300666666006666
+              99006666CC00669900006699330066996600669999006699CC006699FF0066CC
+              000066CC330066CC990066CCCC0066CCFF0066FF000066FF330066FF990066FF
+              CC00CC00FF00FF00CC009999000099339900990099009900CC00990000009933
+              3300990066009933CC009900FF00996600009966330099336600996699009966
+              CC009933FF009999330099996600999999009999CC009999FF0099CC000099CC
+              330066CC660099CC990099CCCC0099CCFF0099FF000099FF330099CC660099FF
+              990099FFCC0099FFFF00CC00000099003300CC006600CC009900CC00CC009933
+              0000CC333300CC336600CC339900CC33CC00CC33FF00CC660000CC6633009966
+              6600CC669900CC66CC009966FF00CC990000CC993300CC996600CC999900CC99
+              CC00CC99FF00CCCC0000CCCC3300CCCC6600CCCC9900CCCCCC00CCCCFF00CCFF
+              0000CCFF330099FF6600CCFF9900CCFFCC00CCFFFF00CC003300FF006600FF00
+              9900CC330000FF333300FF336600FF339900FF33CC00FF33FF00FF660000FF66
+              3300CC666600FF669900FF66CC00CC66FF00FF990000FF993300FF996600FF99
+              9900FF99CC00FF99FF00FFCC0000FFCC3300FFCC6600FFCC9900FFCCCC00FFCC
+              FF00FFFF3300CCFF6600FFFF9900FFFFCC006666FF0066FF660066FFFF00FF66
+              6600FF66FF00FFFF66002100A5005F5F5F00777777008686860096969600CBCB
+              CB00B2B2B200D7D7D700DDDDDD00E3E3E300EAEAEA00F1F1F100F8F8F800F0FB
+              FF00A4A0A000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF
+              0000FFFFFF001F7C205E205E205E205E205E205E205E205E205E205E205E205E
+              1F7C1F7C1F7C205E846A0E77507F2C7F2C7F2C7F2C7F2C7F2C7F2C7F2C7FA76E
+              63661F7C1F7C205EE972A76A947F4D7F4D7F4D7F4D7F4D7F4D7F4D7F4D7FC76E
+              D97B205E1F7C205E4E7F205EB57F6F7F6F7F6F7F6F7F6F7F6F7F6F7F6F7FC86E
+              D97B205E1F7C205E6F7F6362737B927F907F907F907F907F907F907F907FE96E
+              D97B42621F7C205E907FC86E0C73D57FB17FB17FB17FB17FB17FB17FB17FE96E
+              D97BD97B205E205EB17F6E7B6462FF7FD97FD97FD97FD97FD97FD97FD97F5373
+              FD7FDA7F205E205ED27FD27F4262205E205E205E205E205E205E205E205E205E
+              205E205E205E205ED37FD37FD37FD37FD37FD37FD37FD37FD37FD37FD37F215E
+              1F7C1F7C1F7C205EFF7FF47FF47FF47FF47FF47FF47FF47FF47FF47FF47F215E
+              1F7C1F7C1F7C1F7C205EFF7FF47FF47FF47F205E205E205E205E205E205E1F7C
+              1F7C1F7C1F7C1F7C1F7C205E205E205E205E1F7C1F7C1F7C1F7C1F7C1F7C1F7C
+              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
+              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
+              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
+              1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C1F7C
+              1F7C1F7C1F7C}
+            OnClick = BtnRespCidClick
+          end
+          object Label67: TLabel
+            Left = 441
+            Top = 66
+            Width = 27
+            Height = 15
+            Caption = 'Fone'
             Font.Charset = ANSI_CHARSET
             Font.Color = clBlack
             Font.Height = -12
@@ -1174,9 +1332,9 @@ object FAluno: TFAluno
             ParentFont = False
           end
           object WSDBComboBox2: TWSDBComboBox
-            Left = 309
-            Top = 149
-            Width = 91
+            Left = 301
+            Top = 200
+            Width = 98
             Height = 23
             Style = csDropDownList
             DataField = 'ALUESTADOCIVIL'
@@ -1195,53 +1353,16 @@ object FAluno: TFAluno
               'Amasiado(a)')
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 17
+            TabOrder = 24
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object txtsenha: TWSDBEdit
-            Left = 461
-            Top = 194
-            Width = 121
+            Left = 470
+            Top = 246
+            Width = 122
             DataField = 'ALUSENHA'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 22
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit21: TWSDBEdit
-            Left = 564
-            Top = 236
-            Width = 16
-            height = 18
-            DataField = 'ALUENTREGOURG'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 30
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit19: TWSDBEdit
-            Left = 564
-            Top = 214
-            Width = 16
-            DataField = 'ALUENTREGOUCPF'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clGray
@@ -1255,9 +1376,46 @@ object FAluno: TFAluno
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
+          object WSDBEdit21: TWSDBEdit
+            Left = 576
+            Top = 268
+            Width = 16
+            height = 18
+            DataField = 'ALUENTREGOURG'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 37
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit19: TWSDBEdit
+            Left = 488
+            Top = 268
+            Width = 16
+            DataField = 'ALUENTREGOUCPF'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 36
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
           object WSDBEdit3: TWSDBEdit
             Left = 87
-            Top = 173
+            Top = 224
             Width = 122
             DataField = 'ALUFONE'
             DataSource = DataSource
@@ -1268,107 +1426,16 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 18
+            TabOrder = 25
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
-          object WSDBEdit5: TWSDBEdit
-            Left = 88
-            Top = 105
-            Width = 496
+          object txtEnd: TWSDBEdit
+            Left = 87
+            Top = 157
+            Width = 505
             DataField = 'ALUENDERECO'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 12
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit6: TWSDBEdit
-            Left = 87
-            Top = 129
-            Width = 160
-            DataField = 'ALUBAIRRO'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 13
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object txtcodcidade: TWSDBEdit
-            Left = 305
-            Top = 130
-            Width = 46
-            DataField = 'ALUCIDADE'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 14
-            OnExit = txtcodcidadeExit
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object txtcidade: TWSDBEdit
-            Left = 381
-            Top = 129
-            Width = 202
-            DataField = 'CIDADE'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 15
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit8: TWSDBEdit
-            Left = 87
-            Top = 151
-            Width = 121
-            DataField = 'ALUCEP'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 16
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit10: TWSDBEdit
-            Left = 277
-            Top = 173
-            Width = 122
-            DataField = 'ALUFAX'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clGray
@@ -1382,65 +1449,11 @@ object FAluno: TFAluno
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
-          object WSDBEdit11: TWSDBEdit
+          object txtBairro: TWSDBEdit
             Left = 87
-            Top = 195
-            Width = 312
-            DataField = 'ALUEMAIL'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 21
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit16: TWSDBEdit
-            Left = 312
-            Top = 60
-            Width = 121
-            DataField = 'ALUIDENTIDADE'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 8
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object txtcpf: TWSDBEdit
-            Left = 463
-            Top = 81
-            Width = 122
-            DataField = 'ALUCPF'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 11
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit7: TWSDBEdit
-            Left = 461
-            Top = 173
-            Width = 122
-            DataField = 'ALUCELULAR'
+            Top = 180
+            Width = 160
+            DataField = 'ALUBAIRRO'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clGray
@@ -1454,9 +1467,154 @@ object FAluno: TFAluno
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
+          object txtcodcidade: TWSDBEdit
+            Left = 301
+            Top = 180
+            Width = 46
+            DataField = 'ALUCIDADE'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 21
+            OnExit = txtcodcidadeExit
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object txtcidade: TWSDBEdit
+            Left = 372
+            Top = 180
+            Width = 220
+            DataField = 'CIDADE'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 22
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit8: TWSDBEdit
+            Left = 87
+            Top = 202
+            Width = 121
+            DataField = 'ALUCEP'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 23
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit10: TWSDBEdit
+            Left = 277
+            Top = 225
+            Width = 122
+            DataField = 'ALUFAX'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 26
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit11: TWSDBEdit
+            Left = 87
+            Top = 246
+            Width = 312
+            DataField = 'ALUEMAIL'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 28
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object txtRG: TWSDBEdit
+            Left = 301
+            Top = 112
+            Width = 138
+            DataField = 'ALUIDENTIDADE'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 15
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object txtcpf: TWSDBEdit
+            Left = 484
+            Top = 111
+            Width = 108
+            DataField = 'ALUCPF'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 16
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit7: TWSDBEdit
+            Left = 470
+            Top = 225
+            Width = 122
+            DataField = 'ALUCELULAR'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 27
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
           object txtcarteira: TWSDBEdit
-            Left = 564
-            Top = 282
+            Left = 576
+            Top = 291
             Width = 16
             DataField = 'ALUCARTEIRA'
             DataSource = DataSource
@@ -1467,16 +1625,16 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 32
+            TabOrder = 39
             OnKeyDown = txtcodKeyDown
             EnterClicar = True
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object txtcodnaturalidade: TWSDBEdit
-            Left = 311
-            Top = 36
-            Width = 48
+            Left = 301
+            Top = 91
+            Width = 46
             DataField = 'ALUNATURALIDADE'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
@@ -1486,16 +1644,16 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 5
+            TabOrder = 12
             OnExit = txtcodnaturalidadeExit
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object txtnaturalidade: TWSDBEdit
-            Left = 381
-            Top = 36
-            Width = 202
+            Left = 372
+            Top = 91
+            Width = 220
             DataField = 'NATURALIDADE'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
@@ -1505,14 +1663,14 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 6
+            TabOrder = 13
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object WSDBEdit1: TWSDBEdit
             Left = 87
-            Top = 36
+            Top = 91
             Width = 120
             DataField = 'ALUNACIONALIDADE'
             DataSource = DataSource
@@ -1523,14 +1681,14 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 4
+            TabOrder = 11
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object txtnasc: TWSDBEdit
             Left = 87
-            Top = 59
+            Top = 112
             Width = 97
             DataField = 'ALUNASCIMENTO'
             DataSource = DataSource
@@ -1541,14 +1699,14 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 7
+            TabOrder = 14
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object txtsituacao: TWSDBComboBox
             Left = 87
-            Top = 279
+            Top = 332
             Width = 135
             Height = 23
             Style = csDropDownList
@@ -1571,14 +1729,14 @@ object FAluno: TFAluno
               'Pendente Matr'#237'cula')
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 25
+            TabOrder = 32
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object WSDBEdit4: TWSDBEdit
             Left = 87
-            Top = 82
+            Top = 135
             Width = 96
             DataField = 'ALUDATAEXPEDICAO'
             DataSource = DataSource
@@ -1589,15 +1747,15 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 9
+            TabOrder = 17
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object WSDBEdit9: TWSDBEdit
-            Left = 311
-            Top = 82
-            Width = 120
+            Left = 301
+            Top = 135
+            Width = 138
             DataField = 'ALUORGAOEXPEDIDOR'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
@@ -1607,14 +1765,14 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 10
+            TabOrder = 18
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object WSDBEdit12: TWSDBEdit
-            Left = 564
-            Top = 260
+            Left = 488
+            Top = 291
             Width = 16
             DataField = 'ALUENTREGOUDIPLOMA'
             DataSource = DataSource
@@ -1625,15 +1783,15 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 31
+            TabOrder = 38
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object WSDBEdit13: TWSDBEdit
-            Left = 311
-            Top = 12
-            Width = 124
+            Left = 87
+            Top = 0
+            Width = 352
             DataField = 'ALUNOMEPAI'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
@@ -1643,90 +1801,16 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 2
+            TabOrder = 0
             OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit14: TWSDBEdit
-            Left = 459
-            Top = 12
-            Width = 124
-            DataField = 'ALUNOMEMAE'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 3
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBMemo1: TWSDBMemo
-            Left = 87
-            Top = 237
-            Width = 313
-            height = 38
-            BevelInner = bvNone
-            DataField = 'ALUHISTESCOLAR'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 24
-            OnKeyDown = txtocorrenciasKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object WSDBEdit2: TWSDBEdit
             Left = 277
-            Top = 281
+            Top = 333
             Width = 124
             DataField = 'ALUBOLSA'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 26
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit17: TWSDBEdit
-            Left = 87
-            Top = 216
-            Width = 312
-            DataField = 'ALUEMAILALT'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 23
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object txtalterar: TWSDBEdit
-            Left = 564
-            Top = 303
-            Width = 16
-            DataField = 'ALUALTERAR'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clGray
@@ -1740,9 +1824,27 @@ object FAluno: TFAluno
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
+          object WSDBEdit17: TWSDBEdit
+            Left = 87
+            Top = 268
+            Width = 312
+            DataField = 'ALUEMAILALT'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 30
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
           object WSDBEdit22: TWSDBEdit
             Left = 277
-            Top = 305
+            Top = 357
             Width = 124
             DataField = 'ALUDESCONTO'
             DataSource = DataSource
@@ -1753,76 +1855,16 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 28
+            TabOrder = 35
             OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
           object WSDBEdit23: TWSDBEdit
-            Left = 88
-            Top = 305
+            Left = 87
+            Top = 357
             Width = 94
             DataField = 'ALUDATAPENDMONO'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 27
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object txtresponsavel: TWSDBComboBox
-            Left = 87
-            Top = 10
-            Width = 54
-            Height = 23
-            Style = csDropDownList
-            DataField = 'ALURESPONSAVEL'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clRed
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            Items.Strings = (
-              ''
-              'Pai'
-              'M'#227'e')
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 0
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit24: TWSDBEdit
-            Left = 166
-            Top = 12
-            Width = 124
-            DataField = 'ALURESPONSAVELCPF'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 1
-            OnKeyDown = txtcodKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
-          object WSDBEdit25: TWSDBEdit
-            Left = 88
-            Top = 338
-            Width = 94
-            DataField = 'ALUCERTSOLICITADO'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clGray
@@ -1836,10 +1878,46 @@ object FAluno: TFAluno
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
+          object txtcpfresp: TWSDBEdit
+            Left = 334
+            Top = 22
+            Width = 105
+            DataField = 'ALURESPONSAVELCPF'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 3
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit25: TWSDBEdit
+            Left = 470
+            Top = 333
+            Width = 100
+            DataField = 'ALUCERTSOLICITADO'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 40
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
           object WSDBEdit26: TWSDBEdit
-            Left = 278
-            Top = 338
-            Width = 94
+            Left = 470
+            Top = 357
+            Width = 100
             DataField = 'ALUCERTENTREGA'
             DataSource = DataSource
             Font.Charset = DEFAULT_CHARSET
@@ -1849,9 +1927,190 @@ object FAluno: TFAluno
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            TabOrder = 35
+            TabOrder = 41
             OnKeyDown = txtcodKeyDown
             EnterClicar = True
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object DBRichEdit1: TDBRichEdit
+            Left = 87
+            Top = 288
+            Width = 313
+            Height = 40
+            BevelInner = bvNone
+            BevelKind = bkFlat
+            BorderStyle = bsNone
+            DataField = 'ALUHISTESCOLAR'
+            DataSource = DataSource
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 31
+          end
+          object txtRespRG: TWSDBEdit
+            Left = 484
+            Top = 22
+            Width = 108
+            DataField = 'ALURESPRG'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 4
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit6: TWSDBEdit
+            Left = 87
+            Top = 22
+            Width = 212
+            DataField = 'ALURESPNOMEMAE'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 2
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit16: TWSDBEdit
+            Left = 484
+            Top = 0
+            Width = 108
+            DataField = 'ALURESPNASC'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 1
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object txtRespEnd: TWSDBEdit
+            Left = 87
+            Top = 44
+            Width = 166
+            DataField = 'ALURESPEND'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 5
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object txtRespBairro: TWSDBEdit
+            Left = 301
+            Top = 44
+            Width = 138
+            DataField = 'ALURESPBAIRRO'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 6
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit28: TWSDBEdit
+            Left = 484
+            Top = 44
+            Width = 108
+            DataField = 'ALURESPCEP'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 7
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object txtRespCodCid: TWSDBEdit
+            Left = 87
+            Top = 66
+            Width = 46
+            DataField = 'ALURESPCID'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 8
+            OnExit = txtRespCodCidExit
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object txtRespCidade: TWSDBEdit
+            Left = 158
+            Top = 66
+            Width = 281
+            DataField = 'RESPCID'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 9
+            OnKeyDown = txtcodKeyDown
+            ColorOnFocus = clBlack
+            ColorOnNotFocus = clGray
+          end
+          object WSDBEdit31: TWSDBEdit
+            Left = 484
+            Top = 66
+            Width = 108
+            DataField = 'ALURESPFONE'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            TabOrder = 10
+            OnKeyDown = txtcodKeyDown
             ColorOnFocus = clBlack
             ColorOnNotFocus = clGray
           end
@@ -1859,14 +2118,10 @@ object FAluno: TFAluno
         object TabSheet2: TTabSheet
           Caption = 'Hist'#243'rico'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object PanCurso: TPanel
             Left = 0
             Top = 0
-            Width = 612
+            Width = 603
             Height = 378
             Align = alClient
             BevelInner = bvRaised
@@ -1875,21 +2130,21 @@ object FAluno: TFAluno
             object pandisciplinas: TPanel
               Left = 2
               Top = 29
-              Width = 608
+              Width = 599
               Height = 297
               Align = alClient
               BevelInner = bvRaised
               BevelOuter = bvLowered
               Color = clWhite
-              TabOrder = 0
+              TabOrder = 1
               object DBGrid1: TDBGrid
                 Left = 2
                 Top = 42
-                Width = 435
+                Width = 426
                 Height = 253
                 TabStop = False
                 Align = alClient
-                DataSource = DM.DSAlunoDisciplina
+                DataSource = Dm.DSAlunoDisciplina
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clNavy
                 Font.Height = -9
@@ -2034,12 +2289,12 @@ object FAluno: TFAluno
                   end>
               end
               object DBGridDiscData: TDBGrid
-                Left = 437
+                Left = 428
                 Top = 42
                 Width = 169
                 Height = 253
                 Align = alRight
-                DataSource = DM.DSAlunoDisciplinaData
+                DataSource = Dm.DSAlunoDisciplinaData
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clNavy
                 Font.Height = -9
@@ -2077,7 +2332,7 @@ object FAluno: TFAluno
               object Panel1: TPanel
                 Left = 2
                 Top = 2
-                Width = 604
+                Width = 595
                 Height = 40
                 Align = alTop
                 TabOrder = 0
@@ -2332,7 +2587,7 @@ object FAluno: TFAluno
                   ColorOnNotFocus = clGray
                 end
                 object ToolBarItem: TToolBar
-                  Left = 469
+                  Left = 460
                   Top = 1
                   Width = 134
                   Height = 38
@@ -2341,7 +2596,7 @@ object FAluno: TFAluno
                   ButtonHeight = 30
                   ButtonWidth = 31
                   Caption = 'ToolBarItem'
-                  Images = DM.ImageList
+                  Images = Dm.ImageList
                   TabOrder = 5
                   Transparent = False
                   object btnmonografia: TToolButton
@@ -2461,13 +2716,13 @@ object FAluno: TFAluno
             object PanMonografia: TPanel
               Left = 2
               Top = 326
-              Width = 608
+              Width = 599
               Height = 50
               Align = alBottom
               BevelInner = bvRaised
               BevelOuter = bvLowered
               Color = clWhite
-              TabOrder = 1
+              TabOrder = 2
               Visible = False
               object Label51: TLabel
                 Left = 449
@@ -2646,10 +2901,10 @@ object FAluno: TFAluno
             object Panel3: TPanel
               Left = 2
               Top = 2
-              Width = 608
+              Width = 599
               Height = 27
               Align = alTop
-              TabOrder = 2
+              TabOrder = 0
               object Label48: TLabel
                 Left = 487
                 Top = 5
@@ -2678,7 +2933,7 @@ object FAluno: TFAluno
               end
               object btncurso: TSpeedButton
                 Left = 124
-                Top = 2
+                Top = 1
                 Width = 23
                 Height = 23
                 Hint = 'Abrir Cadastro'
@@ -2815,7 +3070,7 @@ object FAluno: TFAluno
                 Font.Style = []
                 ParentFont = False
                 ParentShowHint = False
-                TabOrder = 0
+                TabOrder = 3
                 OnKeyDown = txtcodKeyDown
                 ColorOnFocus = clBlack
                 ColorOnNotFocus = clGray
@@ -2833,7 +3088,7 @@ object FAluno: TFAluno
                 Font.Style = []
                 ParentFont = False
                 ParentShowHint = False
-                TabOrder = 1
+                TabOrder = 2
                 OnExit = WSDBEdit15Exit
                 OnKeyDown = txtcodKeyDown
                 ColorOnFocus = clBlack
@@ -2852,7 +3107,7 @@ object FAluno: TFAluno
                 Font.Style = []
                 ParentFont = False
                 ParentShowHint = False
-                TabOrder = 2
+                TabOrder = 0
                 OnExit = txtcodcursoExit
                 OnKeyDown = txtcodKeyDown
                 ColorOnFocus = clBlack
@@ -2871,7 +3126,7 @@ object FAluno: TFAluno
                 Font.Style = []
                 ParentFont = False
                 ParentShowHint = False
-                TabOrder = 3
+                TabOrder = 1
                 OnKeyDown = txtcodKeyDown
                 ColorOnFocus = clBlack
                 ColorOnNotFocus = clGray
@@ -2882,14 +3137,10 @@ object FAluno: TFAluno
         object TabSheet3: TTabSheet
           Caption = 'Mensalidades'
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object PanMensalidade: TPanel
             Left = 0
             Top = 0
-            Width = 612
+            Width = 603
             Height = 378
             Align = alClient
             BevelInner = bvRaised
@@ -2899,7 +3150,7 @@ object FAluno: TFAluno
             object Label46: TLabel
               Left = 2
               Top = 2
-              Width = 79
+              Width = 599
               Height = 15
               Align = alTop
               Alignment = taCenter
@@ -2910,14 +3161,15 @@ object FAluno: TFAluno
               Font.Name = 'Arial'
               Font.Style = [fsBold]
               ParentFont = False
+              ExplicitWidth = 79
             end
             object DBGrid2: TDBGrid
               Left = 2
               Top = 45
-              Width = 608
+              Width = 599
               Height = 287
               Align = alClient
-              DataSource = DM.DSAlunoMensalidade
+              DataSource = Dm.DSAlunoMensalidade
               Font.Charset = ANSI_CHARSET
               Font.Color = clBlue
               Font.Height = -9
@@ -3002,7 +3254,7 @@ object FAluno: TFAluno
             object Panel5: TPanel
               Left = 2
               Top = 332
-              Width = 608
+              Width = 599
               Height = 44
               Align = alBottom
               TabOrder = 1
@@ -3025,7 +3277,7 @@ object FAluno: TFAluno
                 Width = 65
                 Height = 17
                 DataField = 'Valor'
-                DataSource = DM.DSAlunoMensalidade
+                DataSource = Dm.DSAlunoMensalidade
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3039,7 +3291,7 @@ object FAluno: TFAluno
                 Width = 65
                 Height = 17
                 DataField = 'Desconto'
-                DataSource = DM.DSAlunoMensalidade
+                DataSource = Dm.DSAlunoMensalidade
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3079,7 +3331,7 @@ object FAluno: TFAluno
                 Width = 65
                 Height = 17
                 DataField = 'Bolsa'
-                DataSource = DM.DSAlunoMensalidade
+                DataSource = Dm.DSAlunoMensalidade
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3106,7 +3358,7 @@ object FAluno: TFAluno
                 Width = 65
                 Height = 17
                 DataField = 'Acrescimo'
-                DataSource = DM.DSAlunoMensalidade
+                DataSource = Dm.DSAlunoMensalidade
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3120,7 +3372,7 @@ object FAluno: TFAluno
                 Width = 65
                 Height = 17
                 DataField = 'Liquido'
-                DataSource = DM.DSAlunoMensalidade
+                DataSource = Dm.DSAlunoMensalidade
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3160,7 +3412,7 @@ object FAluno: TFAluno
                 Width = 65
                 Height = 17
                 DataField = 'ValorPago'
-                DataSource = DM.DSAlunoMensalidade
+                DataSource = Dm.DSAlunoMensalidade
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3256,7 +3508,7 @@ object FAluno: TFAluno
                 OnClick = btnbloquearClick
               end
               object ToolBar1: TToolBar
-                Left = 503
+                Left = 494
                 Top = 1
                 Width = 104
                 Height = 42
@@ -3271,7 +3523,7 @@ object FAluno: TFAluno
                 Font.Height = -12
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
-                Images = DM.ImageList
+                Images = Dm.ImageList
                 List = True
                 ParentFont = False
                 ParentShowHint = False
@@ -3294,7 +3546,7 @@ object FAluno: TFAluno
             object Panel6: TPanel
               Left = 2
               Top = 17
-              Width = 608
+              Width = 599
               Height = 28
               Align = alTop
               TabOrder = 0
@@ -3415,43 +3667,18 @@ object FAluno: TFAluno
         object TabSheet4: TTabSheet
           Caption = 'Negocia'#231#227'o Financeira'
           ImageIndex = 3
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
-          object WSDBMemo2: TWSDBMemo
-            Left = 0
-            Top = 38
-            Width = 612
-            height = 340
-            Align = alClient
-            BevelInner = bvNone
-            DataField = 'ALUNEGFINANCEIRA'
-            DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ParentShowHint = False
-            TabOrder = 0
-            OnKeyDown = txtocorrenciasKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
-          end
           object ToolBar3: TToolBar
             Left = 0
             Top = 0
-            Width = 612
+            Width = 603
             Height = 38
             AutoSize = True
             BorderWidth = 2
             ButtonHeight = 30
             ButtonWidth = 31
             Caption = 'ToolBarItem'
-            Images = DM.ImageList
-            TabOrder = 1
+            Images = Dm.ImageList
+            TabOrder = 0
             Transparent = False
             object BtnImprimirTexto: TToolButton
               Left = 0
@@ -3517,7 +3744,7 @@ object FAluno: TFAluno
                 Height = 19
                 AutoSize = False
                 DataField = 'INSNOME'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clNavy
                 Font.Height = -13
@@ -3531,7 +3758,7 @@ object FAluno: TFAluno
                 Width = 178
                 Height = 52
                 DataField = 'INSLOGO'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Stretch = True
               end
               object RLDBText187: TRLDBText
@@ -3541,7 +3768,7 @@ object FAluno: TFAluno
                 Height = 15
                 AutoSize = False
                 DataField = 'INSENDERECO'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3556,7 +3783,7 @@ object FAluno: TFAluno
                 Height = 15
                 AutoSize = False
                 DataField = 'INSBAIRRO'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3571,7 +3798,7 @@ object FAluno: TFAluno
                 Height = 15
                 AutoSize = False
                 DataField = 'INSCIDADE'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3586,7 +3813,7 @@ object FAluno: TFAluno
                 Height = 15
                 AutoSize = False
                 DataField = 'INSFONE'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3601,7 +3828,7 @@ object FAluno: TFAluno
                 Height = 15
                 AutoSize = False
                 DataField = 'INSSITE'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -3616,7 +3843,7 @@ object FAluno: TFAluno
                 Height = 15
                 AutoSize = False
                 DataField = 'INSEMAIL'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = ANSI_CHARSET
                 Font.Color = clBlack
                 Font.Height = -12
@@ -8141,7 +8368,7 @@ object FAluno: TFAluno
                 Height = 67
                 Align = faLeft
                 DataField = 'INSFIGURA'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
               end
               object RLDBRichText13: TRLDBRichText
                 Left = 182
@@ -8152,7 +8379,7 @@ object FAluno: TFAluno
                 AutoSize = False
                 Behavior = [beSiteExpander]
                 DataField = 'INSCAB'
-                DataSource = DM.DSInstituto
+                DataSource = Dm.DSInstituto
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clNavy
                 Font.Height = -13
@@ -8202,18 +8429,34 @@ object FAluno: TFAluno
               end
             end
           end
+          object DBRichEdit2: TDBRichEdit
+            Left = 0
+            Top = 38
+            Width = 603
+            Height = 340
+            Align = alClient
+            BevelInner = bvNone
+            BevelKind = bkFlat
+            BorderStyle = bsNone
+            DataField = 'ALUNEGFINANCEIRA'
+            DataSource = DataSource
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clGray
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            OnKeyDown = txtocorrenciasKeyDown
+          end
         end
         object TabHistFinanceiro: TTabSheet
           Caption = 'Pend'#234'ncias Financeiras'
           ImageIndex = 5
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Panel4: TPanel
             Left = 0
             Top = 0
-            Width = 612
+            Width = 603
             Height = 40
             Align = alTop
             TabOrder = 0
@@ -8336,22 +8579,23 @@ object FAluno: TFAluno
               ColorOnNotFocus = clGray
             end
             object ToolBar2: TToolBar
-              Left = 542
+              Left = 532
               Top = 1
-              Width = 69
+              Width = 70
               Height = 38
               Align = alRight
+              AutoSize = True
               BorderWidth = 2
               ButtonHeight = 30
               ButtonWidth = 31
               Caption = 'ToolBarItem'
-              Images = DM.ImageList
+              Images = Dm.ImageList
               TabOrder = 3
               Transparent = False
               object btnIncServicoFin: TToolButton
                 Left = 0
                 Top = 0
-                Hint = 'Salvar Disciplina'
+                Hint = 'Salvar '
                 ImageIndex = 14
                 ParentShowHint = False
                 ShowHint = True
@@ -8360,7 +8604,7 @@ object FAluno: TFAluno
               object btnexcServicoFIn: TToolButton
                 Left = 31
                 Top = 0
-                Hint = 'Excluir Disciplina'
+                Hint = 'Excluir'
                 ImageIndex = 5
                 ParentShowHint = False
                 ShowHint = True
@@ -8411,11 +8655,11 @@ object FAluno: TFAluno
           object DBGrid3: TDBGrid
             Left = 0
             Top = 40
-            Width = 612
+            Width = 603
             Height = 338
             TabStop = False
             Align = alClient
-            DataSource = DM.DSAlunoServicoFin
+            DataSource = Dm.DSAlunoServicoFin
             Font.Charset = ANSI_CHARSET
             Font.Color = clNavy
             Font.Height = -9
@@ -8487,47 +8731,38 @@ object FAluno: TFAluno
         object TabSheet6: TTabSheet
           Caption = 'Egresso'
           ImageIndex = 6
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
-          object WSDBMemo3: TWSDBMemo
+          object DBRichEdit3: TDBRichEdit
             Left = 0
             Top = 0
-            Width = 612
-            height = 378
+            Width = 603
+            Height = 378
             Align = alClient
             BevelInner = bvNone
+            BevelKind = bkFlat
+            BorderStyle = bsNone
             DataField = 'ALUEGRESSO'
             DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clGray
             Font.Height = -12
             Font.Name = 'Arial'
             Font.Style = []
             ParentFont = False
-            ParentShowHint = False
             TabOrder = 0
             OnKeyDown = txtocorrenciasKeyDown
-            ColorOnFocus = clBlack
-            ColorOnNotFocus = clGray
           end
         end
         object TabSheet5: TTabSheet
           Caption = 'Foto'
           ImageIndex = 4
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object ImgFoto: TDBImage
             Left = 0
             Top = 0
-            Width = 612
+            Width = 603
             Height = 378
             Align = alClient
             DataField = 'ALUFOTO'
-            DataSource = DM.DSAlunoFoto
+            DataSource = Dm.DSAlunoFoto
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clSilver
             Font.Height = -12
@@ -8544,7 +8779,7 @@ object FAluno: TFAluno
   object PanPesquisa: TPanel
     Left = 0
     Top = 24
-    Width = 628
+    Width = 619
     Height = 29
     Align = alTop
     BevelOuter = bvLowered
@@ -8967,7 +9202,7 @@ object FAluno: TFAluno
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -8981,7 +9216,7 @@ object FAluno: TFAluno
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText2: TRLDBText
@@ -8991,7 +9226,7 @@ object FAluno: TFAluno
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -9006,7 +9241,7 @@ object FAluno: TFAluno
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -9021,7 +9256,7 @@ object FAluno: TFAluno
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -9036,7 +9271,7 @@ object FAluno: TFAluno
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -9051,7 +9286,7 @@ object FAluno: TFAluno
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -9066,7 +9301,7 @@ object FAluno: TFAluno
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -9093,7 +9328,7 @@ object FAluno: TFAluno
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -9104,7 +9339,7 @@ object FAluno: TFAluno
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -9165,10 +9400,10 @@ object FAluno: TFAluno
     OnClick = btnimportartxtClick
   end
   object panimpressao: TPanel
-    Left = 232
-    Top = 300
+    Left = 190
+    Top = 372
     Width = 220
-    Height = 143
+    Height = 149
     BevelInner = bvRaised
     BevelOuter = bvLowered
     Color = clWhite
@@ -10241,7 +10476,7 @@ object FAluno: TFAluno
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSAluno
+    DataSet = Dm.CDSAluno
     OnDataChange = DataSourceDataChange
     Left = 528
     Top = 8

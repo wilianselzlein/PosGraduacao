@@ -2,7 +2,6 @@ object FMensalidadeGera: TFMensalidadeGera
   Left = 223
   Top = 97
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'FMensalidadeGera'
   ClientHeight = 415
   ClientWidth = 582
   Color = clBtnFace
@@ -52,7 +51,7 @@ object FMensalidadeGera: TFMensalidadeGera
     Font.Height = -12
     Font.Name = 'Arial'
     Font.Style = [fsBold]
-    Images = DM.ImageList
+    Images = Dm.ImageList
     List = True
     ParentFont = False
     ParentShowHint = False
@@ -63,7 +62,7 @@ object FMensalidadeGera: TFMensalidadeGera
       Left = 0
       Top = 0
       Hint = 'Gerar Parcelas'
-      Caption = 'Gerar'
+      Caption = 'Gerar Mensal.'
       ImageIndex = 14
       OnClick = BtnGerarClick
     end
@@ -388,8 +387,8 @@ object FMensalidadeGera: TFMensalidadeGera
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 23
-      Top = 304
+      Left = 22
+      Top = 302
       Width = 267
       Height = 15
       Caption = 'Quantidade de Mensalidades a serem geradas:'
@@ -496,7 +495,7 @@ object FMensalidadeGera: TFMensalidadeGera
     end
     object ImgMensalidade: TImage
       Left = 389
-      Top = 186
+      Top = 182
       Width = 138
       Height = 223
       Proportional = True
@@ -650,11 +649,24 @@ object FMensalidadeGera: TFMensalidadeGera
       OnClick = btndisciplinaClick
     end
     object Label14: TLabel
-      Left = 198
+      Left = 203
       Top = 209
       Width = 89
       Height = 15
       Caption = 'Valor Professor'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label15: TLabel
+      Left = 213
+      Top = 279
+      Width = 76
+      Height = 15
+      Caption = 'Valor Entrada'
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -12
@@ -817,8 +829,8 @@ object FMensalidadeGera: TFMensalidadeGera
       ColorOnNotFocus = clGray
     end
     object txtquant: TWSEdit
-      Left = 279
-      Top = 303
+      Left = 295
+      Top = 301
       Width = 53
       height = 17
       BevelInner = bvNone
@@ -829,7 +841,7 @@ object FMensalidadeGera: TFMensalidadeGera
       Font.Style = []
       ParentFont = False
       ParentShowHint = False
-      TabOrder = 19
+      TabOrder = 20
       Text = '0'
       OnChange = txtvalorChange
       OnKeyPress = txtquantKeyPress
@@ -1040,7 +1052,7 @@ object FMensalidadeGera: TFMensalidadeGera
       ColorOnNotFocus = clGray
     end
     object txtvalorprofessor: TWSEdit
-      Left = 287
+      Left = 295
       Top = 208
       Width = 75
       height = 17
@@ -1058,9 +1070,27 @@ object FMensalidadeGera: TFMensalidadeGera
       ColorOnFocus = clBlack
       ColorOnNotFocus = clGray
     end
+    object txtEntrada: TWSEdit
+      Left = 295
+      Top = 278
+      Width = 75
+      height = 17
+      BevelInner = bvNone
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      ParentShowHint = False
+      TabOrder = 19
+      Text = '0'
+      ColorOnFocus = clBlack
+      ColorOnNotFocus = clGray
+    end
   end
   object PopupContrato: TPopupMenu
-    Images = DM.ImageList
+    Images = Dm.ImageList
     Left = 208
     Top = 264
     object btncontratoaluno: TMenuItem

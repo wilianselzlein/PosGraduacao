@@ -14,7 +14,6 @@ object FPrograma: TFPrograma
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -177,7 +176,7 @@ object FPrograma: TFPrograma
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
@@ -423,7 +422,7 @@ object FPrograma: TFPrograma
     Top = 259
     Width = 794
     Height = 1123
-    DataSource = DM.DSPrograma
+    DataSource = Dm.DSPrograma
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -13
@@ -444,7 +443,7 @@ object FPrograma: TFPrograma
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -458,7 +457,7 @@ object FPrograma: TFPrograma
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText2: TRLDBText
@@ -468,7 +467,7 @@ object FPrograma: TFPrograma
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -483,7 +482,7 @@ object FPrograma: TFPrograma
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -498,7 +497,7 @@ object FPrograma: TFPrograma
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -513,7 +512,7 @@ object FPrograma: TFPrograma
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -528,7 +527,7 @@ object FPrograma: TFPrograma
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -543,7 +542,7 @@ object FPrograma: TFPrograma
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -641,7 +640,7 @@ object FPrograma: TFPrograma
         Height = 15
         Alignment = taCenter
         DataField = 'PROCOD'
-        DataSource = DM.DSPrograma
+        DataSource = Dm.DSPrograma
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -656,7 +655,7 @@ object FPrograma: TFPrograma
         Height = 15
         AutoSize = False
         DataField = 'PRONOME'
-        DataSource = DM.DSPrograma
+        DataSource = Dm.DSPrograma
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -683,7 +682,7 @@ object FPrograma: TFPrograma
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -694,7 +693,7 @@ object FPrograma: TFPrograma
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -745,7 +744,7 @@ object FPrograma: TFPrograma
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSPrograma
+    DataSet = Dm.CDSPrograma
     Left = 8
     Top = 8
   end

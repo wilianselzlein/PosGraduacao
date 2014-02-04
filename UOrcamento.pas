@@ -136,7 +136,6 @@ type
     procedure btnhistpadraoClick(Sender: TObject);
     procedure DBGridDblClick(Sender: TObject);
     procedure txtvalorKeyPress(Sender: TObject; var Key: Char);
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure DBGridTitleClick(Column: TColumn);
     procedure txtdatafinExit(Sender: TObject);
@@ -427,6 +426,7 @@ begin
      pagecontrol.activepageindex := 0;
      data := '';
      BtnFiltro.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFOrcamento.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -687,11 +687,6 @@ begin
           end
           else
                btnsalvar.click;
-end;
-
-procedure TFOrcamento.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFOrcamento.FormCreate(Sender: TObject);

@@ -100,7 +100,6 @@ type
           procedure btnexcelClick(Sender: TObject);
           procedure BtnImprimirClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
      private
@@ -224,7 +223,7 @@ end;
 procedure TFGrupoCurso.BtnFiltroClick(Sender: TObject);
 begin
      DataSource.DataSet.close;
-     with dm.qIdentificador.sql do
+     with dm.QGrupoCurso.sql do
      begin
           clear;
           add('SELECT GRUCOD, GRUNOME FROM TGRUPOCURSO');
@@ -285,6 +284,7 @@ begin
      pagecontrol.activepageindex := 0;
      //BtnFiltro.click;
      btndesconectar.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFGrupoCurso.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -455,11 +455,6 @@ procedure TFGrupoCurso.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFGrupoCurso.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFGrupoCurso.FormCreate(Sender: TObject);

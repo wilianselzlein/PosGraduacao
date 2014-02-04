@@ -108,7 +108,6 @@ type
           procedure btnexcelClick(Sender: TObject);
           procedure BtnImprimirClick(Sender: TObject);
           procedure DBGridDblClick(Sender: TObject);
-          procedure FormActivate(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure DBGridTitleClick(Column: TColumn);
      private
@@ -284,7 +283,6 @@ begin
      end;
      salva_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm));
      salva_propriedades_tela((sender as tform).name, sender as TForm);
-     //(sender as tform).Hide;
      limpa_edits(sender as tform);
      action := cafree;
 end;
@@ -295,6 +293,7 @@ begin
      pagecontrol.activepageindex := 0;
      //BtnFiltro.click;
      btndesconectar.click;
+     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFDisciplina.WSDBEdit1KeyDown(Sender: TObject; var Key: Word;
@@ -465,11 +464,6 @@ procedure TFDisciplina.DBGridDblClick(Sender: TObject);
 begin
      if btnalterar.Enabled then
           BtnAlterar.Click;
-end;
-
-procedure TFDisciplina.FormActivate(Sender: TObject);
-begin
-     carregar_propriedades_dbgrid((lbltitulo.parent as TForm).name, (lbltitulo.parent as TForm), DBGrid);
 end;
 
 procedure TFDisciplina.FormCreate(Sender: TObject);

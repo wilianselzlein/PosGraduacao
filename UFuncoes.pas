@@ -55,6 +55,7 @@ function cpf(num: string): boolean;
 function cnpj(num: string): boolean;
 function EnviaEMail(const De, Para, Assunto, Texto, Arquivo: string; Confirma: Boolean): Integer;
 function ThreadExecSql(ACds: TClientDataSet = nil; ASql: WideString = ''; AParams: TParams = nil; AQry: TSQLQuery = nil): Boolean;
+function DiaSemana(Data: TDateTime): String;
 
 procedure atualizar_sistema;
 
@@ -376,7 +377,7 @@ begin
      i := 0;
      while i <> DataSource.dataset.FieldCount do
      begin
-          if datasource.DataSet.Fields[i].FieldKind = fkdata then
+          if (datasource.DataSet.Fields[i].FieldKind = fkdata) and (datasource.DataSet.Fields[i].DataType <> ftDataSet) then
                if (datasource.DataSet.Fields[i].ProviderFlags = [pfInUpdate, pfInWhere]) or (datasource.DataSet.Fields[i].ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]) then
                     dm.cdsnovo.FieldDefs.Add(DataSource.dataset.Fields[i].FieldName, DataSource.dataset.Fields[i].DataType, DataSource.dataset.Fields[i].Size, false);
           inc(i);
@@ -388,7 +389,7 @@ begin
      i := 0;
      while i <> DataSource.dataset.FieldCount do
      begin
-          if datasource.DataSet.Fields[i].FieldKind = fkdata then
+          if (datasource.DataSet.Fields[i].FieldKind = fkdata) and (datasource.DataSet.Fields[i].DataType <> ftDataSet) then
                if (datasource.DataSet.Fields[i].ProviderFlags = [pfInUpdate, pfInWhere]) or (datasource.DataSet.Fields[i].ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]) then
                     dm.CDSNovo.FieldByName(DataSource.dataset.Fields[i].FieldName).value := DataSource.dataset.FieldByName(DataSource.dataset.Fields[i].FieldName).value;
           inc(i);
@@ -657,9 +658,8 @@ begin
      if comp <> nil then
      begin
           with comp as twsedit do
-          begin
-               SetFocus;
-          end;
+               if CanFocus then
+                    SetFocus;
      end;
      comp := form.FindComponent('TabConsulta');
      if comp <> nil then
@@ -2008,11 +2008,22 @@ begin
     end;
 end;
 
+function DiaSemana(Data: TDateTime): String;
+begin
+  case DayOfWeek(Data) of
+    1: Result := 'Domingo';
+    2: Result := 'Segunda-feira';
+    3: Result := 'Terça-feira';
+    4: Result := 'Quarta-feira';
+    5: Result := 'Quinta-feira';
+    6: Result := 'Sexta-feira';
+    7: Result := 'Sábado';
+  end;
+end;
+
 procedure atualizar_sistema;
-const
-     versaoatu: integer = 405;
-var
-     versao: integer;
+const versaoatu: integer = 408;
+var versao: integer;
 begin
      with dm.qexiste do
      begin
@@ -2840,6 +2851,39 @@ begin
           begin
               sql.Clear;
               sql.add('DELETE FROM TDBGRID;');
+              execsql;
+          end;
+
+          if versao < 406 then
+          begin
+              sql.Clear;
+              sql.Clear;
+              sql.add('ALTER TABLE TCURSO ');
+              sql.add(' ADD CURHORARIOFIM VARCHAR(5) DEFAULT '''';');
+              execsql;
+          end;
+
+          if versao < 407 then
+          begin
+              sql.Clear;
+              sql.Clear;
+              sql.add('ALTER TABLE TALUNO ');
+              sql.add(' ADD ALURESPRG VARCHAR(30) DEFAULT '''',');
+              sql.add(' ADD ALURESPNOMEMAE VARCHAR(50) DEFAULT '''',');
+              sql.add(' ADD ALURESPNASC DATE;');
+              execsql;
+          end;
+
+          if versao < 408 then
+          begin
+              sql.Clear;
+              sql.Clear;
+              sql.add('ALTER TABLE TALUNO ');
+              sql.add(' ADD ALURESPEND VARCHAR(100) DEFAULT '''',');
+              sql.add(' ADD ALURESPBAIRRO VARCHAR(50) DEFAULT '''',');
+              sql.add(' ADD ALURESPFONE VARCHAR(20) DEFAULT '''',');
+              sql.add(' ADD ALURESPCEP VARCHAR(50) DEFAULT '''',');
+              sql.add(' ADD ALURESPCID INTEGER;');
               execsql;
           end;
 

@@ -14,7 +14,6 @@ object FLctoContabil: TFLctoContabil
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnResize = FormResize
   OnShow = FormShow
@@ -45,7 +44,7 @@ object FLctoContabil: TFLctoContabil
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -256,8 +255,6 @@ object FLctoContabil: TFLctoContabil
     MultiLine = True
     TabOrder = 1
     TabStop = False
-    ExplicitLeft = -8
-    ExplicitTop = 93
     object TabConsulta: TTabSheet
       Caption = 'Consulta'
       object Splitter1: TSplitter
@@ -387,9 +384,6 @@ object FLctoContabil: TFLctoContabil
         PlainText = True
         ReadOnly = True
         TabOrder = 1
-        ExplicitLeft = 304
-        ExplicitTop = 136
-        ExplicitWidth = 185
       end
     end
     object TabCadastro: TTabSheet
@@ -401,6 +395,10 @@ object FLctoContabil: TFLctoContabil
       Font.Style = []
       ImageIndex = 1
       ParentFont = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label1: TLabel
         Left = 16
         Top = 3
@@ -927,7 +925,7 @@ object FLctoContabil: TFLctoContabil
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 8
+        TabOrder = 7
         OnKeyDown = WSDBEdit1KeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -964,7 +962,7 @@ object FLctoContabil: TFLctoContabil
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 12
+        TabOrder = 8
         OnKeyDown = WSDBEdit1KeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -983,7 +981,7 @@ object FLctoContabil: TFLctoContabil
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 4
+        TabOrder = 10
         OnKeyDown = WSDBEdit1KeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -1019,7 +1017,7 @@ object FLctoContabil: TFLctoContabil
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 7
+        TabOrder = 6
         OnKeyDown = WSDBEdit1KeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -1037,7 +1035,7 @@ object FLctoContabil: TFLctoContabil
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 10
+        TabOrder = 9
         OnKeyDown = WSDBEdit1KeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -1055,7 +1053,7 @@ object FLctoContabil: TFLctoContabil
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        TabOrder = 6
+        TabOrder = 5
         OnKeyDown = WSDBEdit1KeyDown
         ColorOnFocus = clBlack
         ColorOnNotFocus = clGray
@@ -1087,12 +1085,10 @@ object FLctoContabil: TFLctoContabil
         BevelKind = bkFlat
         BorderStyle = bsNone
         DataField = 'LCTCOMPLEMENTO'
-        DataSource = DM.DSLctoContabil
+        DataSource = Dm.DSLctoContabil
         PlainText = True
         TabOrder = 12
-        Font.Height = -12
-        Font.Name = 'Arial'
-        Font.Style = []        OnKeyDown = WSDBEdit1KeyDown
+        OnKeyDown = WSDBEdit1KeyDown
         OnKeyPress = txtcomplementoKeyPress
       end
     end
@@ -1972,7 +1968,7 @@ object FLctoContabil: TFLctoContabil
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1986,7 +1982,7 @@ object FLctoContabil: TFLctoContabil
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText2: TRLDBText
@@ -1996,7 +1992,7 @@ object FLctoContabil: TFLctoContabil
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2011,7 +2007,7 @@ object FLctoContabil: TFLctoContabil
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2026,7 +2022,7 @@ object FLctoContabil: TFLctoContabil
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2041,7 +2037,7 @@ object FLctoContabil: TFLctoContabil
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2056,7 +2052,7 @@ object FLctoContabil: TFLctoContabil
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2071,7 +2067,7 @@ object FLctoContabil: TFLctoContabil
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -2135,7 +2131,7 @@ object FLctoContabil: TFLctoContabil
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -2146,7 +2142,7 @@ object FLctoContabil: TFLctoContabil
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -2217,7 +2213,7 @@ object FLctoContabil: TFLctoContabil
     OnClick = btnduplicadosClick
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSLctoContabil
+    DataSet = Dm.CDSLctoContabil
     Left = 8
     Top = 24
   end

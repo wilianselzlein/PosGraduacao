@@ -3,17 +3,15 @@ object FContrato: TFContrato
   Top = 111
   Caption = 'FContrato'
   ClientHeight = 473
-  ClientWidth = 862
+  ClientWidth = 653
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  FormStyle = fsMDIChild
   OldCreateOrder = False
   Position = poScreenCenter
-  Visible = True
   WindowState = wsMaximized
   OnClose = FormClose
   OnShow = FormShow
@@ -22,7 +20,7 @@ object FContrato: TFContrato
   object ToolBarNavegacao: TToolBar
     Left = 0
     Top = 0
-    Width = 862
+    Width = 653
     Height = 30
     AutoSize = True
     ButtonHeight = 30
@@ -32,13 +30,14 @@ object FContrato: TFContrato
     Font.Height = -12
     Font.Name = 'Arial'
     Font.Style = [fsBold]
-    Images = DM.ImageList
+    Images = Dm.ImageList
     List = True
     ParentFont = False
     ParentShowHint = False
     ShowCaptions = True
     ShowHint = True
     TabOrder = 0
+    ExplicitWidth = 862
     object BtnImprimir: TToolButton
       Left = 0
       Top = 0
@@ -66,7 +65,7 @@ object FContrato: TFContrato
   object RichEdit1: TRichEdit
     Left = 0
     Top = 30
-    Width = 862
+    Width = 653
     Height = 443
     Align = alClient
     Font.Charset = ANSI_CHARSET
@@ -76,5 +75,7 @@ object FContrato: TFContrato
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    ExplicitTop = 36
+    ExplicitWidth = 862
   end
 end

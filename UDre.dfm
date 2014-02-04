@@ -14,7 +14,6 @@ object FDre: TFDre
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -45,7 +44,7 @@ object FDre: TFDre
     AutoSize = True
     ButtonHeight = 30
     ButtonWidth = 31
-    Images = DM.ImageList
+    Images = Dm.ImageList
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -317,7 +316,7 @@ object FDre: TFDre
           Width = 315
           Height = 219
           Align = alClient
-          DataSource = DM.DSDreConta
+          DataSource = Dm.DSDreConta
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlue
           Font.Height = -9
@@ -353,7 +352,7 @@ object FDre: TFDre
           Width = 318
           Height = 219
           Align = alLeft
-          DataSource = DM.DSDreItem
+          DataSource = Dm.DSDreItem
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlue
           Font.Height = -9
@@ -616,7 +615,7 @@ object FDre: TFDre
           ButtonHeight = 30
           ButtonWidth = 31
           Caption = 'ToolItem'
-          Images = DM.ImageList
+          Images = Dm.ImageList
           TabOrder = 5
           object btnitemsalvar: TToolButton
             Left = 0
@@ -685,7 +684,7 @@ object FDre: TFDre
           ButtonHeight = 30
           ButtonWidth = 31
           Caption = 'ToolBarItem'
-          Images = DM.ImageList
+          Images = Dm.ImageList
           TabOrder = 6
           object btnsalvarconta: TToolButton
             Left = 0
@@ -787,7 +786,7 @@ object FDre: TFDre
           Width = 318
           Height = 292
           Align = alLeft
-          DataSource = DM.DSDreItem
+          DataSource = Dm.DSDreItem
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlue
           Font.Height = -9
@@ -838,7 +837,7 @@ object FDre: TFDre
           Width = 315
           Height = 292
           Align = alClient
-          DataSource = DM.DSDreConta
+          DataSource = Dm.DSDreConta
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlue
           Font.Height = -9
@@ -917,7 +916,7 @@ object FDre: TFDre
     Top = 490
     Width = 1123
     Height = 794
-    DataSource = DM.DSDreItem
+    DataSource = Dm.DSDreItem
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -13
@@ -939,7 +938,7 @@ object FDre: TFDre
         Height = 19
         AutoSize = False
         DataField = 'INSNOME'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -953,7 +952,7 @@ object FDre: TFDre
         Width = 178
         Height = 52
         DataField = 'INSLOGO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Stretch = True
       end
       object RLDBText32: TRLDBText
@@ -963,7 +962,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'INSENDERECO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -978,7 +977,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'INSBAIRRO'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -993,7 +992,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'INSCIDADE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1008,7 +1007,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'INSFONE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1023,7 +1022,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'INSSITE'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1038,7 +1037,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'INSEMAIL'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -1278,7 +1277,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'DREITENOME'
-        DataSource = DM.DSDreItem
+        DataSource = Dm.DSDreItem
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -9
@@ -1294,7 +1293,7 @@ object FDre: TFDre
         Height = 15
         AutoSize = False
         DataField = 'DREITEOPERACAO'
-        DataSource = DM.DSDreItem
+        DataSource = Dm.DSDreItem
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -9
@@ -1503,7 +1502,7 @@ object FDre: TFDre
         Height = 68
         Align = faLeft
         DataField = 'INSFIGURA'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
       end
       object RLDBRichText1: TRLDBRichText
         Left = 181
@@ -1514,7 +1513,7 @@ object FDre: TFDre
         AutoSize = False
         Behavior = [beSiteExpander]
         DataField = 'INSCAB'
-        DataSource = DM.DSInstituto
+        DataSource = Dm.DSInstituto
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -13
@@ -1827,7 +1826,7 @@ object FDre: TFDre
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSDre
+    DataSet = Dm.CDSDre
     Left = 8
     Top = 8
   end

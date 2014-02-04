@@ -69,7 +69,7 @@ object FMenu: TFMenu
     DrawingStyle = dsGradient
     GradientEndColor = clWhite
     GradientStartColor = clSkyBlue
-    Images = DM.ImageListMenu
+    Images = Dm.ImageListMenu
     GradientDirection = gdHorizontal
     ParentShowHint = False
     ShowHint = True
@@ -86,7 +86,7 @@ object FMenu: TFMenu
       Left = 72
       Top = 0
       Cursor = crHandPoint
-      Hint = 'Cadastro de Cursos'
+      Hint = 'Cadastro de Cursos/Turmas'
       ImageIndex = 0
       Wrap = True
       OnClick = Cursos1Click

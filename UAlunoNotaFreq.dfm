@@ -15,7 +15,6 @@ object FAlunoNotaFreq: TFAlunoNotaFreq
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -449,7 +448,7 @@ object FAlunoNotaFreq: TFAlunoNotaFreq
       ButtonHeight = 30
       ButtonWidth = 75
       Caption = 'ToolBarItem'
-      Images = DM.ImageList
+      Images = Dm.ImageList
       List = True
       ParentShowHint = False
       ShowCaptions = True
@@ -591,7 +590,7 @@ object FAlunoNotaFreq: TFAlunoNotaFreq
     end
   end
   object DataSource: TDataSource
-    DataSet = DM.CDSAlunoLanc
+    DataSet = Dm.CDSAlunoLanc
     Left = 16
   end
 end
