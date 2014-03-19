@@ -22,7 +22,7 @@ type
     FException: Exception;
     FQry: TSqlQuery;  protected
     procedure Execute; override;
-   procedure HandleException; virtual;
+    procedure HandleException; virtual;
   public
     property SqlConnection: TSQLConnection read FSqlConnection write FSqlConnection;
     property SqlString: WideString read FSqlString write FSqlString;
@@ -159,6 +159,7 @@ begin
       Application.ShowException(FException);
       ExecutandoThread := False;
       self.Terminate;
+      Carregando(False);
 //      showmessage(FException.Message);
 //      Synchronize(DoHandleException);
     end;

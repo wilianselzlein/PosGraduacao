@@ -2,23 +2,27 @@ object FCarregando: TFCarregando
   Left = 0
   Top = 0
   BorderStyle = bsSizeToolWin
-  ClientHeight = 85
-  ClientWidth = 409
+  ClientHeight = 84
+  ClientWidth = 411
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -14
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 120
+  TextHeight = 17
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 409
-    Height = 85
+    Width = 411
+    Height = 84
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alClient
     Picture.Data = {
       0A544A504547496D616765A2110000FFD8FFE000104A46494600010101006000
@@ -163,18 +167,22 @@ object FCarregando: TFCarregando
       FF00768A2B4464F62292ABCBD68A2B53364725577E94515AC482392A27FBD451
       5AA33217FBB513F4A28AD118C8825FEB501EB4515B10C89FEED45251456B1208
       9FAD4327434515A2326328A28AD083FFD9}
-    ExplicitWidth = 289
-    ExplicitHeight = 87
+    ExplicitWidth = 535
+    ExplicitHeight = 111
   end
   object Label1: TLabel
-    Left = 128
-    Top = 32
-    Width = 209
-    Height = 24
+    Left = 111
+    Top = 26
+    Width = 278
+    Height = 33
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Caption = 'C a r r e g a n d o . . .'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
-    Font.Height = -21
+    Font.Height = -28
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False

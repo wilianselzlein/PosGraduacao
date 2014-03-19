@@ -3,27 +3,32 @@ object FSenha: TFSenha
   Top = 144
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = '.'
-  ClientHeight = 257
-  ClientWidth = 388
+  ClientHeight = 316
+  ClientWidth = 478
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
-  Font.Height = -12
+  Font.Height = -15
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
   OnActivate = FormActivate
   OnShow = FormShow
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 120
+  TextHeight = 16
   object Image2: TImage
     Left = 0
     Top = 0
-    Width = 388
-    Height = 228
+    Width = 478
+    Height = 287
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alClient
     AutoSize = True
+    Center = True
     Picture.Data = {
       0A544A504547496D6167652A170000FFD8FFE000104A46494600010101006000
       600000FFE100924578696600004D4D002A000000080005013E00050000000200
@@ -211,94 +216,117 @@ object FSenha: TFSenha
       8A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A2
       8A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A2
       8A2800A28A2800A28A2800A28A2800A28A2800A28A2803FFD9}
-    ExplicitWidth = 256
-    ExplicitHeight = 256
+    ExplicitTop = -7
   end
   object Label2: TLabel
-    Left = 24
-    Top = 144
-    Width = 36
-    Height = 15
+    Left = 126
+    Top = 162
+    Width = 45
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Caption = 'Senha'
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     Transparent = True
   end
   object Label1: TLabel
-    Left = 24
-    Top = 88
-    Width = 44
-    Height = 15
+    Left = 126
+    Top = 109
+    Width = 55
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Caption = 'Usu'#225'rio'
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     Transparent = True
   end
   object DBText1: TDBText
-    Left = 8
-    Top = 53
-    Width = 47
-    Height = 15
+    Left = 10
+    Top = 65
+    Width = 61
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     AutoSize = True
     DataField = 'INSSITE'
     DataSource = DM.DSInstituto
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     Transparent = True
   end
   object DBText2: TDBText
-    Left = 8
-    Top = 31
-    Width = 47
-    Height = 15
+    Left = 10
+    Top = 38
+    Width = 61
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     AutoSize = True
     DataField = 'INSEMAIL'
     DataSource = DM.DSInstituto
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     Transparent = True
   end
   object DBText4: TDBText
-    Left = 8
-    Top = 8
-    Width = 65
-    Height = 19
+    Left = 10
+    Top = 10
+    Width = 80
+    Height = 24
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     AutoSize = True
     DataField = 'INSNOME'
     DataSource = DM.DSInstituto
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
-    Font.Height = -16
+    Font.Height = -20
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     Transparent = True
   end
   object txtlogin: TWSComboBox
-    Left = 24
-    Top = 109
-    Width = 200
-    Height = 23
+    Left = 126
+    Top = 123
+    Width = 230
+    Height = 25
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Style = csDropDownList
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clGray
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
@@ -309,14 +337,18 @@ object FSenha: TFSenha
     ColorOnNotFocus = clGray
   end
   object txtpass: TWSEdit
-    Left = 24
-    Top = 165
-    Width = 200
-    height = 22
+    Left = 126
+    Top = 176
+    Width = 230
+    height = 27
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     BevelInner = bvNone
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Arial'
     Font.Style = []
     ParentFont = False
@@ -330,8 +362,8 @@ object FSenha: TFSenha
   end
   object ToolBarEntrar: TToolBar
     Left = 0
-    Top = 228
-    Width = 388
+    Top = 287
+    Width = 478
     Height = 29
     Align = alBottom
     ButtonHeight = 30
@@ -346,8 +378,6 @@ object FSenha: TFSenha
     ParentFont = False
     ShowCaptions = True
     TabOrder = 2
-    ExplicitTop = 230
-    ExplicitWidth = 390
     object BtnSalvar: TToolButton
       Left = 0
       Top = 0

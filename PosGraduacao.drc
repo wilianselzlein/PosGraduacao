@@ -1678,78 +1678,78 @@ BEGIN
 	System_SysConst_SIntOverflow,	L"Integer overflow"
 END
 
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\Controls.res */
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\Buttons.res */
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\Vcl.DBLogDlg.dfm */
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\Vcl.DBPWDlg.dfm */
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\DBCtrls.res */
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\ExtDlgs.res */
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\midas.res */
-/* c:\arquivos de programas\embarcadero\rad studio\9.0\lib\Win32\release\DBGrids.res */
-/* C:\Delphi\PosGraduacao\UCarregando.dfm */
-/* C:\Delphi\PosGraduacao\USenha.dfm */
-/* C:\Delphi\PosGraduacao\UCidade.dfm */
-/* C:\Delphi\PosGraduacao\UExecSQL.dfm */
-/* C:\Delphi\PosGraduacao\UCalendario.dfm */
-/* C:\Delphi\PosGraduacao\UPrograma.dfm */
-/* C:\Delphi\PosGraduacao\UCabecalho.DFM */
-/* C:\Delphi\PosGraduacao\UInstituto.dfm */
-/* C:\Delphi\PosGraduacao\UParamEmp.dfm */
-/* C:\Delphi\PosGraduacao\UGrupoPro.dfm */
-/* C:\Delphi\PosGraduacao\UDisciplina.dfm */
-/* C:\Delphi\PosGraduacao\UProfessor.dfm */
-/* C:\Delphi\PosGraduacao\UUsuario.dfm */
-/* C:\Delphi\PosGraduacao\UHistPadrao.dfm */
-/* C:\Delphi\PosGraduacao\UPlanoConta.dfm */
-/* C:\Delphi\PosGraduacao\UFormaPgto.dfm */
-/* C:\Delphi\PosGraduacao\UBanco.dfm */
-/* C:\Delphi\PosGraduacao\UPlanoNegocios.dfm */
-/* C:\Delphi\PosGraduacao\UGrupoCurso.dfm */
-/* C:\Delphi\PosGraduacao\UCurso.dfm */
-/* C:\Delphi\PosGraduacao\UIdentificador.dfm */
-/* C:\Delphi\PosGraduacao\ULctoContabil.dfm */
-/* C:\Delphi\PosGraduacao\UEmail.dfm */
-/* C:\Delphi\PosGraduacao\UAlunoRel.dfm */
-/* C:\Delphi\PosGraduacao\UAlunoCursoRel.dfm */
-/* C:\Delphi\PosGraduacao\UServicoFin.dfm */
-/* C:\Delphi\PosGraduacao\UNetworking.dfm */
-/* C:\Delphi\PosGraduacao\UAluno.dfm */
-/* C:\Delphi\PosGraduacao\UContrato.dfm */
-/* C:\Delphi\PosGraduacao\UMensalidadeGera.dfm */
-/* C:\Delphi\PosGraduacao\UMensalidadeBaixa.dfm */
-/* C:\Delphi\PosGraduacao\UMensalidade.dfm */
-/* C:\Delphi\PosGraduacao\UCursoRel.dfm */
-/* C:\Delphi\PosGraduacao\UProfessorRel.dfm */
-/* C:\Delphi\PosGraduacao\UAlunoIndicacaoRel.dfm */
-/* C:\Delphi\PosGraduacao\UMensalidadeRel.dfm */
-/* C:\Delphi\PosGraduacao\URazaoDiarioRel.dfm */
-/* C:\Delphi\PosGraduacao\UBalanceteRel.dfm */
-/* C:\Delphi\PosGraduacao\UParametro.dfm */
-/* C:\Delphi\PosGraduacao\UAlunoNotaFreq.dfm */
-/* C:\Delphi\PosGraduacao\URelatorio.dfm */
-/* C:\Delphi\PosGraduacao\UEncerramentoContabil.dfm */
-/* C:\Delphi\PosGraduacao\UContabil.dfm */
-/* C:\Delphi\PosGraduacao\UDre.dfm */
-/* C:\Delphi\PosGraduacao\UPrevPagamentoRel.dfm */
-/* C:\Delphi\PosGraduacao\UPendencias.dfm */
-/* C:\Delphi\PosGraduacao\UDeclaracoesRel.dfm */
-/* C:\Delphi\PosGraduacao\UContratoProfessor.dfm */
-/* C:\Delphi\PosGraduacao\UOrcamento.dfm */
-/* C:\Delphi\PosGraduacao\UReciboProfessorRel.dfm */
-/* C:\Delphi\PosGraduacao\UEditora.dfm */
-/* C:\Delphi\PosGraduacao\UAutor.dfm */
-/* C:\Delphi\PosGraduacao\UAssunto.dfm */
-/* C:\Delphi\PosGraduacao\UTipoMaterial.dfm */
-/* C:\Delphi\PosGraduacao\UMaterial.dfm */
-/* C:\Delphi\PosGraduacao\UTransito.dfm */
-/* C:\Delphi\PosGraduacao\UContaPagarBaixa.dfm */
-/* C:\Delphi\PosGraduacao\UContaPagar.dfm */
-/* C:\Delphi\PosGraduacao\UContaPagarRel.dfm */
-/* C:\Delphi\PosGraduacao\UAviso.dfm */
-/* C:\Delphi\PosGraduacao\UMenu.dfm */
-/* C:\Delphi\PosGraduacao\SendMailOptions.DFM */
-/* C:\Delphi\PosGraduacao\UReconcileError.dfm */
-/* C:\Delphi\PosGraduacao\UDM.dfm */
-/* C:\Delphi\PosGraduacao\Uabout.dfm */
-/* C:\Delphi\PosGraduacao\PosGraduacao.res */
-/* C:\Delphi\PosGraduacao\PosGraduacao.drf */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\Controls.res */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\Buttons.res */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\Vcl.DBLogDlg.dfm */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\Vcl.DBPWDlg.dfm */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\DBCtrls.res */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\ExtDlgs.res */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\midas.res */
+/* c:\program files (x86)\embarcadero\rad studio\9.0\lib\Win32\release\DBGrids.res */
+/* D:\Delphi\PosGraduacao\UCarregando.dfm */
+/* D:\Delphi\PosGraduacao\USenha.dfm */
+/* D:\Delphi\PosGraduacao\UCidade.dfm */
+/* D:\Delphi\PosGraduacao\UExecSQL.dfm */
+/* D:\Delphi\PosGraduacao\UCalendario.dfm */
+/* D:\Delphi\PosGraduacao\UPrograma.dfm */
+/* D:\Delphi\PosGraduacao\UCabecalho.DFM */
+/* D:\Delphi\PosGraduacao\UInstituto.dfm */
+/* D:\Delphi\PosGraduacao\UParamEmp.dfm */
+/* D:\Delphi\PosGraduacao\UGrupoPro.dfm */
+/* D:\Delphi\PosGraduacao\UDisciplina.dfm */
+/* D:\Delphi\PosGraduacao\UProfessor.dfm */
+/* D:\Delphi\PosGraduacao\UUsuario.dfm */
+/* D:\Delphi\PosGraduacao\UHistPadrao.dfm */
+/* D:\Delphi\PosGraduacao\UPlanoConta.dfm */
+/* D:\Delphi\PosGraduacao\UFormaPgto.dfm */
+/* D:\Delphi\PosGraduacao\UBanco.dfm */
+/* D:\Delphi\PosGraduacao\UPlanoNegocios.dfm */
+/* D:\Delphi\PosGraduacao\UGrupoCurso.dfm */
+/* D:\Delphi\PosGraduacao\UCurso.dfm */
+/* D:\Delphi\PosGraduacao\UIdentificador.dfm */
+/* D:\Delphi\PosGraduacao\ULctoContabil.dfm */
+/* D:\Delphi\PosGraduacao\UEmail.dfm */
+/* D:\Delphi\PosGraduacao\UAlunoRel.dfm */
+/* D:\Delphi\PosGraduacao\UAlunoCursoRel.dfm */
+/* D:\Delphi\PosGraduacao\UServicoFin.dfm */
+/* D:\Delphi\PosGraduacao\UNetworking.dfm */
+/* D:\Delphi\PosGraduacao\UAluno.dfm */
+/* D:\Delphi\PosGraduacao\UContrato.dfm */
+/* D:\Delphi\PosGraduacao\UMensalidadeGera.dfm */
+/* D:\Delphi\PosGraduacao\UMensalidadeBaixa.dfm */
+/* D:\Delphi\PosGraduacao\UMensalidade.dfm */
+/* D:\Delphi\PosGraduacao\UCursoRel.dfm */
+/* D:\Delphi\PosGraduacao\UProfessorRel.dfm */
+/* D:\Delphi\PosGraduacao\UAlunoIndicacaoRel.dfm */
+/* D:\Delphi\PosGraduacao\UMensalidadeRel.dfm */
+/* D:\Delphi\PosGraduacao\URazaoDiarioRel.dfm */
+/* D:\Delphi\PosGraduacao\UBalanceteRel.dfm */
+/* D:\Delphi\PosGraduacao\UParametro.dfm */
+/* D:\Delphi\PosGraduacao\UAlunoNotaFreq.dfm */
+/* D:\Delphi\PosGraduacao\URelatorio.dfm */
+/* D:\Delphi\PosGraduacao\UEncerramentoContabil.dfm */
+/* D:\Delphi\PosGraduacao\UContabil.dfm */
+/* D:\Delphi\PosGraduacao\UDre.dfm */
+/* D:\Delphi\PosGraduacao\UPrevPagamentoRel.dfm */
+/* D:\Delphi\PosGraduacao\UPendencias.dfm */
+/* D:\Delphi\PosGraduacao\UDeclaracoesRel.dfm */
+/* D:\Delphi\PosGraduacao\UContratoProfessor.dfm */
+/* D:\Delphi\PosGraduacao\UOrcamento.dfm */
+/* D:\Delphi\PosGraduacao\UReciboProfessorRel.dfm */
+/* D:\Delphi\PosGraduacao\UEditora.dfm */
+/* D:\Delphi\PosGraduacao\UAutor.dfm */
+/* D:\Delphi\PosGraduacao\UAssunto.dfm */
+/* D:\Delphi\PosGraduacao\UTipoMaterial.dfm */
+/* D:\Delphi\PosGraduacao\UMaterial.dfm */
+/* D:\Delphi\PosGraduacao\UTransito.dfm */
+/* D:\Delphi\PosGraduacao\UContaPagarBaixa.dfm */
+/* D:\Delphi\PosGraduacao\UContaPagar.dfm */
+/* D:\Delphi\PosGraduacao\UContaPagarRel.dfm */
+/* D:\Delphi\PosGraduacao\UAviso.dfm */
+/* D:\Delphi\PosGraduacao\UMenu.dfm */
+/* D:\Delphi\PosGraduacao\SendMailOptions.DFM */
+/* D:\Delphi\PosGraduacao\UReconcileError.dfm */
+/* D:\Delphi\PosGraduacao\UDM.dfm */
+/* D:\Delphi\PosGraduacao\Uabout.dfm */
+/* D:\Delphi\PosGraduacao\PosGraduacao.res */
+/* D:\Delphi\PosGraduacao\PosGraduacao.drf */
